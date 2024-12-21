@@ -1,0 +1,4475 @@
+const preguntas = [
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Durante una relación sexual se puede cambiar el método anticonceptivo sin avisarle a la otra persona?",
+    respuestacorrecta: "No, es importante comunicar y acordar cualquier cambio en el método anticonceptivo durante el acto sexual.",
+    respuesta1: "Sí, se puede cambiar el método anticonceptivo sin necesidad de informar a la otra persona.",
+    respuesta2: "Depende de la confianza y la experiencia previa entre las personas involucradas.",
+    respuesta3: "Solo si el cambio en el método anticonceptivo es para aumentar la protección.",
+    masInfo: "Es esencial tener una comunicación clara y abierta sobre los métodos anticonceptivos utilizados durante el acto sexual. Cambiar el método anticonceptivo sin informar a la otra persona puede ser una violación de su consentimiento y puede poner en riesgo su salud y bienestar."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Se puede obligar a una persona para obtener su consentimiento sexual?",
+    respuestacorrecta: "No, el consentimiento sexual debe ser dado libremente sin ningún tipo de coerción o fuerza.",
+    respuesta1: "Sí, se puede obligar a una persona a dar su consentimiento sexual en ciertas circunstancias.",
+    respuesta2: "Depende de la relación de poder entre las personas involucradas.",
+    respuesta3: "Solo si la persona ha dado su consentimiento en el pasado.",
+    masInfo: "El consentimiento sexual es válido únicamente si es dado de forma voluntaria, sin ninguna forma de presión, coerción o fuerza. Obligar a una persona a dar su consentimiento sexual es una violación de sus derechos y constituye un comportamiento abusivo y no consensuado."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Se puede manipular psicológicamente a una persona para obtener su consentimiento sexual?",
+    respuestacorrecta: "No, la manipulación psicológica no es una forma válida de obtener el consentimiento sexual.",
+    respuesta1: "Sí, se puede utilizar la manipulación psicológica para obtener el consentimiento sexual de alguien.",
+    respuesta2: "Depende de la capacidad de resistencia emocional de la persona.",
+    respuesta3: "Solo si la persona está en una relación de dependencia emocional.",
+    masInfo: "La manipulación psicológica se basa en el uso de tácticas engañosas, coercitivas o manipuladoras para influir en la voluntad de una persona. En el contexto del consentimiento sexual, la manipulación psicológica no es aceptable ni ética. El consentimiento sexual debe ser otorgado de manera libre, voluntaria y sin ningún tipo de presión, coerción o manipulación. La manipulación psicológica puede implicar el uso de mentiras, chantajes emocionales, intimidación o explotación de las vulnerabilidades de una persona, lo cual invalida cualquier consentimiento obtenido bajo estas circunstancias."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Si una persona está desnuda significa que me está dando su consentimiento sexual?",
+    respuestacorrecta: "No, el estado de desnudez no es un indicador automático de consentimiento sexual.",
+    respuesta1: "Sí, el hecho de que una persona esté desnuda implica que está dando su consentimiento sexual.",
+    respuesta2: "Depende del contexto y la relación previa con la persona.",
+    respuesta3: "Solo si la persona ha coqueteado previamente.",
+    masInfo: "El hecho de que una persona esté desnuda no implica que está dando su consentimiento para participar en una actividad sexual. El consentimiento sexual debe ser explícito, voluntario y basado en una comunicación clara y mutua entre todas las partes involucradas. La desnudez puede ser una expresión de intimidad o comodidad con una persona, pero no debe asumirse automáticamente como un consentimiento para el contacto sexual."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "Haber tenido varias parejas sexuales, ¿significa que se le dará el consentimiento sexual a cualquier persona?",
+    respuestacorrecta: "No, el historial de parejas sexuales no determina automáticamente el consentimiento sexual a cualquier persona.",
+    respuesta1: "Sí, haber tenido varias parejas sexuales implica que se dará el consentimiento sexual a cualquier persona.",
+    respuesta2: "Depende de si han sido más de 10 parejas.",
+    respuesta3: "Depende de la cantidad de parejas.",
+    masInfo: "El número de parejas sexuales anteriores de una persona no tiene relación directa con su disposición o consentimiento para tener relaciones sexuales con otra persona en el futuro. Cada encuentro sexual y cada persona son únicos, y el consentimiento debe ser otorgado de manera específica para cada situación."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿La orientación sexual de una persona determina su consentimiento sexual?",
+    respuestacorrecta: "No, la orientación sexual no determina el consentimiento sexual de una persona.",
+    respuesta1: "Sí, la orientación sexual de una persona determina automáticamente su consentimiento sexual.",
+    respuesta2: "Solo si la orientación sexual es homosexual.",
+    respuesta3: "Solo si la orientación sexual es heterosexual.",
+    masInfo: "La orientación sexual de una persona no tiene relación directa con su capacidad de dar o negar consentimiento sexual. Todas las personas, independientemente de su orientación sexual, tienen el derecho de establecer sus límites y decidir qué actividades sexuales están dispuestas a realizar. Es importante evitar estereotipos o prejuicios basados en la orientación sexual de una persona. Cada individuo tiene el derecho de vivir su sexualidad de acuerdo con su orientación sexual y de establecer sus propios límites y deseos en las relaciones sexuales."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Cuál de las siguientes opciones NO es una forma válida de obtener consentimiento sexual?",
+    respuestacorrecta: "Presionar a la otra persona para que esté de acuerdo.",
+    respuesta1: "Pedir permiso antes de iniciar cualquier actividad sexual.",
+    respuesta2: "Respetar los límites establecidos por la otra persona.",
+    respuesta3: "Esperar una respuesta clara y afirmativa.",
+    masInfo: "No se considera una forma válida de obtener consentimiento sexual presionar a la otra persona para que esté de acuerdo. El consentimiento debe ser libremente dado y no debe haber coacción o manipulación involucrada."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Qué significa el consentimiento afirmativo?",
+    respuestacorrecta: "Decir \"sí\" o dar una respuesta clara y voluntaria.",
+    respuesta1: "No decir \"no\".",
+    respuesta2: "Estar en una relación de pareja estable.",
+    respuesta3: "No resistirse físicamente.",
+    masInfo: "El consentimiento afirmativo implica que la persona haya dado una respuesta clara y voluntaria, ya sea verbalmente o de otra manera que indique claramente su acuerdo en participar en la actividad sexual. No decir 'no' o no resistirse físicamente no se considera consentimiento suficiente."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Puede el consentimiento ser revocado en cualquier momento?",
+    respuestacorrecta: "Sí, siempre se puede revocar el consentimiento.",
+    respuesta1: "No, una vez que se ha dado consentimiento, no se puede revocar.",
+    respuesta2: "Solo se puede revocar en relaciones de pareja estable.",
+    respuesta3: "Solo se puede revocar antes de iniciar la actividad sexual.",
+    masInfo: "El consentimiento siempre puede ser revocado en cualquier momento. Cualquier persona tiene el derecho de cambiar de opinión y retirar su consentimiento en cualquier momento durante una actividad sexual, incluso si ya se había dado previamente."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Es el consentimiento válido si una de las partes está bajo la influencia del alcohol o drogas?",
+    respuestacorrecta: "No, el consentimiento no es válido si una de las partes está bajo la influencia.",
+    respuesta1: "Sí, siempre y cuando no parezca demasiado intoxicada.",
+    respuesta2: "Solo si ambas partes están bajo la influencia.",
+    respuesta3: "Depende de la cantidad de alcohol o drogas consumidas.",
+    masInfo: "El consentimiento no es válido si una de las partes está bajo la influencia del alcohol o drogas. Cuando una persona está intoxicada, su capacidad para tomar decisiones claras y conscientes puede estar comprometida, lo que hace que sea difícil dar un consentimiento verdaderamente informado y voluntario."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Quién puede dar consentimiento sexual?",
+    respuestacorrecta: "Cualquier persona que sea consciente de la actividad que se está por realizar.",
+    respuesta1: "Solo las personas mayores de 18 años.",
+    respuesta2: "Solo las personas que hayan tenido experiencias sexuales anteriores.",
+    respuesta3: "Solo las personas que estén en una relación de pareja estable.",
+    masInfo: "La capacidad para dar consentimiento no está determinada únicamente por la edad o la experiencia sexual anterior, sino por la capacidad de entender la naturaleza de la actividad y dar un acuerdo voluntario. En Argentina, cualquier acto sexual con menores de 13 años es considerado una violación, mientras que a partir de esa edad y hasta los 16 años rige el delito de estupro si existiera un aprovechamiento de la inmadurez sexual del niño, niña o adolescente por parte de un adulto."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Puede una persona cambiar de opinión y retirar su consentimiento durante una actividad sexual?",
+    respuestacorrecta: "Sí, siempre se puede cambiar de opinión y retirar el consentimiento.",
+    respuesta1: "No, una vez que se ha dado consentimiento, no se puede retirar.",
+    respuesta2: "Sí, pero solo si se trata de una relación de pareja estable.",
+    respuesta3: "Sí, pero solo si se hace antes de comenzar la actividad sexual.",
+    masInfo: "Una persona siempre puede cambiar de opinión y retirar su consentimiento durante una actividad sexual, incluso si ya se había dado previamente. El consentimiento puede ser revocado en cualquier momento y debe ser respetado por todas las partes involucradas."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "Si una persona usa ropa \"provocativa\", ¿significa que da el consentimiento sexual?",
+    respuestacorrecta: "No, la forma de vestir de una persona no implica automáticamente el consentimiento sexual.",
+    respuesta1: "Sí, la ropa provocativa es una señal clara de consentimiento sexual.",
+    respuesta2: "Depende de si es muy provocativa.",
+    respuesta3: "Depende del contexto y la intención de la persona que usa la ropa provocativa.",
+    masInfo: "La forma de vestir de una persona no puede ser utilizada como una justificación para asumir su consentimiento. El consentimiento debe ser dado de manera clara y afirmativa, preferiblemente a través de una comunicación explícita. La elección de vestir de manera \"provocativa\" o con cualquier otro tipo de ropa no debe ser interpretada como una invitación o un consentimiento automático para actividades sexuales. El respeto por los límites y el consentimiento informado son fundamentales en cualquier interacción sexual, independientemente de la apariencia o la forma de vestir de una persona."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "Si una persona está dormida, ¿puede dar el consentimiento sexual?",
+    respuestacorrecta: "No, una persona dormida no puede dar consentimiento sexual.",
+    respuesta1: "Sí, el consentimiento sexual puede ser dado incluso si la persona está dormida.",
+    respuesta2: "Depende de la relación y la confianza entre las personas involucradas.",
+    respuesta3: "Solo si la persona ha dado previamente su consentimiento.",
+    masInfo: "El consentimiento sexual implica que todas las partes involucradas estén conscientes y en capacidad de tomar decisiones claras y voluntarias. Cuando una persona está dormida, no puede brindar un consentimiento informado, ya que no está consciente de lo que está sucediendo a su alrededor. Es fundamental que todas las interacciones sexuales sean consensuadas y que el consentimiento sea mutuo y activo."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "Si una persona está inconsciente, ¿puede dar el consentimiento sexual?",
+    respuestacorrecta: "No, una persona inconsciente no puede dar consentimiento sexual.",
+    respuesta1: "Sí, una persona inconsciente puede dar consentimiento sexual.",
+    respuesta2: "Depende del grado de inconsciencia y la relación entre las personas involucradas.",
+    respuesta3: "Solo si la persona ha dado previamente su consentimiento.",
+    masInfo: "Cuando una persona está inconsciente, no está en condiciones de otorgar un consentimiento informado y consciente. En tales casos, cualquier actividad sexual sin consentimiento es inaceptable y puede ser considerada como un abuso sexual. Es fundamental respetar los límites y la autonomía de cada individuo, y nunca involucrarse en actividades sexuales con una persona inconsciente, ya que el consentimiento es imposible en esas circunstancias."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "Si una persona tiene dudas sobre si tener relaciones sexuales, ¿significa que está dando el consentimiento sexual?",
+    respuestacorrecta: "No, tener dudas no implica automáticamente el consentimiento sexual.",
+    respuesta1: "Sí, tener dudas implica que está dando el consentimiento sexual.",
+    respuesta2: "Depende del contexto y la relación entre las personas involucradas.",
+    respuesta3: "Solo si la persona no expresa verbalmente su desacuerdo.",
+    masInfo: "El consentimiento sexual se basa en un acuerdo mutuo y voluntario entre todas las partes involucradas. Tener dudas o incertidumbres sobre tener relaciones sexuales indica que la persona no ha dado un consentimiento claro y afirmativo. Es importante respetar las dudas y los límites de cada individuo. Si alguien tiene dudas o no se siente segura o seguro respecto a tener relaciones sexuales, es crucial detenerse y tener una comunicación abierta y clara con la pareja para asegurarse de que ambas partes estén de acuerdo y cómodas antes de continuar."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "Si una persona aceptó una vez tener relaciones sexuales, ¿significa que siempre habrá consentimiento sexual?",
+    respuestacorrecta: "No, el consentimiento sexual no es permanente y debe ser dado en cada ocasión.",
+    respuesta1: "Sí, una vez que se ha dado el consentimiento, se asume que siempre habrá consentimiento.",
+    respuesta2: "Depende de la relación y la confianza entre las personas involucradas.",
+    respuesta3: "Solo si la persona no expresa verbalmente su desacuerdo.",
+    masInfo: "El consentimiento sexual no es un contrato permanente. Aceptar tener relaciones sexuales en el pasado no implica que el consentimiento esté presente en futuras ocasiones. El consentimiento debe ser otorgado en cada interacción sexual y puede ser revocado en cualquier momento."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Qué significa que el consentimiento sexual es reversible?",
+    respuestacorrecta: "Que el consentimiento puede ser revocado o retirado en cualquier momento.",
+    respuesta1: "Que el consentimiento puede ser dado a través de un documento escrito.",
+    respuesta2: "Que el consentimiento es permanente y no puede cambiar.",
+    respuesta3: "Que el consentimiento solo es válido si es dado por un representante legal.",
+    masInfo: "Cuando se dice que el consentimiento sexual es reversible, significa que una persona tiene el derecho de cambiar de opinión y retirar su consentimiento en cualquier momento durante una actividad sexual. El consentimiento no es un contrato permanente, sino un acuerdo voluntario y activo que puede ser retirado si una persona ya no se siente cómoda o segura."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "Si una persona permite recibir una caricia, ¿significa que está dando consentimiento para una relación sexual?",
+    respuestacorrecta: "No, permitir una caricia no implica automáticamente el consentimiento.",
+    respuesta1: "Sí, permitir una caricia implica consentimiento automático para una relación sexual.",
+    respuesta2: "Depende de la intención y el contexto de la persona que realiza la caricia.",
+    respuesta3: "Solo si la persona lo permite sin mostrar resistencia física.",
+    masInfo: "El consentimiento es específico y debe ser dado de manera clara y explícita para cada actividad sexual en particular. Permitir una caricia no implica automáticamente que una persona esté dando su consentimiento para una relación sexual completa o cualquier otra actividad sexual adicional. Cada persona tiene el derecho de establecer sus propios límites y decidir qué actividades sexuales están dispuestas a participar."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Qué significa que el consentimiento sexual sea específico?",
+    respuestacorrecta: "Que el consentimiento se aplica únicamente a las actividades sexuales acordadas.",
+    respuesta1: "Que el consentimiento solo se aplica a una persona específica.",
+    respuesta2: "Que el consentimiento debe ser dado verbalmente en lugar de ser implícito.",
+    respuesta3: "Que el consentimiento se limita a un lugar o momento específico.",
+    masInfo: "Cuando se dice que el consentimiento sexual es específico, significa que se aplica solo a las actividades sexuales acordadas entre las personas involucradas. El consentimiento no es una licencia general para cualquier actividad sexual, sino que debe ser otorgado para cada acto en particular. El consentimiento debe abarcar las actividades específicas acordadas, y cualquier cambio en esas actividades debe ser discutido y consentido nuevamente."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Qué significa que el consentimiento sexual sea entusiasta?",
+    respuestacorrecta: "Que el consentimiento sea dado con entusiasmo y emoción.",
+    respuesta1: "Que el consentimiento solo sea válido si se expresa de manera verbal.",
+    respuesta2: "Que el consentimiento puede ser dado a través de gestos o acciones en lugar de palabras.",
+    respuesta3: "Que el consentimiento se basa en la atracción física entre las personas involucradas.",
+    masInfo: "Cuando se habla de que el consentimiento sexual sea entusiasta, significa que se da con entusiasmo, voluntariamente y con pleno deseo de participar en la actividad sexual. El consentimiento no debe ser forzado ni basarse en la pasividad o la falta de resistencia. Es fundamental tener una comunicación clara y abierta con la pareja sexual para asegurarse de que el consentimiento sea entusiasta y mutuo en cada encuentro."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Qué significa que el consentimiento sexual sea libre?",
+    respuestacorrecta: "Que el consentimiento sea dado sin presión, coerción o manipulación.",
+    respuesta1: "Que el consentimiento se obtenga sin restricciones de tiempo o lugar.",
+    respuesta2: "Que el consentimiento debe ser dado verbalmente en lugar de ser implícito.",
+    respuesta3: "Que el consentimiento solo sea válido si es dado por una persona con plena capacidad legal.",
+    masInfo: "Cuando se dice que el consentimiento sexual es libre, significa que es otorgado de manera voluntaria y sin ninguna forma de presión, coerción o manipulación. El consentimiento no puede ser obtenido mediante el uso de la fuerza, amenazas, chantajes o cualquier otro medio que limite la capacidad de una persona para tomar una decisión libre y autónoma."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "Tener una pareja estable, ¿significa que siempre da el consentimiento para una relación sexual?",
+    respuestacorrecta: "No, ser parte de una pareja estable no implica automáticamente el consentimiento para una relación sexual.",
+    respuesta1: "Sí, ser parte de una pareja estable implica consentimiento automático para una relación sexual.",
+    respuesta2: "Depende del compromiso emocional entre las personas involucradas.",
+    respuesta3: "Solo si la persona ha dado consentimiento previo en alguna ocasión.",
+    masInfo: "Aunque una persona sea parte de una pareja estable, eso no significa que siempre dé su consentimiento para tener relaciones sexuales. El consentimiento sexual debe ser otorgado en cada ocasión y para cada actividad en particular, independientemente del estatus de la relación. El consentimiento no se basa en suposiciones o expectativas debido a la estabilidad de la relación, sino en la comunicación y el acuerdo mutuo entre las personas involucradas."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "En el consentimiento sexual, ¿se debe acordar qué métodos anticonceptivos se usarán?",
+    respuestacorrecta: "Sí, el consentimiento sexual incluye la discusión y acuerdo sobre los métodos anticonceptivos a utilizar.",
+    respuesta1: "No, el consentimiento sexual se limita a la decisión de participar en la actividad sexual.",
+    respuesta2: "Depende de la confianza y la comunicación en la relación de pareja.",
+    respuesta3: "Solo si una de las partes expresa preocupación por el embarazo.",
+    masInfo: "En el consentimiento sexual, es importante incluir la discusión y el acuerdo sobre los métodos anticonceptivos a utilizar. Esto se debe a que el consentimiento abarca no solo la decisión de participar en la actividad sexual, sino también implica tomar medidas para proteger la salud y evitar embarazos no deseados. La elección de los métodos anticonceptivos es una decisión personal que debe ser discutida y acordada de manera consensuada entre las personas involucradas. Cada persona tiene el derecho de expresar sus preferencias y preocupaciones en relación con la anticoncepción y tomar decisiones informadas sobre los métodos que se utilizarán."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Puede una persona cambiar su consentimiento en el medio de una relación sexual?",
+    respuestacorrecta: "Sí, una persona tiene el derecho de cambiar su consentimiento en cualquier momento durante una relación sexual.",
+    respuesta1: "Solo si se ha establecido previamente un acuerdo específico sobre la posibilidad de cambio de consentimiento.",
+    respuesta2: "Depende de la duración de la relación sexual y la confianza entre las personas involucradas.",
+    respuesta3: "No, una vez que se ha dado el consentimiento, no se puede cambiar en el medio de una relación sexual.",
+    masInfo: "El consentimiento es un proceso continuo y puede ser retirado o cambiado en cualquier momento, incluso en el medio de una relación sexual. Cada persona tiene el derecho de establecer y comunicar sus límites, y de cambiar su decisión si se siente incómoda, insegura o no desea continuar. Es esencial respetar y aceptar cualquier cambio en el consentimiento de una persona. Si alguien retira su consentimiento o indica que ya no desea continuar, es crucial detenerse inmediatamente y ajustar las acciones de acuerdo con su voluntad. Ignorar o violar el cambio de consentimiento es una violación de los derechos y la autonomía de esa persona."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Consentimiento",
+    pregunta: "¿Cuál es uno de los problemas del sharenting relacionado con el consentimiento?",
+    respuestacorrecta: "Los menores pueden no dar su consentimiento para compartir ciertas fotos o información.",
+    respuesta1: "No hay problemas de consentimiento en el sharenting.",
+    respuesta2: "Los menores siempre están de acuerdo en compartir sus fotos.",
+    respuesta3: "Los padres siempre tienen el derecho de compartir lo que quieran.",
+    masInfo: "Los menores, especialmente a medida que crecen, pueden no estar de acuerdo con que ciertas fotos o información se compartan en línea. Es importante respetar su consentimiento."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué es un groomer?",
+    respuestacorrecta: "Una persona que establece una conexión emocional con un menor con el objetivo de abusarla sexualmente.",
+    respuesta1: "Un profesional de la industria de la moda que trabaja con modelos.",
+    respuesta2: "Un profesional especializado en el cuidado y la prevención de los menores en el uso de internet.",
+    respuesta3: "Un profesional especializado en el sistema reproductor masculino.",
+    masInfo: "Un groomer es un término que se refiere a una persona adulta que establece una conexión emocional con un menor de edad, ganándose su confianza y amistad, con el objetivo de abusar sexualmente de él o ella. Este tipo de comportamiento es considerado grooming y es un delito en muchas jurisdicciones. Los groomers a menudo utilizan internet y las redes sociales para contactar a sus víctimas potenciales y construir una relación antes de cometer el abuso. Es importante que los padres y cuidadores estén alerta a las señales de grooming y eduquen a los niños sobre los peligros en línea y cómo protegerse."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cuál es uno de los principales objetivos de un groomer?",
+    respuestacorrecta: "Engañar a un menor para que comparta información personal.",
+    respuesta1: "Hacer nuevas amistades en línea.",
+    respuesta2: "Promover la diversión y la creatividad en línea.",
+    respuesta3: "Ayudar a los menores con sus tareas escolares en línea.",
+    masInfo: "Los groomers buscan ganarse la confianza de los menores para obtener información personal que luego pueden utilizar con fines maliciosos."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué pueden hacer los adultos para proteger a los menores del grooming?",
+    respuestacorrecta: "Enseñar a los menores a reconocer las señales de advertencia del grooming.",
+    respuesta1: "Dejar que los menores naveguen en línea sin supervisión.",
+    respuesta2: "Compartir información personal de los menores en línea.",
+    respuesta3: "No hablar con los menores sobre los peligros en línea.",
+    masInfo: "Los adultos deben educar a los menores sobre los peligros del grooming y cómo identificar las señales de advertencia, como solicitudes inapropiadas o la presión para compartir información personal."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué es el grooming?",
+    respuestacorrecta: "El acoso y abuso sexual de menores a través de internet.",
+    respuesta1: "Es una forma de acoso sexual que se produce en el ámbito escolar.",
+    respuesta2: "Es una forma de maltrato infantil que se produce en el ámbito doméstico.",
+    respuesta3: "Es un tipo de violencia de género que se produce en el ámbito familiar.",
+    masInfo: "El grooming en línea es un proceso mediante el cual una persona adulta se hace pasar por un menor en internet para ganarse la confianza de este con el fin de abusar sexualmente de él. Es un comportamiento ilegal y peligroso."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cuáles son las características del grooming?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "La persona agresora es un adulto que se hace pasar por un menor.",
+    respuesta2: "El grooming se produce a través de Internet o de las redes sociales.",
+    respuesta3: "La persona agresora se gana la confianza del menor para abusar de él.",
+    masInfo: "Las características del grooming son: La persona agresora o groomer es un adulto que se hace pasar por un menor. El cual se gana la confianza del menor para abusar de él. El grooming se produce a través de Internet o de las redes sociales."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cuáles son las señales de que un menor está siendo víctima de grooming?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "El menor cambia su comportamiento de forma repentina.",
+    respuesta2: "El menor comienza a mentir sobre su actividad en Internet.",
+    respuesta3: "El menor se vuelve más retraído y aislado.",
+    masInfo: "Las señales de que un menor está siendo víctima de grooming incluyen cambios en el comportamiento, secretismo excesivo, uso excesivo de dispositivos electrónicos, cambios en los patrones de sueño o alimentación, regalos inusuales, conocimiento inusual sobre temas sexuales, cambios emocionales repentinos, retirada social, comportamiento sexual inapropiado y reacciones excesivas a llamadas o mensajes en línea. Es crucial que los padres, cuidadores y educadores estén atentos a estas señales y hablen abiertamente con los niños sobre la seguridad en línea para prevenir el abuso y reportar cualquier sospecha a las autoridades."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cuál es el papel de las escuelas en la prevención del grooming?",
+    respuestacorrecta: "Educar a los estudiantes sobre la seguridad en línea y proporcionar recursos de apoyo.",
+    respuesta1: "No tienen ningún papel en la prevención del grooming.",
+    respuesta2: "Ignorar el problema del grooming en línea.",
+    respuesta3: "Dejar que los estudiantes manejen el tema por sí mismos.",
+    masInfo: "Las escuelas juegan un papel crucial en educar a los estudiantes sobre cómo mantenerse seguros en línea y proporcionar recursos y apoyo en caso de que un estudiante sea víctima de grooming."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué tipo de información personal no se debe compartir en línea para prevenir el grooming?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "Dirección de casa, número de teléfono, dirección de correo electrónico y nombres de familiares.",
+    respuesta2: "Detalles sobre actividades después de la escuela, como clases de deportes, música o arte.",
+    respuesta3: "Nombre de la escuela, dirección de la escuela o detalles específicos sobre el horario escolar.",
+    masInfo: "Para prevenir el grooming en línea, los menores deben evitar compartir información personal como su dirección, número de teléfono, detalles de la escuela, datos de redes sociales, información financiera, fotos o videos personales, detalles de viajes y rutinas diarias, así como información sobre relaciones personales. Los padres y educadores deben educar a los menores sobre la importancia de proteger su privacidad en línea y alentarlos a reportar cualquier interacción sospechosa a un adulto de confianza."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cuál de las siguientes acciones es una medida efectiva para prevenir el grooming en las redes sociales?",
+    respuestacorrecta: "Configurar perfiles privados y solo aceptar solicitudes de personas conocidas.",
+    respuesta1: "Aceptar solicitudes de amistad de personas desconocidas.",
+    respuesta2: "Publicar fotos íntimas para ganarse la atención de los amigos en línea.",
+    respuesta3: "Compartir publicaciones detalladas sobre la ubicación y actividades diarias.",
+    masInfo: "Al tener perfiles privados, se limita el acceso a la información personal solo a personas de confianza, reduciendo así el riesgo de interacciones con groomers."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué deben hacer los menores si reciben mensajes inapropiados en línea?",
+    respuestacorrecta: "Bloquear al remitente y hablar con un adulto de confianza.",
+    respuesta1: "Compartir más información para calmar al remitente.",
+    respuesta2: "Ignorar los mensajes y borrarlos.",
+    respuesta3: "Responder a los mensajes para confrontar al remitente.",
+    masInfo: "Cuando un menor recibe mensajes inapropiados en línea, debe ignorar y bloquear al remitente, conservar las pruebas, evitar compartir más información, hablar con un adulto de confianza y denunciar el acoso a la plataforma. En casos graves, considerar denunciar a las autoridades. Además, es importante cuidar el bienestar emocional, proteger la privacidad y educarse continuamente sobre la seguridad en línea y el ciberacoso."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cuál es la importancia de revisar las configuraciones de privacidad en las aplicaciones y redes sociales?",
+    respuestacorrecta: "Para proteger la información personal y limitar quién puede verla.",
+    respuesta1: "Para asegurarse de que las aplicaciones se ejecuten más rápido.",
+    respuesta2: "Para evitar que las amistades vean las publicaciones y fotos.",
+    respuesta3: "Para recibir más solicitudes de amistad de personas desconocidas.",
+    masInfo: "Revisar y ajustar las configuraciones de privacidad es esencial para controlar quién tiene acceso a la información personal en línea y prevenir el acceso no autorizado."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué deben hacer un adulto si sospechan que un menor está siendo víctima de grooming?",
+    respuestacorrecta: "Hablar con el menor, mostrar apoyo y reportar la situación a las autoridades.",
+    respuesta1: "Ignorar las sospechas y esperar a que el problema se resuelva solo.",
+    respuesta2: "Culpar al menor por la situación.",
+    respuesta3: "Castigar al menor por compartir información en línea.",
+    masInfo: "Los adultos deben ser comprensivos, apoyar a los menores y tomar medidas adecuadas, incluyendo informar a las autoridades, si sospechan que el menor está siendo víctima de grooming."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué significa la regla del \"amigo en línea\" para prevenir el grooming?",
+    respuestacorrecta: "Aceptar solicitudes de amistad solo de personas conocidas en la vida real.",
+    respuesta1: "Aceptar solicitudes de amistad de cualquier persona que las envíe.",
+    respuesta2: "Compartir la contraseña de las redes sociales con un amigo en línea.",
+    respuesta3: "Bloquear a todos en las redes sociales para estar seguro.",
+    masInfo: "La regla del \"amigo en línea\" implica aceptar solicitudes de amistad solo de personas que se conocen en la vida real, reduciendo así el riesgo de interacciones con extraños en línea. También, la regla establece que los menores no deben reunirse con personas que conocieron en línea sin la supervisión de un adulto."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cuál de las siguientes acciones es un ejemplo de grooming en línea?",
+    respuestacorrecta: "Enviar mensajes sexualmente explícitos a un menor.",
+    respuesta1: "Ayudar a un amigo en línea con problemas emocionales.",
+    respuesta2: "Compartir consejos de estudio en línea.",
+    respuesta3: "Compartir fotos familiares en línea.",
+    masInfo: "Enviar mensajes sexualmente explícitos a un menor es un claro ejemplo de grooming en línea y es una actividad ilegal y peligrosa."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Por qué es importante que los menores se sientan cómodos reportando situaciones sospechosas en línea?",
+    respuestacorrecta: "Para que las autoridades y los adultos de confianza puedan ayudar a protegerlos.",
+    respuesta1: "Para que los adultos puedan controlar las actividades en línea de los menores.",
+    respuesta2: "Para que los adultos puedan reprender a los posibles groomers.",
+    respuesta3: "Para que los menores no tengan que lidiar con problemas en línea por sí mismos.",
+    masInfo: "Es importante que los menores se sientan seguros al informar cualquier situación sospechosa a personas adultas de confianza para que puedan recibir apoyo y protección adecuados."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué es el sharenting?",
+    respuestacorrecta: "Compartir excesivamente información, fotos y videos de personas menores en línea.",
+    respuesta1: "La práctica de compartir fotos y videos de los hijos o hijas con las amistades o familiares.",
+    respuesta2: "La práctica de compartir fotos y videos de los hijos o hijas con la escuela.",
+    respuesta3: "La práctica de compartir fotos y videos de los hijos o hijas con los medios de comunicación.",
+    masInfo: "El sharenting implica compartir de manera excesiva información, fotos y videos de los hijos o hijas en plataformas de redes sociales y otros sitios en línea. Aunque puede parecer inofensivo, esto plantea preocupaciones sobre la privacidad y seguridad de los menores, ya que la sobreexposición en línea puede llevar a problemas futuros."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cuál es uno de los principales riesgos del sharenting?",
+    respuestacorrecta: "Pérdida de privacidad y seguridad para los menores.",
+    respuesta1: "Aumento de la productividad en los menores.",
+    respuesta2: "Mejora en las habilidades sociales de los menores.",
+    respuesta3: "Mayor confianza en línea.",
+    masInfo: "El sharenting puede exponer a los menores a pérdida de privacidad y seguridad, ya que las fotos y la información compartida pueden ser accesibles para un público amplio, lo que puede llevar a problemas de privacidad y ciberseguridad."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cómo puede afectar el sharenting a la autoestima de los niños?",
+    respuestacorrecta: "Puede disminuir la autoestima si los menores sienten presión por las expectativas en línea.",
+    respuesta1: "No tiene ningún impacto en la autoestima.",
+    respuesta2: "Solo afecta a los adolescentes.",
+    respuesta3: "Puede aumentar la autoestima al recibir halagos en línea.",
+    masInfo: "Los niños o menores expuestos al sharenting pueden sentir presión para cumplir con las expectativas en línea, lo que puede afectar negativamente su autoestima si sienten que deben cumplir con ciertos estándares."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué es la huella digital en línea?",
+    respuestacorrecta: "La información y datos personales que una persona deja en línea.",
+    respuesta1: "Una marca física en el cuerpo.",
+    respuesta2: "Todas son correctas.",
+    respuesta3: "Un código de barras para acceder a sitios web.",
+    masInfo: "La huella digital en línea se refiere a la información personal y rastro digital que una persona deja al utilizar Internet. Esto incluye publicaciones en redes sociales, comentarios, fotos, historial de navegación y más."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Por qué es importante cuidar nuestra huella digital?",
+    respuestacorrecta: "Porque puede afectar nuestra privacidad y reputación en línea.",
+    respuesta1: "No es importante, la información en línea es siempre segura.",
+    respuesta2: "Porque solo las empresas se benefician de tener una buena huella digital.",
+    respuesta3: "Solo las personas adultas necesitan preocuparse por su huella digital.",
+    masInfo: "Cuidar nuestra huella digital es vital porque lo que compartimos en línea puede afectar nuestra privacidad y reputación. Las empresas, empleadores y otras personas pueden buscar nuestra huella digital para obtener información sobre nosotros."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cómo puede el sharenting aumentar el riesgo de grooming en línea?",
+    respuestacorrecta: "Compartir fotos y detalles sobre los menores en línea puede proporcionar información fácilmente a abusadores.",
+    respuesta1: "El sharenting no tiene relación con el grooming.",
+    respuesta2: "El grooming solo ocurre en situaciones de interacción cara a cara.",
+    respuesta3: "El sharenting solo afecta a los adultos, no a los niños.",
+    masInfo: "El sharenting puede proporcionar a los groomers información detallada sobre la vida de un menor, incluyendo su apariencia, ubicación, intereses y actividades. Esta información puede ser explotada por los groomers para establecer una conexión con los menores y, eventualmente, cometer abuso."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cómo pueden los adultos proteger a los menores del grooming relacionado con el sharenting?",
+    respuestacorrecta: "Limitar la cantidad de información personal y fotos de los menores compartidas en línea.",
+    respuesta1: "No permitir que los menores usen internet.",
+    respuesta2: "Compartir todas las actividades de los niños en línea para mantener un registro detallado.",
+    respuesta3: "No hablar con los menores sobre seguridad en línea.",
+    masInfo: "Los adultos pueden proteger a los menores del grooming relacionado con el sharenting limitando la cantidad de información personal compartida en línea, configurando cuidadosamente la privacidad en las redes sociales y educando a los niños sobre los riesgos del grooming y cómo protegerse en línea. La comunicación abierta y honesta entre padres e hijos es fundamental para la seguridad en línea de los niños."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Cómo puede la huella digital de un menor estar relacionada con el grooming en línea?",
+    respuestacorrecta: "Los groomers pueden rastrear la actividad en línea de un menor para identificar vulnerabilidades y manipularlos.",
+    respuesta1: "La huella digital no está relacionada con el grooming.",
+    respuesta2: "Todas son correctas.",
+    respuesta3: "Los menores no dejan huella digital en línea.",
+    masInfo: "Los groomers pueden utilizar la huella digital de un menor para aprender sobre sus intereses, amigos, ubicaciones y actividades, lo que les permite identificar posibles vulnerabilidades y manipular al menor de manera más efectiva."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Grooming",
+    pregunta: "¿Qué deben considerar los padres o personas adultas antes de compartir fotos de sus hijos en línea?",
+    respuestacorrecta: "La seguridad y privacidad de los menores.",
+    respuesta1: "La popularidad de la foto.",
+    respuesta2: "La calidad de la cámara utilizada para tomar la foto.",
+    respuesta3: "La cantidad de seguidores en la red social.",
+    masInfo: "Es esencial que los padres o personas adultas consideren la seguridad y privacidad de sus hijos o menores antes de compartir cualquier cosa en línea. Las configuraciones de privacidad deben ser revisadas y las fotos deben ser compartidas con precaución."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Qué puedo hacer para parar el bullying?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "Decirle al maestro o a algún adulto de la escuela.",
+    respuesta2: "No callarse y no ser indiferente.",
+    respuesta3: "Junto a otros compañeros, decirle al agresor que pare.",
+    masInfo: "Para detener el bullying lo primero y principal es no quedarnos callados ante el problema. Habla con alguien de confianza: Si por más que intentas detenerlo, no puedes lograrlo, habla con alguien de confianza como tus padres o maestros. Al principio puede parecer difícil hablar de este tema con alguien más, pero recuerda que todo es por tu propio bien."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes afirmaciones es cierta sobre las consecuencias del bullying?",
+    respuestacorrecta: "El bullying puede tener efectos duraderos en la salud y el bienestar de una persona.",
+    respuesta1: "El bullying solo tiene efectos negativos a corto plazo.",
+    respuesta2: "Solo los agresores experimentan consecuencias negativas.",
+    respuesta3: "Las víctimas de bullying nunca se recuperan completamente.",
+    masInfo: "El bullying no solo tiene efectos negativos a corto plazo, sino que también puede tener consecuencias a largo plazo en la vida de una persona. Las víctimas de bullying pueden experimentar dificultades emocionales, problemas de salud mental, disminución de la autoestima, dificultades en las relaciones interpersonales y rendimiento académico afectado. Estas consecuencias pueden perdurar incluso en la edad adulta. Además, los agresores también pueden experimentar consecuencias negativas, como dificultades en las relaciones sociales, problemas legales y dificultades para desarrollar empatía y habilidades de comunicación saludables."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿A quién afecta el bullying?",
+    respuestacorrecta: "A todas las personas.",
+    respuesta1: "A los que atacan y son violentos.",
+    respuesta2: "A los niños que sufren violencia.",
+    respuesta3: "A los niños que son testigos de la violencia.",
+    masInfo: "El bullying nos afecta a todas las personas involucradas, porque la violencia genera más violencia. Por eso es una tarea que entre todos debemos tratar de erradicar de las escuelas. Por eso ante un caso de bullying, hay que hablar con alguien, con algún padre, con algún profesor o con alguien de confianza para que intervenga y detenga el bullying. Se debe recordar que pedir ayuda no es delatar a nadie, es ayudar a alguien."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes acciones NO es una forma de apoyar a alguien que ha sido víctima de bullying?",
+    respuestacorrecta: "Culpar a la víctima por provocar el bullying.",
+    respuesta1: "Escuchar activamente y mostrar empatía hacia la persona afectada.",
+    respuesta2: "Ofrecerse a acompañar a la persona afectada a buscar ayuda.",
+    respuesta3: "Informar a un adulto responsable o una autoridad escolar sobre la situación.",
+    masInfo: "Culpar a la víctima por provocar el bullying no es una forma adecuada de apoyar a alguien que ha sido víctima de acoso. Es importante evitar culpar a la víctima y reconocer que ninguna persona merece ser acosada o maltratada. Al culpar a la víctima, se perpetúa la idea errónea de que el acoso es justificado o aceptable. En cambio, es fundamental escuchar activamente a la persona afectada, mostrar empatía y brindar apoyo emocional."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿A qué se denomina bullying?",
+    respuestacorrecta: "Es un abuso que causa dolor.",
+    respuesta1: "Una broma.",
+    respuesta2: "Un pasatiempo.",
+    respuesta3: "Algo normal entre los adolescentes.",
+    masInfo: "El bullying es un comportamiento agresivo y repetido que se ejerce de manera intencional por parte de una o más personas con el objetivo de dañar, intimidar o humillar a otra persona. Puede manifestarse de diversas formas, como el acoso físico o verbal, el aislamiento social, el ciberacoso, el abuso de poder o la difusión de rumores o mentiras. El bullying es un problema muy grave que puede tener consecuencias negativas para la salud mental y el bienestar de la víctima y debe ser prevenido y tratado de manera efectiva."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes acciones NO es una forma de ciberbullying en las redes sociales?",
+    respuestacorrecta: "Compartir información personal con amigos de confianza.",
+    respuesta1: "Enviar mensajes de odio y amenazas a alguien en línea.",
+    respuesta2: "Compartir imágenes íntimas de alguien sin su consentimiento.",
+    respuesta3: "Crear perfiles falsos para acosar a alguien.",
+    masInfo: "Compartir información personal con amigos de confianza no es una forma de ciberbullying en las redes sociales. El ciberbullying implica acciones agresivas y dañinas realizadas a través de medios electrónicos, como las redes sociales. Enviar mensajes de odio y amenazas, crear perfiles falsos para acosar a alguien y compartir imágenes íntimas sin consentimiento son ejemplos de ciberbullying, ya que tienen el objetivo de dañar, intimidar o acosar a la persona afectada."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿A qué se denomina ciberbullying?",
+    respuestacorrecta: "Acoso a través de las redes sociales.",
+    respuesta1: "Una I.T.S.",
+    respuesta2: "Un insulto en inglés.",
+    respuesta3: "Un método anticonceptivo.",
+    masInfo: "Estamos ante un caso de ciberbullying cuando un o una menor atormenta, amenaza, hostiga, humilla o molesta a otro/a mediante Internet, teléfonos móviles, o redes sociales. El anonimato, la no percepción directa e inmediata del daño causado y la adopción de roles imaginarios en la red convierten al ciberbullying en un grave problema."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes afirmaciones es cierta sobre el papel de los espectadores en el bullying?",
+    respuestacorrecta: "Los espectadores pueden ser una parte activa en la prevención y resolución del bullying.",
+    respuesta1: "Los espectadores no tienen ningún impacto en el comportamiento del agresor.",
+    respuesta2: "Los espectadores no tienen responsabilidad de intervenir en situaciones de bullying.",
+    respuesta3: "Los espectadores siempre apoyan y alientan al agresor en sus acciones.",
+    masInfo: "Los espectadores juegan un papel crucial en la dinámica del bullying. Aunque algunos espectadores pueden apoyar y alentar al agresor, otros pueden ser una parte activa en la prevención y resolución del bullying. Los espectadores tienen la capacidad de intervenir, apoyar a la víctima y denunciar el acoso a las autoridades correspondientes. Su comportamiento puede influir en el agresor, ya que la presencia de espectadores que no toleran el bullying puede desalentar al agresor y fomentar un entorno más seguro. Es importante crear conciencia sobre el papel de los espectadores y fomentar su participación activa en la prevención del bullying, animándolos a ser defensores y apoyar a quienes están siendo víctimas de acoso."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuáles son algunas de las consecuencias del bullying?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "Bajas calificaciones.",
+    respuesta2: "Sentir miedo.",
+    respuesta3: "Abandonar la escuela.",
+    masInfo: "Entre las consecuencias del bullying, la más evidente es la disminución del rendimiento escolar, debido a un cambio en el comportamiento habitual de los chicos. Este efecto negativo afecta tanto a la víctima como al acosador, y a veces también a los escolares que favorecen estos actos o a otros que asumen una actitud totalmente pasiva. Otras consecuencias son: Baja autoestima; Trastornos emocionales; Problemas psicosomáticos; Depresión, ansiedad y pensamientos suicidas."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Qué se puede hacer para prevenir el ciberbullying en las redes sociales?",
+    respuestacorrecta: "Configurar las opciones de privacidad para controlar quién puede ver y comentar las publicaciones.",
+    respuesta1: "Compartir información personal en línea para ganar popularidad.",
+    respuesta2: "Participar en comportamientos agresivos en línea para defenderse.",
+    respuesta3: "Ignorar los mensajes de odio y las amenazas en línea.",
+    masInfo: "Para prevenir el ciberbullying en las redes sociales, es importante configurar las opciones de privacidad de manera adecuada. Esto implica controlar quién puede ver y comentar las publicaciones, limitando el acceso a personas desconocidas o no deseadas. Al hacerlo, se reduce la posibilidad de que los agresores tengan acceso a la información personal y puedan acosar a través de los comentarios o mensajes. Además, es esencial ignorar los mensajes de odio y las amenazas en línea, ya que responder de manera agresiva puede alimentar el conflicto y empeorar la situación."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes acciones es un ejemplo de ciberbullying?",
+    respuestacorrecta: "Publicar rumores falsos sobre alguien en línea.",
+    respuesta1: "Ignorar un mensaje de texto.",
+    respuesta2: "Compartir fotos divertidas con amigos en línea.",
+    respuesta3: "Enviar un correo electrónico amistoso.",
+    masInfo: "El ciberbullying puede involucrar difundir rumores, compartir información falsa o humillante sobre alguien en línea, lo que puede tener consecuencias graves para la persona afectada."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes afirmaciones es cierta sobre las consecuencias legales del ciberbullying?",
+    respuestacorrecta: "Puede llevar a acciones legales, como cargos criminales o demandas civiles.",
+    respuesta1: "Nunca tiene consecuencias legales.",
+    respuesta2: "Solo los agresores enfrentan consecuencias legales por su comportamiento.",
+    respuesta3: "Las víctimas de ciberbullying no tienen ningún recurso legal para protegerse.",
+    masInfo: "El ciberbullying puede tener graves repercusiones legales para los agresores. En muchos países, se considera un delito y los responsables pueden enfrentar cargos criminales. Dependiendo de la gravedad de las acciones y las leyes aplicables en cada jurisdicción, las consecuencias pueden incluir multas, penas de prisión u otras sanciones. Además de las acciones legales penales, las víctimas de ciberbullying también tienen la opción de emprender acciones legales civiles. Esto implica presentar demandas contra los agresores en busca de compensación por el daño sufrido."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál es una forma de fomentar la empatía y el respeto entre los jóvenes para prevenir el bullying?",
+    respuestacorrecta: "Fomentar la comprensión de las diferencias y celebrar la diversidad.",
+    respuesta1: "Promover el individualismo y la competencia en lugar de la colaboración.",
+    respuesta2: "Estigmatizar a aquellos que son diferentes y no encajan en la norma.",
+    respuesta3: "Enseñarles a los jóvenes a ignorar las emociones de los demás.",
+    masInfo: "Promover la comprensión de las diferencias y celebrar la diversidad es fundamental para fomentar la empatía y el respeto en los jóvenes. Al educar a la juventud sobre la importancia de aceptar y valorar a las personas con diferentes trasfondos, culturas, habilidades y características, se fomenta la empatía hacia los demás y se reduce la probabilidad de que se produzcan actos de bullying."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes acciones NO se considera bullying?",
+    respuestacorrecta: "Ayudar a alguien que está pasando por un momento difícil.",
+    respuesta1: "Discriminar a alguien por su modo de ser.",
+    respuesta2: "Excluir deliberadamente a alguien de un grupo social.",
+    respuesta3: "Burlarse repetidamente de alguien por su apariencia física.",
+    masInfo: "El bullying implica un comportamiento agresivo y dañino. Ayudar a alguien en un momento difícil es un acto positivo y compasivo, y es una forma de terminar con el bullying."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál es una forma de prevenir el bullying y el ciberbullying?",
+    respuestacorrecta: "Ser consciente de los demás y tratar a todas las personas con respeto.",
+    respuesta1: "Ignorar el problema y esperar que desaparezca.",
+    respuesta2: "Participar en conductas agresivas para defenderse.",
+    respuesta3: "Compartir información personal en línea.",
+    masInfo: "Fomentar una cultura de respeto y empatía es una de las formas más efectivas de prevenir el bullying y el ciberbullying. Todos podemos contribuir tratando a los demás con amabilidad y comprensión."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes acciones NO es una forma de bullying físico?",
+    respuestacorrecta: "Difundir rumores falsos sobre alguien en línea.",
+    respuesta1: "Empujar y golpear a alguien.",
+    respuesta2: "Romper o robar las pertenencias de alguien.",
+    respuesta3: "Amenazar a alguien para obtener su dinero.",
+    masInfo: "El bullying físico implica acciones directas y físicas que causan daño o dolor a otra persona, como empujar, golpear, patear, entre otros. Difundir rumores falsos sobre alguien en línea, aunque también es una forma de acoso, se considera ciberbullying, ya que ocurre en el entorno digital en lugar de ser una acción física directa. Es importante tener en cuenta que tanto el bullying físico como el ciberbullying son comportamientos dañinos que deben ser abordados y prevenidos."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes acciones NO es una forma de ciberbullying?",
+    respuestacorrecta: "Jugar videojuegos en línea con amigos.",
+    respuesta1: "Enviar mensajes de odio a través de las redes sociales.",
+    respuesta2: "Compartir imágenes íntimas de alguien sin su consentimiento.",
+    respuesta3: "Crear un perfil falso para acosar a alguien en línea.",
+    masInfo: "El ciberbullying implica acciones agresivas y dañinas realizadas a través de medios electrónicos, como las redes sociales, mensajes de texto, correos electrónicos, etc. Enviar mensajes de odio, crear perfiles falsos para acosar a alguien y compartir imágenes íntimas sin consentimiento son ejemplos de ciberbullying, ya que tienen el objetivo de dañar, intimidar o acosar a la persona afectada. Es importante promover un entorno en línea seguro y respetuoso, donde se fomente la colaboración y el juego responsable."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes afirmaciones es cierta sobre el impacto del bullying?",
+    respuestacorrecta: "El bullying puede afectar negativamente la salud mental y emocional.",
+    respuesta1: "El bullying no tiene consecuencias negativas para la persona afectada.",
+    respuesta2: "El bullying solo ocurre en entornos escolares.",
+    respuesta3: "El bullying solo ocurre en las redes sociales.",
+    masInfo: "El bullying tiene consecuencias negativas significativas para la persona afectada. Puede tener un impacto en la salud mental y emocional, causando estrés, ansiedad, depresión e incluso problemas físicos. El bullying no se limita únicamente a entornos escolares, puede ocurrir en diferentes contextos, como el trabajo, la comunidad y en línea. Es esencial tomar en serio el bullying y trabajar para prevenirlo y abordarlo adecuadamente, brindando apoyo a las víctimas y promoviendo un entorno seguro y respetuoso para todos."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Qué es el acoso verbal en el contexto del bullying?",
+    respuestacorrecta: "Utilizar insultos y palabras ofensivas para atacar a alguien.",
+    respuesta1: "Ignorar a alguien deliberadamente en un entorno social.",
+    respuesta2: "Excluir a alguien de un grupo intencionalmente.",
+    respuesta3: "Maltratar a alguien con violencia física.",
+    masInfo: "El acoso verbal en el contexto del bullying implica el uso de palabras ofensivas, insultos, burlas y comentarios hirientes para atacar a alguien. Puede incluir insultos directos, comentarios humillantes, ridiculización y cualquier forma de lenguaje ofensivo destinado a dañar la autoestima y bienestar emocional de la persona afectada. El acoso verbal puede tener un impacto significativo en la víctima, causando daño emocional, baja autoestima y problemas de salud mental."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes afirmaciones es cierta sobre el ciberbullying?",
+    respuestacorrecta: "El ciberbullying puede tener consecuencias graves para la salud mental de una persona.",
+    respuesta1: "El ciberbullying solo afecta a los jóvenes, no a los adultos.",
+    respuesta2: "El ciberbullying solo ocurre en computadoras, no en teléfonos móviles.",
+    respuesta3: "El ciberbullying solo ocurre a través de mensajes de texto.",
+    masInfo: "El ciberbullying no está limitado exclusivamente a los jóvenes, afecta a personas de todas las edades, incluyendo a adultos. Además, el ciberbullying no se limita solo a mensajes de texto, puede ocurrir a través de diversas plataformas en línea, como redes sociales, correos electrónicos, foros, etc. Es importante reconocer que el ciberbullying puede tener un impacto significativo en la salud mental de una persona, causando estrés, ansiedad, depresión e incluso pensamientos suicidas."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Qué se puede hacer para ayudar a alguien que está siendo víctima de bullying?",
+    respuestacorrecta: "Apoyar y consolar a la persona afectada.",
+    respuesta1: "Ignorar la situación y esperar a que se solucione por sí sola.",
+    respuesta2: "Culpar a la víctima y justificar el comportamiento de los agresores.",
+    respuesta3: "Unirse a los agresores para evitar convertirse en una víctima.",
+    masInfo: "Cuando alguien está siendo víctima de bullying, es importante brindarle apoyo y consuelo. Ignorar la situación o esperar a que se resuelva por sí sola puede empeorar la situación y hacer que la persona se sienta más aislada. Unirse a los agresores no es una solución ética ni efectiva, ya que perpetúa el ciclo de violencia. En cambio, ofrecer apoyo emocional, escuchar activamente, denunciar el bullying a las autoridades adecuadas y buscar ayuda profesional si es necesario son formas efectivas de ayudar a alguien que está siendo víctima de bullying."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál de las siguientes afirmaciones es cierta sobre los roles en el bullying?",
+    respuestacorrecta: "Hay múltiples roles en el bullying, como el agresor, la víctima y los espectadores.",
+    respuesta1: "Solo hay un rol en el bullying: el agresor.",
+    respuesta2: "Los roles en el bullying no tienen importancia.",
+    respuesta3: "Solo hay dos roles en el bullying: la víctima y el agresor.",
+    masInfo: "En el contexto del bullying, existen diferentes roles que desempeñan las personas involucradas. El agresor es quien realiza el comportamiento de acoso, la víctima es la persona que sufre el acoso y los espectadores son aquellos que presencian la situación sin intervenir. Los espectadores tienen un papel importante, ya que su comportamiento puede influir en la dinámica del bullying. Pueden ser espectadores pasivos que no intervienen, espectadores reforzadores que apoyan o alientan al agresor, o espectadores defensores que intervienen para ayudar a la víctima. Reconocer los diferentes roles en el bullying es fundamental para abordar el problema de manera efectiva y fomentar un entorno de apoyo y respeto."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál es una estrategia efectiva para prevenir el ciberbullying?",
+    respuestacorrecta: "Denunciar el ciberbullying a las autoridades correspondientes.",
+    respuesta1: "Compartir información personal en línea.",
+    respuesta2: "Participar en comportamientos agresivos en línea para defenderse.",
+    respuesta3: "Ignorar los mensajes de odio en las redes sociales.",
+    masInfo: "Cuando alguien experimenta ciberbullying, es importante informar y compartir la situación con padres, maestros, administradores de sitios web o redes sociales, e incluso con las autoridades locales si es necesario. Esto ayuda a tomar medidas adecuadas para detener el acoso y proteger a la persona afectada. Además, es esencial fomentar un entorno en línea seguro y respetuoso, donde se promueva la denuncia del ciberbullying y se brinde apoyo a quienes lo experimentan."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Qué es la difamación en el contexto del ciberbullying?",
+    respuestacorrecta: "Publicar rumores falsos sobre alguien en línea para dañar su reputación.",
+    respuesta1: "Burlarse de alguien por su apariencia física en línea.",
+    respuesta2: "Enviar mensajes amenazantes a través de las redes sociales.",
+    respuesta3: "Compartir imágenes íntimas de alguien sin su consentimiento.",
+    masInfo: "La difamación en el contexto del ciberbullying implica publicar información falsa y perjudicial sobre alguien en línea con el objetivo de dañar su reputación. Esta acción difamatoria puede incluir la difusión de rumores falsos, acusaciones infundadas, mentiras o información engañosa sobre una persona. El propósito de la difamación es dañar la imagen y la reputación de la persona afectada, causando un impacto negativo en su vida personal, social o profesional. La difamación en línea es una forma grave de ciberbullying y puede tener consecuencias legales."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Cuál es una forma de apoyar la prevención del bullying en las escuelas?",
+    respuestacorrecta: "Promover programas de educación y conciencia sobre el bullying.",
+    respuesta1: "Ignorar los casos de bullying y dejar que los niños lo resuelvan por sí mismos.",
+    respuesta2: "Estigmatizar a los agresores y castigarlos severamente sin brindar oportunidades para el cambio.",
+    respuesta3: "Excluir a los estudiantes que han sido acosados de las actividades escolares.",
+    masInfo: "Promover programas de educación y conciencia sobre el bullying es una forma efectiva de apoyar la prevención del bullying en las escuelas. Estos programas pueden incluir charlas, talleres, actividades y materiales educativos que enseñen a los estudiantes sobre el impacto negativo del bullying, cómo reconocerlo, cómo responder adecuadamente y cómo promover un entorno escolar seguro y respetuoso. Al educar a los estudiantes sobre el bullying, se fomenta la empatía, la comprensión y la importancia de tratar a los demás con respeto."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Bullying",
+    pregunta: "¿Qué se puede hacer para protegerse del ciberbullying?",
+    respuestacorrecta: "Ser selectivo con la información personal compartida en línea.",
+    respuesta1: "Compartir contraseñas personales con amigos de confianza.",
+    respuesta2: "Responder con agresión y confrontación cuando se es víctima de ciberbullying.",
+    respuesta3: "Evitar el uso de las redes sociales y el internet en general.",
+    masInfo: "Para protegerse del ciberbullying, es importante ser selectivo con la información personal que se comparte en línea. Esto implica tener precaución al proporcionar datos personales como nombre completo, dirección, número de teléfono o información financiera en plataformas en línea. Al limitar la cantidad de información personal que se comparte, se reduce el riesgo de ser blanco de ataques o acosos en línea."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué son los derechos sexuales y reproductivos?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "Permiten que las personas puedan decidir libremente sobre su vida sexual.",
+    respuesta2: "Son derechos humanos.",
+    respuesta3: "Permiten que las personas puedan decidir libremente sobre su vida reproductiva.",
+    masInfo: "Los derechos sexuales y reproductivos son derechos humanos que garantizan a todas las personas el derecho a decidir libremente y de manera responsable sobre su vida sexual y reproductiva, incluyendo el derecho a tener acceso a información y servicios de salud sexual y reproductiva de calidad y sin discriminación."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "Sexting: ¿por qué son más vulnerables los adolescentes?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "Porque hay una mayor exposición de la intimidad en las redes sociales.",
+    respuesta2: "Porque tienen mayor acceso a internet.",
+    respuesta3: "Porque hay poco control de los padres.",
+    masInfo: "En el sexting, el menor es el que realiza una fotografía o vídeo con contenido sexual y la distribuye o publica de manera voluntaria. En este caso el menor no está percibiendo la posible amenaza contra su privacidad, ni es consciente de las implicaciones desde el punto de vista de la seguridad. No se ven los riesgos en la exposición de datos personales, privados e íntimos, a través de las nuevas tecnologías de la comunicación, y por ello los difunden. Se colocan a sí mismos en una situación de vulnerabilidad, en tanto en cuanto unos contenidos de sexting pueden llegar a ser conocidos de forma masiva."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué es el acoso sexual?",
+    respuestacorrecta: "Es una intimidación sexual.",
+    respuesta1: "Es una forma de demostrar amor.",
+    respuesta2: "Es un método anticonceptivo.",
+    respuesta3: "Es una infección de transmisión sexual.",
+    masInfo: "El acoso sexual incluye aquellas conductas consistentes en la solicitud de favores de naturaleza sexual, para sí o para una tercera persona, en las que el sujeto activo se vale de una situación de superioridad laboral, docente o análoga, con el anuncio expreso o tácito a una persona de causarle un mal relacionado con las expectativas que la víctima tenga en el ámbito de la dicha relación, o bajo la promesa de una recompensa o de un premio en el ámbito de esta."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuál de las siguientes opciones NO se considera un derecho sexual y reproductivo?",
+    respuestacorrecta: "El derecho a tener una vivienda digna.",
+    respuesta1: "El derecho a tener relaciones sexuales de manera segura y sin violencia.",
+    respuesta2: "El derecho a tener acceso a servicios de salud sexual y reproductiva de calidad.",
+    respuesta3: "El derecho a la educación y la información sobre sexualidad y reproducción.",
+    masInfo: "Entre los derechos sexuales y reproductivos se incluyen el derecho a tener relaciones sexuales de manera segura y sin violencia, el derecho a la educación y la información sobre sexualidad y reproducción, el derecho a tener acceso a servicios de salud sexual y reproductiva de calidad, y el derecho a decidir sobre el uso de métodos anticonceptivos y a tener acceso a ellos. El derecho a tener una vivienda digna no forma parte de los derechos sexuales y reproductivos, aunque es un derecho humano fundamental."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué es el consentimiento sexual?",
+    respuestacorrecta: "Estar de acuerdo con realizar actividades sexuales con una persona.",
+    respuesta1: "Son métodos anticonceptivos.",
+    respuesta2: "Estar dispuesto a querer tener siempre relaciones sexuales.",
+    respuesta3: "Es obligar a alguien a tener relaciones sexuales.",
+    masInfo: "El consentimiento sexual es un acuerdo para participar en una actividad sexual. Antes de mantener relaciones sexuales con otra persona, debes saber si esta persona está de acuerdo. Es importante ser honesto con tu pareja sobre lo que deseas hacer y lo que no. Consentir y pedir consentimiento consiste en establecer tus límites personales y respetar los de tu pareja; debes volver a preguntar si las cosas no están claras. Para que sea algo consensuado, ambas personas deben estar de acuerdo en tener relaciones sexuales, todas y cada una de las veces. Sin consentimiento, la actividad sexual (incluido el sexo oral, tocar los genitales y la penetración vaginal o anal) es agresión sexual o violación."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuáles son los riesgos del \"sexting\" (envío de imágenes y videos sexuales por celulares)?",
+    respuestacorrecta: "Existen muchas probabilidades que la imagen o video se viralice.",
+    respuesta1: "Existen pocas posibilidades de que una imagen se viralice.",
+    respuesta2: "Ninguno, si se confía en la persona a la cual se le envían las imágenes.",
+    respuesta3: "Ninguno, si se ama a la persona a quién le enviamos la imagen.",
+    masInfo: "La práctica del sexting implica diversos riesgos de carácter psicológico, legal e incluso de la integridad física de los participantes. Muchos de sus practicantes son menores de edad y no son conscientes de ellos. Una persona cuya imagen o vídeo erótico es distribuido sin control puede verse humillada públicamente y acosada, y sufrir graves trastornos a causa de ello. Se han producido hasta casos de suicidio originado en el sexting y muchos casos de ansiedad, depresión, pérdida de autoestima, trauma, humillación, aislamiento social, etc. Sin importar cuánto se ame a una persona, se deben tener en cuenta los riesgos que implicaría que dicha imagen o video sea difundido. En todo caso, es importante la orientación de un adulto."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué es el robo de identidad en internet?",
+    respuestacorrecta: "Significa usar la identidad de una persona haciéndose pasar por ella en las redes sociales.",
+    respuesta1: "Significa la desaparición de una persona.",
+    respuesta2: "No existe robo de identidad en internet ya que la misma es muy segura.",
+    respuesta3: "Significa el secuestro de una persona.",
+    masInfo: "El robo de identidad o usurpación de identidad es la apropiación de la identidad de una persona, en la mayoría de los casos en las redes sociales. Es hacerse pasar por esa persona, asumir su identidad ante otras personas en público o en privado, en general para acceder a ciertos recursos o la obtención de créditos y otros beneficios en nombre de esa persona."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿A qué se denomina \"sexting\"?",
+    respuestacorrecta: "El envío de contenido sexual del remitente, a otras personas, por medio de celulares.",
+    respuesta1: "El envío de contenido sexual a una persona, con el fin de acosarla.",
+    respuesta2: "El envío de imágenes a otras personas, por medio de celulares.",
+    respuesta3: "El envío de contenido sexual a una persona, con el fin de extorsionarla.",
+    masInfo: "El sexting es el envío de mensajes, fotos o videos de contenido sexual por medio de teléfonos celulares. Esta práctica tiene muchos riesgos, y por eso también se ha extendido el uso de aplicaciones que prometen destruir el mensaje pasado un tiempo determinado (ej: Snapchat). Cualquier imagen sexual que salga de tu teléfono, de tu webcam o de tu email, puede acabar en un sitio web porno proporcionándoles beneficios económicos a terceros y alimentando las fantasías eróticas de miles de internautas. Recuerda que el contenido que se sube a internet es muy difícil de bajar una vez que se empieza a compartir."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué es el stealthing?",
+    respuestacorrecta: "Consiste en quitarse el preservativo durante el acto sexual.",
+    respuesta1: "Una infección de transmisión sexual.",
+    respuesta2: "Una nueva forma de demostrar amor.",
+    respuesta3: "Consiste en ponerse el preservativo durante el acto sexual.",
+    masInfo: "El stealthing es una práctica realizada por algunas personas, tanto heterosexuales como homosexuales, y consiste en quitarse el preservativo durante el acto sexual, sin el permiso previo de la pareja, por lo que se considera una agresión sexual. A pesar de que ambos hayan acordado utilizar este método anticonceptivo para su protección, durante un momento de la relación sexual una de las personas lo retira sin que la pareja se dé cuenta y continúa con la relación sin protección. Hasta el momento solo se tiene registro de un hombre en Suiza que fue condenado por violación porque se quitó el preservativo mientras practicaba sexo con una mujer que conoció en Tinder; la justicia de ese país dictaminó que, si se había previsto el sexo con preservativo y luego este no llegaba a usarse, se trataba de abuso sexual."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué significa que una persona es digna?",
+    respuestacorrecta: "Que tiene valor por sí misma.",
+    respuesta1: "Que pertenece a un grupo de orientación sexual diferente.",
+    respuesta2: "Que no tiene valor.",
+    respuesta3: "Que tiene alguna I.T.S.",
+    masInfo: "La dignidad hace referencia al valor inherente al ser humano por el simple hecho de ser humano, en cuanto ser racional, dotado de libertad. No se trata de una cualidad otorgada por nadie, sino consustancial al ser humano. No depende de ningún tipo de condicionamiento ni de diferencias étnicas, de sexo, de condición social o cualquier otro tipo. La Declaración Universal de Derechos Humanos invoca en su Preámbulo la «dignidad intrínseca (...) de todos los miembros de la familia humana», para luego afirmar que «todos los seres humanos nacen libres e iguales en dignidad y derechos» (artículo 1°)."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuál de las siguientes afirmaciones es cierta en relación con los derechos sexuales y reproductivos?",
+    respuestacorrecta: "Garantizan el derecho a decidir libremente sobre su vida sexual y reproductiva.",
+    respuesta1: "No están reconocidos a nivel internacional.",
+    respuesta2: "Son exclusivos de las personas que tienen relaciones sexuales.",
+    respuesta3: "Solo se aplican a las mujeres.",
+    masInfo: "Los derechos sexuales y reproductivos se aplican a todas las personas, hayan o no tenido relaciones sexuales, de cualquier género o edad, y están reconocidos internacionalmente."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuál de las siguientes afirmaciones es falsa en relación con la trata de personas?",
+    respuestacorrecta: "La trata de persona solo afecta a mujeres.",
+    respuesta1: "Es una forma grave de violencia y explotación.",
+    respuesta2: "Puede ocurrir en cualquier parte del mundo.",
+    respuesta3: "Las víctimas pueden ser personas de cualquier edad, género o nacionalidad.",
+    masInfo: "La trata de personas es un fenómeno que puede ocurrir en cualquier parte del mundo y puede afectar a personas de cualquier edad, género o nacionalidad. Es un delito internacional que puede ocurrir tanto en países desarrollados como en países en desarrollo, y puede tomar diversas formas, como la explotación sexual, el trabajo forzado, la servidumbre o la trata de órganos. Es importante tomar medidas para prevenir la trata de personas y brindar protección y apoyo a las víctimas."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué puedo hacer si alguien quiere tocar mi cuerpo y yo no quiero?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "Exigirle que deje de hacerlo.",
+    respuesta2: "Denunciarlo.",
+    respuesta3: "Avisar a un adulto.",
+    masInfo: "Es muy importante, para su propio cuidado, que se le enseñe a los niños y jóvenes: “Si te sientes mal porque alguien quiere ver o tocar tus partes íntimas, tienes que decir ‘no’, estás en todo tu derecho y se lo tienes que contar rápido a alguien de confianza, como a algún familiar o a tu maestra”."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuál de las siguientes afirmaciones es falsa en relación con la trata de personas?",
+    respuestacorrecta: "La trata de persona solo afecta a mujeres.",
+    respuesta1: "Es una forma grave de violencia y explotación.",
+    respuesta2: "Puede ocurrir en cualquier parte del mundo.",
+    respuesta3: "Las víctimas pueden ser personas de cualquier edad, género o nacionalidad.",
+    masInfo: "La trata de personas es un fenómeno que puede ocurrir en cualquier parte del mundo y puede afectar a personas de cualquier edad, género o nacionalidad. La trata de personas es un delito internacional que puede ocurrir tanto en países desarrollados como en países en desarrollo, y puede tomar diversas formas, como la explotación sexual, el trabajo forzado, la servidumbre o la trata de órganos. Es importante tomar medidas para prevenir la trata de personas y brindar protección y apoyo a las víctimas."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué puedo hacer si alguien quiere tocar mi cuerpo y yo no quiero?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "Exigirle que deje de hacerlo.",
+    respuesta2: "Denunciarlo.",
+    respuesta3: "Avisar a un adulto.",
+    masInfo: "Es muy importante, para su propio cuidado, que se le enseñe a los niños y jóvenes: “Si te sientes mal porque alguien quiere ver o tocar tus partes íntimas, tienes que decir ‘no’, estás en todo tu derecho y se lo tienes que contar rápido a alguien de confianza, como a algún familiar o a tu maestra”."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué se debe tener en cuenta cuando se usa la webcam?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "La imagen que se está viendo por la webcam puede ser una grabación.",
+    respuesta2: "Asegurarse que lo que se ve no sea una grabación.",
+    respuesta3: "Lo que envía la webcam puede ser grabado al otro lado.",
+    masInfo: "Cuando se transmite por webcam se debe tener en cuenta que puede ser grabado al otro lado. Una vez obtenida y grabada esa imagen o secuencia comprometida, se pasa del engatusamiento al más cruel chantaje. Por eso es importante usarla únicamente con interlocutores de máxima confianza y no hacer delante de ella nada que no se haría en público. Si se pretende conocer la identidad del interlocutor y se intercambia con él la imagen de la webcam por unos instantes, se le debe pedir en esos momentos que realice alguna acción particular (por ejemplo, simular unas gafas rodeando sus ojos con los dedos) que nos garantice que no está mostrando una grabación."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿A qué se llama 'Trata de persona'?",
+    respuestacorrecta: "Todas son correctas.",
+    respuesta1: "Una forma de explotación y comercio de personas.",
+    respuesta2: "Un delito que atenta contra los derechos humanos.",
+    respuesta3: "Alquiler o compra y venta de personas.",
+    masInfo: "La trata de personas es una forma grave de violencia y explotación que involucra la captación, el traslado, el alojamiento o la recepción de personas mediante el uso de la fuerza, el engaño, la coacción u otras formas de explotación, con el fin de obtener un beneficio económico o de otra índole. La trata de personas puede adoptar diversas formas, como la explotación sexual, el trabajo forzado, la servidumbre o la trata de órganos. Las víctimas de trata de personas pueden ser personas de cualquier edad, género o nacionalidad y pueden encontrarse en cualquier parte del mundo. La trata de personas es un delito internacional y está prohibida por ley en muchos países. Es importante tomar medidas para prevenir la trata de personas y brindar protección y apoyo a las víctimas."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Qué es Revenge porn, pornovenganza o porno vengativo?",
+    respuestacorrecta: "El uso de imágenes y videos privados, para extorsionar a una persona.",
+    respuesta1: "Una I.T.S.",
+    respuesta2: "Una especie de videos pornos.",
+    respuesta3: "Una categoría de video eróticos.",
+    masInfo: "Es la publicación de imágenes pornográficas puede tener muy distintas finalidades. La pornovenganza, que tiene como objetivo último causar un mal a otra persona que no ha consentido el uso en público de sus imágenes íntimas, es el fenómeno que más está creciendo y que crea una mayor victimización siendo las mujeres las afectadas en casi todos los casos. En la mayoría de los casos, estos videos se viralizan por exparejas."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Es una agresión sexual sacarse el preservativo disimuladamente durante una relación sexual?",
+    respuestacorrecta: "Sí, es una agresión sexual.",
+    respuesta1: "No, el hombre puede sacarse el preservativo siempre que quiera.",
+    respuesta2: "No, tampoco hace falta usarlo.",
+    respuesta3: "No, no es necesario que la pareja se entere.",
+    masInfo: "El stealthing es un comportamiento sexual no consensuado en el que una persona retira o manipula voluntariamente el preservativo durante el coito sin el conocimiento o consentimiento de su pareja sexual. Esta práctica se considera una forma de violación y puede tener graves consecuencias para la salud y el bienestar de la víctima, ya que puede aumentar el riesgo de embarazo no deseado y de contraer infecciones de transmisión sexual. Además, el stealthing viola la confianza y el consentimiento en una relación sexual y puede causar daño emocional a la víctima. Es importante recordar que el consentimiento es esencial en cualquier relación sexual y que siempre se debe respetar la decisión de la pareja sexual en cuanto al uso de protección."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuál de las siguientes opciones describe mejor los derechos sexuales y reproductivos?",
+    respuestacorrecta: "Un conjunto de derechos humanos para decidir libremente sobre la vida sexual y reproductiva.",
+    respuesta1: "Un conjunto de normas religiosas que rigen la conducta sexual y reproductiva.",
+    respuesta2: "Un conjunto de tradiciones culturales que definen los roles de género.",
+    respuesta3: "Un conjunto de políticas gubernamentales para controlar la población.",
+    masInfo: "Los derechos sexuales y reproductivos son reconocidos internacionalmente como derechos humanos fundamentales. Estos derechos incluyen el derecho a la autonomía, la intimidad, la igualdad de género, la salud sexual y reproductiva, y el acceso a información y servicios relacionados. El enfoque principal es garantizar que las personas tengan el derecho de tomar decisiones informadas y libres sobre su vida sexual y reproductiva, sin discriminación ni violencia."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuál de las siguientes opciones describe mejor la planificación familiar?",
+    respuestacorrecta: "El uso de métodos anticonceptivos para prevenir el embarazo no deseado.",
+    respuesta1: "La decisión de una pareja de no tener hijos.",
+    respuesta2: "El control del gobierno sobre la cantidad de hijos que puede tener una pareja.",
+    respuesta3: "La selección del sexo del bebé antes de su concepción.",
+    masInfo: "La planificación familiar implica el uso de métodos anticonceptivos y la toma de decisiones conscientes sobre el embarazo y la reproducción. Su objetivo principal es permitir que las personas y las parejas decidan libremente si desean tener hijos, cuándo desean tenerlos y cuántos desean tener."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuál de las siguientes opciones es un derecho sexual?",
+    respuestacorrecta: "El derecho a la igualdad de oportunidades en la educación sexual.",
+    respuesta1: "El derecho a imponer creencias y valores religiosos sobre la sexualidad a otras personas.",
+    respuesta2: "El derecho a la violencia sexual y el acoso.",
+    respuesta3: "El derecho a tener múltiples parejas sexuales sin consentimiento.",
+    masInfo: "El derecho a la igualdad de oportunidades en la educación sexual es un componente fundamental de los derechos sexuales. Esto implica que todas las personas tienen el derecho de acceder a una educación sexual integral y basada en evidencia, sin discriminación ni prejuicios."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuál de las siguientes opciones describe mejor la educación sexual integral?",
+    respuestacorrecta: "Una educación que brinda información precisa y basada en evidencia sobre la sexualidad.",
+    respuesta1: "La enseñanza exclusiva de métodos anticonceptivos.",
+    respuesta2: "La imposición de normas y estereotipos de género en la educación.",
+    respuesta3: "La promoción de una única forma de sexualidad basada en la moralidad y las tradiciones religiosas.",
+    masInfo: "La educación sexual integral se refiere a un enfoque holístico de la educación que proporciona información precisa, basada en evidencia y libre de prejuicios sobre diversos aspectos de la sexualidad humana. Este enfoque abarca temas como la anatomía y fisiología sexual, la prevención de enfermedades de transmisión sexual, la anticoncepción, las relaciones saludables, el consentimiento, la diversidad sexual y de género, el respeto mutuo, los derechos sexuales y reproductivos, entre otros."
+  },
+  {
+    categoria: "Derecho",
+    trivia: "Derechos Sexuales",
+    pregunta: "¿Cuál de los siguientes es un ejemplo de educación sexual integral?",
+    respuestacorrecta: "Una clase que enseña sobre la sexualidad humana, desde un enfoque biológico, psicológico y social.",
+    respuesta1: "Una clase que enseña sobre los diferentes métodos anticonceptivos.",
+    respuesta2: "Una clase que enseña sobre las diferentes enfermedades de transmisión sexual.",
+    respuesta3: "Todas son correctas.",
+    masInfo: "La educación sexual integral es una educación que aborda todos los aspectos de la sexualidad humana, desde un enfoque biológico, psicológico y social. Esta educación ayuda a las personas a comprender su propia sexualidad y a tomar decisiones informadas sobre su vida sexual."
+  },
+  {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "Las personas con discapacidad, ¿son asexuadas?",
+      respuestacorrecta: "No, tienen una vida sexual como todos los demás.",
+      respuesta1: "Si, porque son personas inocentes.",
+      respuesta2: "Si, no tienen relaciones sexuales.",
+      respuesta3: "Si, no tienen la sexualidad desarrollada.",
+      masInfo: "Las personas con discapacidad no son seres asexuados, en absoluto, disfrutan de su vida sexual como los demás. Es verdad que hay ciertas particularidades cuando hablamos, por ejemplo, de personas con daño medular; pero ni siquiera éste es impedimento para el disfrute de su sexualidad. Por supuesto, existen ciertas discapacidades que exigen un mayor trabajo y que requieren de una mayor estimulación psicológica. Muchas veces las personas con discapacidad viven su sexualidad de manera distinta, su cuerpo de alguna manera se amolda a las necesidades y circunstancias que éste demanda. Por ejemplo, en ciertas discapacidades, hay zonas del cuerpo que se convierten con el tiempo en erógenas."
+    },
+    {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "¿A qué se llama Queer?",
+      respuestacorrecta: "Es una identidad de género.",
+      respuesta1: "Es una orientación sexual.",
+      respuesta2: "Significa reina en inglés.",
+      respuesta3: "Es un método anticonceptivo.",
+      masInfo: "Queer es un término global tomado del inglés y que define el adjetivo como «extraño» o «poco usual». Se emplea para designar a personas que no se identifican en el modelo organizativo establecido. En el contexto de la identidad política occidental, las personas que se identifican como queer suelen situarse aparte del discurso y del estilo de vida que tipifican las grandes corrientes en las comunidades LGBTIQ+ –lesbianas, gais, bisexuales, transexuales, transgéneros, travestis, intersexuales, queer, etc–, que consideran opresivas o con tendencia a la asimilación. Es importante tener en cuenta que el término queer es un término amplio y diverso que incluye a muchas personas que se sienten cómodas con identidades de género y orientaciones sexuales no normativas."
+    },
+    {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "¿A quién se llama travestismo?",
+      respuestacorrecta: "Cuando una persona se viste de un género distinto al suyo.",
+      respuesta1: "Cuando una persona se cambia de sexo.",
+      respuesta2: "Cuando una persona odia al otro sexo.",
+      respuesta3: "Cuando se tiene sexo con una persona joven.",
+      masInfo: "El travestismo es un comportamiento e identidad transgénero en la que una persona de un determinado género expresa a través de la vestimenta, principalmente, un rol de género socialmente asignado al género opuesto. Algunas personas travestis lo hacen como forma de expresión artística o de autoexpresión personal, mientras que otras pueden hacerlo como parte de su vida diaria."
+    },
+    {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "¿Qué es la tolerancia?",
+      respuestacorrecta: "Es el respeto hacia el otro que piensa diferente.",
+      respuesta1: "Es la atracción sexual hacia el otro que piensa diferente.",
+      respuesta2: "Es el odio hacia el otro que piensa diferente.",
+      respuesta3: "Es la burla hacia el otro que piensa diferente.",
+      masInfo: "La tolerancia se basa en el respeto hacia lo otro o lo que es diferente de lo propio, y puede manifestarse como un acto de indulgencia ante algo que no se quiere o no se puede impedir, o como el hecho de soportar o aguantar a alguien o algo. La palabra proviene del latín tolerantĭa, que significa ‘cualidad de quien puede aguantar, soportar o aceptar’. La tolerancia es un valor moral que implica el respeto íntegro hacia el otro, hacia sus ideas, prácticas o creencias, independientemente de que choquen o sean diferentes de las nuestras. En este sentido, la tolerancia es también el reconocimiento de las diferencias inherentes a la naturaleza humana, a la diversidad de las culturas, las religiones o las maneras de ser o de actuar."
+    },
+    {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "¿A qué se denomina heterosexualidad?",
+      respuestacorrecta: "Atracción sexual que una persona siente hacia otra de distinto sexo.",
+      respuesta1: "Atracción sexual que una persona siente hacia sí mismo.",
+      respuesta2: "Atracción sexual que una persona siente hacia otra del mismo sexo.",
+      respuesta3: "Atracción sexual que una persona siente hacia otra de su mismo sexo o también de otro sexo.",
+      masInfo: "Es una orientación sexual caracterizada por el deseo y la atracción hacia personas del sexo opuesto. Un hombre heterosexual se siente atraído por las mujeres, mientras que una mujer heterosexual siente atracción por los hombres."
+    },
+    {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "¿Qué es la discriminación?",
+      respuestacorrecta: "Trato diferente y/o perjudicial que se da a una persona.",
+      respuesta1: "Atracción sexual que se da a una persona.",
+      respuesta2: "Trato indiferente que se da a una persona.",
+      respuesta3: "Trato amoroso que se da a una persona.",
+      masInfo: "La discriminación es el trato injusto o desigual de una persona o grupo de personas debido a su género, edad, orientación sexual, discapacidad, religión, nacionalidad u otra característica personal. La discriminación puede ser directa, es decir, cuando se trata de manera diferente a una persona o grupo de personas de manera explícita y sin justificación, o puede ser indirecta, es decir, cuando se establecen barreras o condiciones que de manera sistemática afectan a una persona o grupo de personas de manera desfavorable sin tener en cuenta su característica particular. La discriminación es injusta y dañina y debe ser eliminada para garantizar la igualdad de oportunidades y el respeto a la dignidad de todas las personas."
+    },
+    {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "¿Qué es la Orientación Sexual?",
+      respuestacorrecta: "Es la preferencia sexual de una persona.",
+      respuesta1: "Una Infección de Transmisión Sexual.",
+      respuesta2: "Un método anticonceptivo.",
+      respuesta3: "Es la pertenencia hacia un sexo determinado.",
+      masInfo: "La orientación sexual, tendencia sexual o inclinación sexual se refiere a un patrón de atracción sexual, erótica, emocional o amorosa a determinado grupo de personas definidas por su sexo. La orientación sexual y su estudio pueden ser divididos en tres principales partes, siendo la heterosexualidad (atracción hacia personas del sexo opuesto), la homosexualidad (atracción hacia personas del mismo sexo) y la bisexualidad (atracción hacia personas de ambos sexos)."
+    },
+    {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "¿Qué es la xenofobia?",
+      respuestacorrecta: "Es el miedo, rechazo u odio al extranjero.",
+      respuesta1: "Es el deseo sexual hacia el extranjero.",
+      respuesta2: "Es la aceptación hacia el extranjero.",
+      respuesta3: "Es la indiferencia hacia el extranjero.",
+      masInfo: "La xenofobia es el miedo o el odio hacia los extranjeros o hacia lo que es percibido como \"diferente\" o \"extranjero\". Se trata de una actitud negativa hacia las personas que son percibidas como \"distintas\" debido a su raza, nacionalidad, cultura, religión, idioma u origen étnico. La xenofobia puede manifestarse de muchas maneras, incluyendo el rechazo a la inmigración, la discriminación racial o étnica, la violencia o el aislamiento social. La xenofobia puede tener un impacto negativo en la vida de las personas que son objeto de ella y puede socavar la armonía y la cohesión social en las comunidades y los países donde se manifiesta."
+    },
+    {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "¿A qué se denomina homosexualidad?",
+      respuestacorrecta: "Atracción sexual que una persona siente hacia otra del mismo sexo.",
+      respuesta1: "Atracción sexual que una persona siente hacia sí mismo.",
+      respuesta2: "Atracción sexual que una persona siente hacia otra de distinto sexo.",
+      respuesta3: "Atracción sexual que una persona siente hacia otra de su mismo sexo o también de otro sexo.",
+      masInfo: "La homosexualidad es la atracción romántica, afectiva o sexual hacia personas del mismo género. Las personas homosexuales son aquellas que experimentan esta atracción y pueden identificarse como lesbianas, si son mujeres, o como gays, si son hombres. La homosexualidad es una forma natural y normal de la orientación sexual y no es una enfermedad ni un trastorno mental. Las personas homosexuales tienen los mismos derechos y deberes que todas las demás personas y deben ser tratadas con respeto y dignidad. Aunque en algunos lugares la homosexualidad sigue siendo objeto de discriminación y estigmatización, la mayoría de las sociedades han avanzado en la aceptación y el reconocimiento de los derechos de las personas homosexuales."
+    },
+    {
+      categoria: "Diversidad",
+      trivia: "Diversidad Sexual",
+      pregunta: "¿Qué son los estereotipos de género?",
+      respuestacorrecta: "Es un modelo exagerado y simplista de un género determinado.",
+      respuesta1: "Es una identidad de género.",
+      respuesta2: "Es un modelo detallado de un género determinado.",
+      respuesta3: "Es una orientación sexual.",
+      masInfo: "Los estereotipos de género son el conjunto de ideas preconcebidas utilizadas para explicar el comportamiento de varones y mujeres, generadas en torno a la idea acerca de cómo deben comportarse y los papeles que deben desempeñar en el trabajo, la familia, el espacio público además de cómo deben relacionarse entre sí. Cada cultura elabora sus propios estereotipos de género que dependen de los roles en los marcos sociales en los que se construyen; sin embargo, numerosos estudios han encontrado elementos en común universales. Los estereotipos de género existen gracias a la cantidad de personas que los usan y solo serán corregidos por la educación. Los estereotipos de género se incorporan a través del aprendizaje en la socialización y con frecuencia no existe justificación racional; sin embargo, influyen en actitudes y conductas; por ello son utilizados con frecuencia en la mercadotecnia, la publicidad, el cine y los medios de comunicación."
+    },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué son los prejuicios?",
+        respuestacorrecta: "Juicio que se hace sobre una cosa sin conocerla.",
+        respuesta1: "Conocimiento profundo de las leyes.",
+        respuesta2: "Juicio que se hace sobre una cosa al conocerla en profundidad.",
+        respuesta3: "Juicio que se hace en un tribunal.",
+        masInfo: "El prejuicio es la acción y efecto de prejuzgar (juzgar las cosas sin tener cabal conocimiento o antes del tiempo oportuno). Un prejuicio, por lo tanto, es una opinión previa acerca de algo que se conoce poco o mal."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué es la empatía?",
+        respuestacorrecta: "Es la capacidad de ponerse en el lugar del otro.",
+        respuesta1: "Es una orientación sexual.",
+        respuesta2: "Es una forma de discriminación.",
+        respuesta3: "Es una forma de bullying.",
+        masInfo: "La empatía es la capacidad para ponerse en el lugar del otro y saber lo que siente o incluso lo que puede estar pensando. La palabra procede de los vocablos griegos en que significan 'dentro de él' y 'lo que se siente'. Esto no supone necesariamente compartir las mismas opiniones y argumentos que justifiquen el estado o reacción que expresa la otra persona. Ni siquiera significa estar de acuerdo con el modo de interpretar las situaciones con carga afectiva del interlocutor. La empatía está referida entre otras cosas a la escucha activa, la comprensión y el apoyo emocional. Además, la empatía implica tener la capacidad suficiente para diferenciar entre los estados afectivos de los demás y la habilidad para tomar perspectiva, tanto cognitiva como afectiva, respecto a la persona que nos expresa su estado emocional."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué significa la palabra gay?",
+        respuestacorrecta: "Manera de referirse a alguien homosexual.",
+        respuesta1: "Significa homosexual en inglés.",
+        respuesta2: "Intercambio de sexo.",
+        respuesta3: "Vestirse del otro sexo.",
+        masInfo: "En la actualidad, se utiliza gay para referirse a una persona con tendencias homosexuales. Hace referencia a un hombre o una mujer que se siente atraído emocional, romántica y sexualmente hacia otra persona del mismo género; algunas personas solo utilizan el término en referencia a los hombres gay. Es preferible utilizar la palabra gay en vez de la palabra homosexual, palabra que tiene referencias clínicas y que algunas personas encuentran ofensivas."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué es el sexismo?",
+        respuestacorrecta: "Discriminación basada en el sexo.",
+        respuesta1: "Discriminación intelectual.",
+        respuesta2: "Discriminación basada en la nacionalidad.",
+        respuesta3: "Discriminación basada en la superioridad de una cultura.",
+        masInfo: "Sexismo, discriminación sexual o discriminación de género es el prejuicio o discriminación basada en el sexo o género, también se refiere a las condiciones o actitudes que promueven estereotipos de roles sociales establecidos en diferencias sexuales. Las actitudes sexistas se sostienen en creencias y estereotipos tradicionales sobre los distintos roles de género."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué significa LGBT?",
+        respuestacorrecta: "Lesbiana, Gay, Bisexual y Transexual.",
+        respuesta1: "Una Infección de Transmisión Sexual.",
+        respuesta2: "Un grupo de rock homosexual.",
+        respuesta3: "Un grupo que odia a los heterosexuales.",
+        masInfo: "Las siglas LGBT se utilizan para abreviar algunas categorías de la Diversidad Sexual por las diferentes orientaciones sexuales diferentes a las heterosexuales: L de Lesbiana, G de Gay, B de Bisexual y T de Transexuales."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Cómo se dice...?",
+        respuestacorrecta: "Persona con discapacidad.",
+        respuesta1: "Personas con capacidad especial.",
+        respuesta2: "Minusválido.",
+        respuesta3: "Discapacitado.",
+        masInfo: "Según la Convención Internacional por los Derechos de las Personas con Discapacidad de Naciones Unidas (ONU) se dispuso que el término adecuado para referirnos a las personas que tienen una o más discapacidades es: “Personas con Discapacidad” (PCD) o “Personas en situación de Discapacidad” (PeSD). Por otra parte, al referirnos a una persona en particular, lo correcto es llamarla por su nombre, como a cualquier otro individuo. En caso de que debamos referirnos a la discapacidad, la expresión correcta es la de persona con discapacidad. En primer lugar, hablamos de las personas y en segundo término de la discapacidad como una de sus características."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué es la resiliencia?",
+        respuestacorrecta: "Capacidad que tiene una persona para superar circunstancias traumáticas.",
+        respuesta1: "Capacidad que tienen una persona para superar sus propias limitaciones.",
+        respuesta2: "Capacidad que tiene una persona para ponerse en el lugar del otro.",
+        respuesta3: "Capacidad que tienen una persona para ver la vida con actitud positiva.",
+        masInfo: "La resiliencia es la capacidad que tiene una persona o un grupo de recuperarse frente a la adversidad para seguir proyectando el futuro. En ocasiones, las circunstancias difíciles o los traumas permiten desarrollar recursos que se encontraban latentes y que el individuo desconocía hasta el momento."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿A qué se llama intersexual?",
+        respuestacorrecta: "Es una identidad de género.",
+        respuesta1: "Es una enfermedad.",
+        respuesta2: "Es una orientación sexual.",
+        respuesta3: "Es un método anticonceptivo.",
+        masInfo: "La intersexualidad es una variación por la cual un individuo presenta discrepancia entre su sexo cromosómico y sus órganos genitales, poseyendo por tanto características genéticas y fenotípicas propias de varón y de mujer, en grado variable. Por ejemplo, puede poseer vulva y vagina, y carecer de útero y ovarios, puede exhibir un órgano eréctil de tamaño y forma intermedios entre un clítoris y un pene poco desarrollado, o poseer ambas clases de gónadas, masculina y femenina. Aunque tradicionalmente se empleaba el término hermafroditismo, su uso no es correcto. La intersexualidad es un término amplio que abarca a una gran variedad de condiciones, y no todas las personas intersexuales son iguales. Algunas personas intersexuales pueden tener características físicas o genéticas que combinan rasgos de género masculinos y femeninos, mientras que otras pueden tener características que no se ajustan a la definición tradicional de masculino o femenino. Es importante tener en cuenta que la intersexualidad es una condición natural y no es una enfermedad o un trastorno."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué es la transexualidad?",
+        respuestacorrecta: "Una identidad de género.",
+        respuesta1: "Una Orientación Sexual.",
+        respuesta2: "Una práctica sexual.",
+        respuesta3: "Un sexo biológico.",
+        masInfo: "Transexualidad es una identidad de género. Persona que construye una identidad de género (sentimientos, actitudes, comportamientos, vestimenta, entre otros aspectos) diferente a la que le fue asignada en su nacimiento. En muchas oportunidades requieren para la construcción corporal de su identidad tratamientos hormonales y/o quirúrgicos incluyendo intervenciones de reconstrucción genital. Sin embargo, aunque hoy en día se ha popularizado su simplificación en el término “trans” para englobar las demás autopercepciones, algunas personas todavía se reivindican como “transexuales” o “travestis”, entre otros, pero muchas veces resignificando sus sentidos originales. Así, los diferentes debates en Argentina han planteado que una persona trans, transgénero, travesti o transexual construye su identidad de género independientemente de las intervenciones quirúrgicas, modificaciones hormonales y de otros tipos. Por lo tanto, el uso de estos modos de nombrarse a sí mismas en la propia experiencia de género no obedece a definiciones exhaustivas preestablecidas, sino a los diferentes modos de personalizar y/o politizar los términos disponibles."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué es la Identidad de Género?",
+        respuestacorrecta: "Es la construcción subjetiva de pertenencia a un género determinado.",
+        respuesta1: "Una Infección de Transmisión Sexual.",
+        respuesta2: "Un método anticonceptivo.",
+        respuesta3: "Es la preferencia sexual de una persona.",
+        masInfo: "La identidad de género alude a la percepción subjetiva que un individuo tiene sobre sí mismo en cuanto a sentirse hombre o mujer, asumiendo su sexo biológico o en otros casos sin considerar características físicas o biológicas; éste puede considerarse el «sexo psicológico» o «sexo psíquico», y se constituye en uno de los tres elementos de la identidad sexual, junto a la orientación sexual y el rol sexual."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué es el Rol Sexual?",
+        respuestacorrecta: "Es el conjunto de conductas o actitudes asociadas a un determinado sexo.",
+        respuesta1: "Es la preferencia sexual de una persona.",
+        respuesta2: "Una Orientación Sexual.",
+        respuesta3: "Es la pertenencia hacia un sexo determinado.",
+        masInfo: "El rol sexual es el conjunto de conductas y actitudes que, dependiendo de factores de muy diversa índole (de lo biológico a lo sociocultural), configuran un estilo de comportamiento sexual propio de un determinado sexo. Alude a las normas sociales y comportamentales generalmente percibidas como apropiadas para los hombres y las mujeres en un grupo o sistema social dado en función de la construcción social que se tiene de la masculinidad y femineidad. Los roles sexuales masculino y femenino están abiertos y son también permeables a la acción del cambio cultural."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué es la marginación?",
+        respuestacorrecta: "Dejar de lado a una persona por diversos motivos.",
+        respuesta1: "Ponerse en el lugar del otro.",
+        respuesta2: "Integrar a una persona sin importar las diferencias.",
+        respuesta3: "Valorar a todos por igual.",
+        masInfo: "En sociología, se denomina marginación por desventaja económica, profesional, política o de estatus social, grupo que debe integrarse a algunos de los sistemas de funcionamiento social (integración social). La marginación puede ser el efecto de prácticas explícitas de discriminación —que dejan efectivamente a la clase social o grupo social segregado al margen del funcionamiento social en algún aspecto— o, más indirectamente, ser provocada por la deficiencia de los procedimientos que aseguran la integración de los factores sociales, garantizándoles la oportunidad de desarrollarse plenamente. En un lenguaje menos avanzado es excluir a una persona por su rango económico, social o por sus formas de pensar o por cómo es físicamente."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "En relaciones sexuales entre dos mujeres ¿Se pueden contraer ITS?",
+        respuestacorrecta: "Sí, siempre que haya contacto de fluidos corporales.",
+        respuesta1: "Nunca, es muy seguro.",
+        respuesta2: "No, porque no hay penetración.",
+        respuesta3: "No, porque dos mujeres no pueden tener relaciones sexuales.",
+        masInfo: "Sí, en una relación sexual entre mujeres también existe el riesgo de contagio de ITS. Independientemente de nuestra orientación sexual, siempre que haya contacto de fluidos corporales hay riesgo de contagio."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿A qué se denomina bisexualidad?",
+        respuestacorrecta: "Atracción sexual que una persona siente hacia otra del mismo sexo y de distinto.",
+        respuesta1: "Atracción sexual que una persona siente hacia sí mismo.",
+        respuesta2: "Atracción sexual que una persona siente hacia otra de distinto sexo.",
+        respuesta3: "Atracción sexual que una persona siente hacia otra de otro sexo.",
+        masInfo: "Se denomina bisexualidad a la práctica o atracción sexual de una persona tanto con personas de su mismo sexo como con personas de sexo distinto al suyo."
+      },
+      {
+        categoria: "Diversidad",
+        trivia: "Diversidad Sexual",
+        pregunta: "¿Qué significa ser lesbiana?",
+        respuestacorrecta: "Homosexualidad femenina.",
+        respuesta1: "Un método anticonceptivo.",
+        respuesta2: "Homosexualidad masculina.",
+        respuesta3: "Homosexualidad masculina y femenina.",
+        masInfo: "Ser lesbiana es una forma de orientación sexual que se refiere a una mujer que experimenta atracción romántica, afectiva o sexual hacia otras mujeres. Las personas que se identifican como lesbianas pueden tener relaciones amorosas, románticas y sexuales con otras mujeres y pueden formar familias y comunidades con otras personas que comparten su orientación sexual. Es una forma legítima y valiosa de ser y no es una enfermedad ni un trastorno mental. Las personas lesbianas tienen los mismos derechos y deberes que todas las demás personas y deben ser tratadas con respeto y dignidad. Aunque en algunos lugares las personas lesbianas todavía enfrentan discriminación y estigmatización, la mayoría de las sociedades han avanzado en la aceptación y el reconocimiento de los derechos de las personas lesbianas."
+      },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué es la hepatitis B?",
+      respuestacorrecta: "Una ITS causada por un virus.",
+      respuesta1: "Una ITS causada por un hongo.",
+      respuesta2: "Una ITS causada por una bacteria.",
+      respuesta3: "Una ITS causada por un parásito.",
+      masInfo: "La hepatitis B es una enfermedad del hígado causada por el virus de la hepatitis B (VHB). La hepatitis B es una infección viral que puede afectar a personas de todas las edades y géneros y puede causar síntomas como fiebre, cansancio, dolor abdominal y ictericia (coloración amarillenta de la piel y los ojos).\nLa hepatitis B se transmite principalmente a través del contacto con sangre y otros fluidos corporales infectados, como el semen y la secreción vaginal. La hepatitis B también se puede transmitir durante el parto, cuando una madre infectada transmite el virus a su bebé."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué significan las siglas ITS?",
+      respuestacorrecta: "Infecciones de transmisión sexual.",
+      respuesta1: "Identidad Tran Sexual.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Infección de Transmisión de la Salud.",
+      masInfo: "Las siglas ITS significan \"infecciones de transmisión sexual\". Algunos ejemplos de ITS incluyen el virus del papiloma humano (VPH), el virus de inmunodeficiencia humana (VIH), la gonorrea y la sífilis. En algunos casos, las ITS pueden no causar síntomas aparentes, pero pueden ser peligrosas si no se tratan adecuadamente. Es importante protegerse de las ITS durante el contacto sexual utilizando métodos de barrera, como los preservativos, y haciéndose pruebas de detección de forma regular."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué es el herpes?",
+      respuestacorrecta: "Una ITS causada por un virus.",
+      respuesta1: "Una ITS causada por una bacteria.",
+      respuesta2: "Una ITS causada por un hongo.",
+      respuesta3: "Una ITS causada por un parásito.",
+      masInfo: "El herpes es una infección de transmisión sexual (ITS) causada por el virus del herpes simple (VHS). El herpes es una de las ITS más comunes en todo el mundo y puede afectar a personas de todas las edades y géneros que tienen contacto sexual. El herpes se transmite a través del contacto sexual, ya sea durante el sexo vaginal, anal o oral, y puede transmitirse tanto entre parejas del mismo género como entre parejas de distinto género. El herpes puede infectar el pene, la vagina, el ano o la boca, y puede causar síntomas como llagas dolorosas en los genitales o en la boca. Algunas personas que tienen herpes no tienen síntomas y pueden no saber que están infectadas."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué significa VPH?",
+      respuestacorrecta: "Virus de Papiloma Humano.",
+      respuesta1: "Virus de Próstata Humana.",
+      respuesta2: "Virus Peligroso en Humanos.",
+      respuesta3: "Virus de Palomas en Humanos.",
+      masInfo: "VPH es una sigla que significa \"virus del papiloma humano\". El virus del papiloma humano (VPH) es una infección viral que se transmite a través del contacto sexual. El VPH puede causar verrugas genitales y aumentar el riesgo de ciertos tipos de cáncer, como el cáncer de cuello uterino y el cáncer de ano. El VPH es muy común y puede afectar a personas de todas las edades y géneros que tienen contacto sexual. Algunas personas que tienen VPH no tienen síntomas y pueden no saber que están infectadas, pero el VPH puede ser peligroso si no se trata adecuadamente."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué es la candidiasis?",
+      respuestacorrecta: "Una ITS causada por un hongo.",
+      respuesta1: "Una ITS causada por un virus.",
+      respuesta2: "Una ITS causada por un parásito.",
+      respuesta3: "Una ITS causada por una bacteria.",
+      masInfo: "La candidiasis es una infección fúngica causada por el hongo Candida. La candidiasis es una de las infecciones fúngicas más comunes y puede afectar a personas de todas las edades y géneros. La candidiasis se puede presentar en diferentes partes del cuerpo, como la boca (candidiasis oral), la vagina (candidiasis vaginal) o la piel (candidiasis cutánea). Los síntomas de la candidiasis pueden variar dependiendo de la ubicación de la infección, pero pueden incluir comezón, enrojecimiento, descarga y dolor."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué personas pueden contraer ITS?",
+      respuestacorrecta: "Todas las personas.",
+      respuesta1: "Las personas promiscuas.",
+      respuesta2: "Los homosexuales.",
+      respuesta3: "Las mujeres.",
+      masInfo: "Cualquier persona que tenga contacto sexual puede contraer una infección de transmisión sexual (ITS). Esto incluye a personas de todas las edades, géneros y orientaciones sexuales. Las ITS se transmiten a través del contacto sexual, ya sea durante el sexo vaginal, anal o oral, y pueden transmitirse tanto entre parejas del mismo género como entre parejas de distinto género."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cuál de las siguientes ITS se previene por vacunación?",
+      respuestacorrecta: "Hepatitis B y VPH",
+      respuesta1: "VIH y VPH.",
+      respuesta2: "Clamidia.",
+      respuesta3: "Gonorrea.",
+      masInfo: "Existen algunas infecciones de transmisión sexual (ITS) que se pueden prevenir mediante la vacunación. Algunas de las ITS que se pueden prevenir con vacunación son:\nVirus del papiloma humano (VPH): Existen varias vacunas disponibles que pueden ayudar a prevenir la infección por el VPH. Las vacunas se recomiendan para personas de ciertas edades y pueden proteger contra ciertos tipos de VPH que son más propensos a causar cáncer. Hepatitis B: Existe una vacuna disponible que puede ayudar a prevenir la infección por el virus de la hepatitis B (VHB). La vacuna se recomienda para personas de ciertas edades y puede proteger contra la infección por el VHB y las complicaciones graves que puede causar, como la cirrosis y el cáncer de hígado."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué es la clamidia?",
+      respuestacorrecta: "Una ITS causada por una bacteria.",
+      respuesta1: "Una ITS causada por un virus.",
+      respuesta2: "Una ITS causada por un hongo.",
+      respuesta3: "Una ITS causada por un parásito.",
+      masInfo: "La clamidia es una infección de transmisión sexual (ITS) causada por la bacteria Chlamydia trachomatis. La clamidia es una de las ITS más comunes en todo el mundo y puede afectar a personas de todas las edades y géneros que tienen contacto sexual. La clamidia se transmite a través del contacto sexual, ya sea durante el sexo vaginal, anal o oral, y puede transmitirse tanto entre parejas del mismo género como entre parejas de distinto género. La clamidia puede infectar el pene, la vagina, el ano o la boca, y puede causar síntomas como dolor al orinar, flujo vaginal o peneal inusual o llagas en los genitales. Algunas personas que tienen clamidia no tienen síntomas y pueden no saber que están infectadas."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cómo se pueden prevenir las ITS?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Haciéndose un control periódico.",
+      respuesta2: "Vacunándose.",
+      respuesta3: "Usar preservativos siempre y de manera correcta.",
+      masInfo: "La única forma segura de protegerse de las ITS es no tener relaciones sexuales. Pero si elige mantener relaciones, usar un preservativo cada vez que practique sexo vaginal, anal u oral; limite la cantidad de parejas sexuales; hágase pruebas de detección de ITS periódicamente; sea honesto con su pareja sobre cualquier riesgo o infección que haya tenido y conozca los antecedentes sexuales de su pareja."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué significa que una ITS es asintomática?",
+      respuestacorrecta: "Que no presenta síntomas.",
+      respuesta1: "Que presenta síntomas.",
+      respuesta2: "Que es incurable.",
+      respuesta3: "Que no se puede detectar.",
+      masInfo: "Cuando una infección de transmisión sexual (ITS) es asintomática, significa que no presenta síntomas. Algunas personas que tienen una ITS no presentan síntomas y pueden no saber que están infectadas. Esto puede ser peligroso, ya que las ITS pueden dañar la salud y transmitirse a otras personas a través del contacto sexual sin protección. Por eso es importante hacerse pruebas de detección de forma regular, incluso si no se tienen síntomas, para asegurarse de que se está protegiendo de las ITS."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué es la clamidia?",
+      respuestacorrecta: "Una ITS causada por una bacteria.",
+      respuesta1: "Una ITS causada por un virus.",
+      respuesta2: "Una ITS causada por un hongo.",
+      respuesta3: "Una ITS causada por un parásito.",
+      masInfo: "La clamidia es una infección de transmisión sexual (ITS) causada por la bacteria Chlamydia trachomatis. Es una de las ITS más comunes en todo el mundo y puede afectar a personas de todas las edades y géneros que tienen contacto sexual. Se transmite a través del contacto sexual, ya sea durante el sexo vaginal, anal o oral, y puede infectar el pene, la vagina, el ano o la boca. Puede causar síntomas como dolor al orinar, flujo vaginal o peneal inusual o llagas en los genitales. Algunas personas que tienen clamidia no presentan síntomas y pueden no saber que están infectadas."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cómo se pueden prevenir las ITS?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Haciéndose un control periódico.",
+      respuesta2: "Vacunándose.",
+      respuesta3: "Usar preservativos siempre y de manera correcta.",
+      masInfo: "La única forma segura de protegerse de las ITS es no tener relaciones sexuales. Si eliges mantener relaciones, usa un preservativo cada vez que practiques sexo vaginal, anal u oral; limita la cantidad de parejas sexuales; hazte pruebas de detección de ITS periódicamente; sé honesto con tu pareja sobre cualquier riesgo o infección que hayas tenido, y conoce los antecedentes sexuales de tu pareja."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Qué significa que una ITS es asintomática?",
+      respuestacorrecta: "Que no presenta síntomas.",
+      respuesta1: "Que presenta síntomas.",
+      respuesta2: "Que es incurable.",
+      respuesta3: "Que no se puede detectar.",
+      masInfo: "Cuando una infección de transmisión sexual (ITS) es asintomática, significa que no presenta síntomas. Algunas personas que tienen una ITS no presentan síntomas y pueden no saber que están infectadas. Esto puede ser peligroso, ya que las ITS pueden dañar la salud y transmitirse a otras personas a través del contacto sexual sin protección. Por eso es importante hacerse pruebas de detección de forma regular, incluso si no se tienen síntomas."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cuál es el único método anticonceptivo que previene las ITS?",
+      respuestacorrecta: "El preservativo.",
+      respuesta1: "Las pastillas anticonceptivas.",
+      respuesta2: "El implante subdérmico.",
+      respuesta3: "El DIU.",
+      masInfo: "Los preservativos son el único método anticonceptivo que protege contra las infecciones de transmisión sexual (ITS)."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cómo se transmite el VPH?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Por contacto de piel a piel.",
+      respuesta2: "No es necesario que haya sexo con penetración.",
+      respuesta3: "Relaciones sexuales orales, vaginales o anales.",
+      masInfo: "El virus del papiloma humano (VPH) se transmite a través del contacto sexual. Se puede transmitir durante el sexo vaginal, anal u oral y puede transmitirse tanto entre parejas del mismo género como entre parejas de distinto género. El VPH se transmite a través de las células de la piel de los genitales, la boca o el ano."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿A qué edad se comienza a vacunar para el VPH?",
+      respuestacorrecta: "Desde los 9 años.",
+      respuesta1: "Desde la primera relación sexual.",
+      respuesta2: "Desde los 15 años.",
+      respuesta3: "Desde los 18 años.",
+      masInfo: "La vacuna contra el virus del papiloma humano (VPH) se recomienda para niños y niñas a partir de los 11 o 12 años de edad, pero se puede administrar a partir de los 9 años. Es segura y efectiva para prevenir infecciones por VPH y ciertos tipos de cáncer relacionados con el VPH. La vacuna se administra en dos o tres dosis, dependiendo del tipo de vacuna que se use. En Argentina, el Calendario Nacional de Vacunación contempla la aplicación de 2 dosis de vacuna cuadrivalente a todas las niñas de 11 años y para varones y mujeres entre 11 y 26 años con factores de riesgo, se indica el esquema de 3 dosis."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cuál es el tratamiento para la sífilis?",
+      respuestacorrecta: "Mediante antibióticos.",
+      respuesta1: "Mediante una vacuna.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Mediante pastillas anticonceptivas.",
+      masInfo: "La sífilis es una infección de transmisión sexual (ITS) causada por la bacteria Treponema pallidum. Si se detecta temprano, se puede tratar con una dosis única de penicilina, un antibiótico. Si se tiene alergia a la penicilina, puede ser necesario un medicamento alternativo. Es importante seguir el tratamiento recetado por un médico y tomar todas las dosis según lo indicado para asegurarse de que la infección se ha curado completamente."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Las pastillas anticonceptivas previenen contra las ITS?",
+      respuestacorrecta: "No, solo el preservativo.",
+      respuesta1: "Sí.",
+      respuesta2: "Solo si se toma antes de tener relaciones.",
+      respuesta3: "Solo las de 21 pastillas.",
+      masInfo: "Las pastillas anticonceptivas no protegen contra las infecciones de transmisión sexual (ITS). Son un método anticonceptivo que se toma por vía oral para prevenir el embarazo al evitar la ovulación, lo que reduce la posibilidad de embarazo."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "Si una ITS es asintomática ¿Cómo se puede saber si una persona está infectada?",
+      respuestacorrecta: "Haciéndose una prueba médica.",
+      respuesta1: "Es imposible saberlo.",
+      respuesta2: "Por su aspecto físico.",
+      respuesta3: "Hay que esperar a que presente síntomas.",
+      masInfo: "Si una persona sospecha que puede estar infectada con una infección de transmisión sexual (ITS) y no tiene síntomas, es importante hacerse una prueba de detección. Las pruebas de detección son exámenes médicos que se realizan para determinar si una persona tiene una infección. Es importante hacerse pruebas de detección de forma regular, incluso si no se tienen síntomas, para protegerse y proteger a los demás."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cuál es el tratamiento para la sífilis?",
+      respuestacorrecta: "Mediante antibióticos.",
+      respuesta1: "Mediante una vacuna.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Mediante pastillas anticonceptivas.",
+      masInfo: "La sífilis es una infección de transmisión sexual (ITS) causada por la bacteria Treponema pallidum. El tratamiento para la sífilis depende del estadio de la enfermedad. Si se detecta temprano, se puede tratar con una dosis única de penicilina, un antibiótico. Es importante seguir el tratamiento recetado por un médico y tomar todas las dosis para asegurar que la infección se ha curado completamente. Si se tiene pareja sexual, es importante informarle sobre la infección y asegurarse de que también reciba tratamiento si es necesario."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Las pastillas anticonceptivas previenen contra las ITS?",
+      respuestacorrecta: "No, solo el preservativo.",
+      respuesta1: "Sí.",
+      respuesta2: "Solo si se toma antes de tener relaciones.",
+      respuesta3: "Solo las de 21 pastillas.",
+      masInfo: "Las pastillas anticonceptivas no protegen contra las infecciones de transmisión sexual (ITS). Son un método anticonceptivo oral que se utiliza para prevenir el embarazo al evitar la ovulación, pero no previenen las ITS."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "Si una ITS es asintomática ¿Cómo se puede saber si una persona está infectada?",
+      respuestacorrecta: "Haciéndose una prueba médica.",
+      respuesta1: "Es imposible saberlo.",
+      respuesta2: "Por su aspecto físico.",
+      respuesta3: "Hay que esperar a que presente síntomas.",
+      masInfo: "Si una persona sospecha que puede estar infectada con una ITS y no tiene síntomas, es importante hacerse una prueba de detección. Las pruebas de detección son exámenes médicos para determinar si una persona tiene una infección. Es importante hacerse pruebas regularmente, incluso sin síntomas, para protegerse a uno mismo y a los demás."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cuál de las siguientes ITS se puede transmitir a través del contacto con sangre infectada?",
+      respuestacorrecta: "Hepatitis B.",
+      respuesta1: "Clamidia.",
+      respuesta2: "Sífilis.",
+      respuesta3: "VPH (Virus del Papiloma Humano).",
+      masInfo: "La Hepatitis B es una ITS que se puede transmitir a través del contacto con sangre infectada, relaciones sexuales sin protección o de madre a hijo durante el parto."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cuál de las siguientes ITS puede causar cáncer cervical?",
+      respuestacorrecta: "VPH (Virus del Papiloma Humano).",
+      respuesta1: "Clamidia.",
+      respuesta2: "Sífilis.",
+      respuesta3: "Gonorrea.",
+      masInfo: "El Virus del Papiloma Humano (VPH) es una ITS que puede causar verrugas genitales y aumentar el riesgo de cáncer cervical y otros cánceres relacionados en mujeres."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "ITS",
+      pregunta: "¿Cuál de las siguientes ITS puede causar problemas de fertilidad si no se trata adecuadamente?",
+      respuestacorrecta: "Gonorrea.",
+      respuesta1: "Verrugas genitales.",
+      respuesta2: "VIH.",
+      respuesta3: "Tricomoniasis.",
+      masInfo: "La gonorrea puede causar problemas de fertilidad tanto en hombres como en mujeres si no se trata adecuadamente, ya que puede afectar los órganos reproductores."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "VIH",
+      pregunta: "¿Qué significan las siglas VIH?",
+      respuestacorrecta: "Virus de Inmunodeficiencia Humana.",
+      respuesta1: "Virus de Infección en la Hemoglobina.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Virus de Infección Hepática.",
+      masInfo: "Las siglas VIH significan Virus de Inmunodeficiencia Humana. El VIH es el virus que causa el SIDA (Síndrome de Inmunodeficiencia Adquirida). El VIH ataca y debilita el sistema inmunológico, dificultando que el cuerpo luche contra infecciones y enfermedades."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "VIH",
+      pregunta: "¿Cuál de las siguientes afirmaciones sobre el tratamiento del VIH es cierta?",
+      respuestacorrecta: "El tratamiento del VIH puede reducir la carga viral.",
+      respuesta1: "No hay tratamiento efectivo para el VIH.",
+      respuesta2: "El tratamiento del VIH está disponible solo para hombres.",
+      respuesta3: "El tratamiento del VIH puede curar completamente la infección.",
+      masInfo: "Aunque el tratamiento del VIH no puede curar completamente la infección, puede reducir significativamente la carga viral en el cuerpo, fortalecer el sistema inmunológico y mejorar la calidad de vida de las personas con VIH."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "VIH",
+      pregunta: "¿Es seguro que una persona con VIH tome medicamentos antirretrovirales durante el embarazo?",
+      respuestacorrecta: "Sí, los medicamentos antirretrovirales son seguros y pueden prevenir la transmisión del VIH al bebé.",
+      respuesta1: "No, los medicamentos antirretrovirales pueden dañar al bebé.",
+      respuesta2: "Sí, pero solo después del nacimiento del bebé.",
+      respuesta3: "No, los medicamentos antirretrovirales pueden causar aborto espontáneo.",
+      masInfo: "Tomar medicamentos antirretrovirales durante el embarazo puede reducir significativamente el riesgo de transmisión del VIH al bebé. Los medicamentos antirretrovirales son seguros y se utilizan para prevenir la transmisión del VIH de madre a hijo y mantener la salud de la madre durante el embarazo."
+    },
+    {
+      categoria: "Prevención",
+      trivia: "VIH",
+      pregunta: "¿Qué significa la sigla PrEP?",
+      respuestacorrecta: "Profilaxis Preexposición.",
+      respuesta1: "Procedimiento para Revisión de Enfermedades Preexistentes.",
+      respuesta2: "Procedimiento de Revisión de Exposición Precoz.",
+      respuesta3: "Prevención y Reducción de Enfermedades Prevalentes.",
+      masInfo: "PrEP significa Profilaxis Preexposición. Es una estrategia preventiva en la que personas con un alto riesgo de contraer el VIH toman medicamentos antirretrovirales diariamente para reducir el riesgo de infección por el virus."
+    },
+    {
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Cuál de las siguientes afirmaciones sobre el tratamiento del VIH es cierta?",
+  respuestacorrecta: "El tratamiento del VIH puede reducir la carga viral.",
+  respuesta1: "No hay tratamiento efectivo para el VIH.",
+  respuesta2: "El tratamiento del VIH está disponible solo para hombres.",
+  respuesta3: "El tratamiento del VIH puede curar completamente la infección.",
+  masinfo: "Aunque el tratamiento del VIH no puede curar completamente la infección, puede reducir significativamente la carga viral en el cuerpo, fortalecer el sistema inmunológico y mejorar la calidad de vida de las personas con VIH."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Es seguro que una persona con VIH tome medicamentos antirretrovirales durante el embarazo?",
+  respuestacorrecta: "Sí, los medicamentos antirretrovirales son seguros y pueden prevenir la transmisión del VIH al bebé.",
+  respuesta1: "No, los medicamentos antirretrovirales pueden dañar al bebé.",
+  respuesta2: "Sí, pero solo después del nacimiento del bebé.",
+  respuesta3: "No, los medicamentos antirretrovirales pueden causar aborto espontáneo.",
+  masinfo: "Tomar medicamentos antirretrovirales durante el embarazo puede reducir significativamente el riesgo de transmisión del VIH al bebé. Los medicamentos antirretrovirales son seguros y se utilizan para prevenir la transmisión del VIH de madre a hijo y mantener la salud de la madre durante el embarazo."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Qué significa la sigla PrEP?",
+  respuestacorrecta: "Profilaxis Preexposición.",
+  respuesta1: "Procedimiento para Revisión de Enfermedades Preexistentes.",
+  respuesta2: "Procedimiento de Revisión de Exposición Precoz.",
+  respuesta3: "Prevención y Reducción de Enfermedades Prevalentes.",
+  masinfo: "PrEP significa Profilaxis Preexposición, es una estrategia preventiva en la que personas con un alto riesgo de contraer el VIH toman medicamentos antirretrovirales diariamente para reducir el riesgo de infección por el virus."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Qué significa la sigla PEP?",
+  respuestacorrecta: "Profilaxis Postexposición.",
+  respuesta1: "Prevención y Educación del VIH.",
+  respuesta2: "Procedimiento de Evaluación Postexposición.",
+  respuesta3: "Prevención y Erradicación del VIH.",
+  masinfo: "PEP significa Profilaxis Postexposición, es una estrategia preventiva en la que se administran medicamentos antirretrovirales a personas que han estado expuestas al VIH en situaciones de riesgo, con el fin de reducir el riesgo de infección."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿En qué situaciones se puede utilizar la PEP?",
+  respuestacorrecta: "Todas las opciones.",
+  respuesta1: "Después de tener relaciones sexuales sin protección con una pareja VIH positiva.",
+  respuesta2: "Después de una exposición al pinchazo con aguja contaminada.",
+  respuesta3: "Después de compartir agujas o jeringas con alguien que tiene VIH.",
+  masinfo: "La PEP se puede utilizar en todas las situaciones mencionadas: después de tener relaciones sexuales sin protección con una pareja VIH positiva, después de compartir agujas o jeringas con alguien que tiene VIH, y después de una exposición ocupacional al VIH (como un pinchazo con una aguja contaminada en el entorno de atención médica)."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Es la PEP una forma efectiva de prevención del VIH?",
+  respuestacorrecta: "Sí, pero solo si se toma inmediatamente después de la exposición al VIH.",
+  respuesta1: "Sí, es 100% efectiva.",
+  respuesta2: "Sí, pero solo para ciertos grupos de personas.",
+  respuesta3: "No, no es efectiva para prevenir el VIH.",
+  masinfo: "La PEP puede ser efectiva para prevenir el VIH, pero su eficacia disminuye si no se inicia dentro de las primeras 72 horas (3 días) después de la exposición de riesgo. Es importante comenzar lo antes posible para obtener la máxima protección."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Qué diferencia hay entre VIH y sida?",
+  respuestacorrecta: "VIH es el virus y SIDA es la etapa final de la enfermedad.",
+  respuesta1: "Son sinónimos.",
+  respuesta2: "SIDA es el virus y VIH es la etapa final de la enfermedad.",
+  respuesta3: "No tienen diferencia.",
+  masinfo: "El virus de inmunodeficiencia humana (VIH) es un virus que puede dañar el sistema inmunológico de una persona y hacer que sea más propensa a enfermedades y infecciones. El VIH se transmite principalmente a través del contacto sexual sin protección, el uso compartido de jeringas y agujas contaminadas o durante el embarazo, el parto o la lactancia.\nEl síndrome de inmunodeficiencia adquirida (sida) es una enfermedad que ocurre cuando el sistema inmunológico de una persona es gravemente dañado debido al VIH. La persona con sida es muy propensa a contraer enfermedades graves y a morir de infecciones o tumores que normalmente el sistema inmunológico podría controlar.\n\nEs importante tener en cuenta que el VIH es la causa del sida, pero no todas las personas con VIH tienen sida. Con el tratamiento adecuado, es posible controlar el VIH y evitar que progrese a sida. Sin embargo, es importante que las personas con VIH se sometan a tratamiento de inmediato para controlar el virus y proteger su sistema inmunológico."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Cuál es el objetivo principal de la PEP?",
+  respuestacorrecta: "Reducir el riesgo de infección por el VIH en personas no infectadas.",
+  respuesta1: "Curar el VIH en personas que ya están infectadas.",
+  respuesta2: "Tratar las complicaciones del SIDA en pacientes diagnosticados.",
+  respuesta3: "Prevenir la transmisión del VIH de madre a hijo durante el embarazo.",
+  masinfo: "El objetivo principal de la PEP es reducir el riesgo de infección por el VIH en personas que aún no están infectadas, pero que han estado expuestas al virus en situaciones de riesgo."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Qué signfica que el VIH es indetectable?",
+  respuestacorrecta: "Que no transmite la infección.",
+  respuesta1: "Que la persona está curada.",
+  respuesta2: "Ninguna es correcta.",
+  respuesta3: "Que puede tener relaciones sexuales sin preservativo.",
+  masinfo: "El virus de la inmunodeficiencia humana (VIH) es un virus que afecta al sistema inmunitario y puede debilitar la capacidad del cuerpo para combatir infecciones y enfermedades. Si una persona tiene el VIH, es importante recibir tratamiento médico para mantener el virus bajo control y evitar que dañe el sistema inmunitario. Cuando se habla de que el VIH es 'indetectable', se refiere a que no se pueden detectar niveles detectables del virus en la sangre de una persona. Esto se logra con el tratamiento antirretroviral, que consiste en tomar medicamentos para reducir el nivel del virus en la sangre hasta niveles indetectables.\nEs importante recordar que el tratamiento antirretroviral no cura el VIH, pero puede ayudar a mantener el virus bajo control y a prevenir la progresión de la infección. Cuando una persona con VIH en tratamiento mantiene una carga viral indetectable durante al menos seis meses, no existe posibilidad de transmisión del virus por vía sexual."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Qué personas tienen riesgo de infectarse con VIH?",
+  respuestacorrecta: "Todas.",
+  respuesta1: "Solo las mujeres.",
+  respuesta2: "Nadie.",
+  respuesta3: "Solo los homosexuales.",
+  masinfo: "Toda persona que no se cuide a la hora de tener relaciones sexuales, tiene riesgo de infectarse. No hay ningún humano inmune a esa enfermedad."
+},{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Es la PEP una medida preventiva a largo plazo para el VIH?",
+  respuestacorrecta: "No, solo es una opción de emergencia después de una exposición de riesgo.",
+  respuesta1: "Sí, se puede tomar indefinidamente.",
+  respuesta2: "Sí, se puede tomar regularmente como método preventivo.",
+  respuesta3: "No, solo se puede tomar una vez en la vida.",
+  masInfo: "La PEP es una opción de emergencia y no se debe tomar de forma continua o regular como medida preventiva a largo plazo. Se utiliza después de una exposición de riesgo al VIH y debe ser indicada y supervisada por un profesional de la salud. No sustituye otras estrategias preventivas, como el uso de preservativos y la PrEP, para personas con alto riesgo de contraer el VIH."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Cómo se transmite el VIH?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "Semen y fluidos vaginales.",
+  respuesta2: "Leche humana.",
+  respuesta3: "Sangre.",
+  masInfo: "El virus de la inmunodeficiencia humana (VIH) es un virus que ataca al sistema inmunológico y puede llevar a la infección del sida (síndrome de inmunodeficiencia adquirida). El VIH se transmite principalmente a través del contacto con sangre y otros fluidos corporales infectados, como el semen, la secreción vaginal y la leche materna."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Por qué el mosquito NO puede transmitir el VIH?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "Porque no inyecta su propia sangre a la persona que pica.",
+  respuesta2: "Porque solo inyecta su saliva que no contiene el virus.",
+  respuesta3: "Porque no inyecta la sangre de otra persona a la persona que pica.",
+  masInfo: "Los resultados de los experimentos y las observaciones sobre la picadura de insectos indican que cuando un insecto pica a una persona, no le inyecta su propia sangre o la sangre de la persona a quien picó anteriormente. Más bien, inyecta la saliva, que actúa como un lubricante para que el insecto pueda alimentarse eficientemente. Las enfermedades como la fiebre amarilla y la malaria se transmiten a través de la saliva de especies específicas de los mosquitos. Sin embargo, el VIH vive sólo durante un corto especio de tiempo en el interior de un insecto y, a diferencia de los microorganismos que se transmiten vía las picaduras de insectos, el VIH no se reproduce (y no sobrevive) en los insectos. Por lo tanto, aunque el VIH entre en un mosquito u otro insecto, el insecto no contrae la infección y no puede transmitir el VIH al próximo ser humano que pique."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Cuáles son los síntomas de la primera etapa post-contagio del VIH?",
+  respuestacorrecta: "Sarpullido, fiebre, dolor de cabeza entre otros.",
+  respuesta1: "Dolor en el útero.",
+  respuesta2: "Dolor en los testículos.",
+  respuesta3: "Dolor en los ovarios.",
+  masInfo: "Los síntomas del VIH son variados, porque dependen en qué etapa de la enfermedad esté el paciente. El sarpullido, fiebre, dolor de cabeza, entre otros, son sintomas que se dan en el período post contagio, la primera etapa. Aunque para la mayoría de las personas estos síntomas pasan inadvertidos, porque pasan como una cuadro gripal común. De ahí la importancia del análisis independientemente de los síntomas. Por lo tanto si se tiene alguna duda, no se debe esperar a los síntomas, sino hacer el test si hubo situaciones de rieso."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Cuál es el órgano principal que ataca el VIH?",
+  respuestacorrecta: "Sistema inmunológico.",
+  respuesta1: "Pulmones.",
+  respuesta2: "Corazón.",
+  respuesta3: "Hígado.",
+  masInfo: "El VIH ataca y debilita el sistema inmunológico del cuerpo, que es el encargado de protegerlo contra infecciones y enfermedades."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Cuál es el objetivo del tratamiento antirretroviral (TAR) para el VIH?",
+  respuestacorrecta: "Reducir la carga viral en el cuerpo y mantener la salud a largo plazo.",
+  respuesta1: "Curar completamente la infección.",
+  respuesta2: "Prevenir la transmisión del VIH a través de relaciones sexuales sin protección.",
+  respuesta3: "Aliviar los síntomas del SIDA.",
+  masInfo: "El tratamiento antirretroviral (TAR) para el VIH tiene como objetivo reducir la carga viral en el cuerpo, fortalecer el sistema inmunológico y mantener la salud a largo plazo. Aunque no cura el VIH, puede ayudar a las personas a llevar una vida más saludable y prolongada."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Cuál es el periodo de ventana para la detección de VIH en una prueba de anticuerpos?",
+  respuestacorrecta: "3 meses.",
+  respuesta1: "1 día.",
+  respuesta2: "1 año.",
+  respuesta3: "1 semana.",
+  masInfo: "El período de ventana es el tiempo necesario después de la infección para que una prueba de anticuerpos del VIH pueda detectar la presencia del virus en la sangre, en promedio, este período es de aproximadamente 3 meses."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Qué significan las siglas SIDA?",
+  respuestacorrecta: "Síndrome de Inmunodeficiencia Adquirida.",
+  respuesta1: "Sistema Inmunológico Deficiente y Afectado.",
+  respuesta2: "Sistema Inmunitario Desgastado y Agotado.",
+  respuesta3: "Síndrome de Infección Debilitante Avanzada.",
+  masInfo: "El SIDA (Síndrome de Inmunodeficiencia Adquirida) es una etapa avanzada de la infección por el Virus de Inmunodeficiencia Humana (VIH), en esta etapa, el sistema inmunológico está gravemente debilitado, lo que hace que la persona sea más susceptible a infecciones y enfermedades oportunistas."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Qué significa una prueba de VIH con resultado \"reactivo\"?",
+  respuestacorrecta: "El resultado es positivo para el VIH.",
+  respuesta1: "El resultado es negativo para el VIH.",
+  respuesta2: "El resultado es indeterminado y necesita más análisis.",
+  respuesta3: "La prueba fue incorrecta y debe repetirse.",
+  masInfo: "Una prueba de VIH con resultado \"reactivo\" indica que la persona está infectada con el VIH y debe buscar atención médica para confirmar el diagnóstico y comenzar el tratamiento."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Cuál de las siguientes afirmaciones sobre el VIH es verdadera?",
+  respuestacorrecta: "Una persona con VIH puede transmitir el virus incluso si no muestra síntomas.",
+  respuesta1: "El VIH solo afecta a personas de ciertos grupos de riesgo.",
+  respuesta2: "El VIH se puede transmitir a través del contacto casual, como dar la mano.",
+  respuesta3: "Una vez que se desarrollan síntomas del VIH, es posible revertir el daño causado.",
+  masInfo: "Es posible que una persona con VIH no muestre síntomas durante muchos años, pero aún así puede transmitir el virus a otros a través de relaciones sexuales sin protección o el uso compartido de agujas."
+},
+{
+  categoria: "Prevención",
+  trivia: "VIH",
+  pregunta: "¿Cuál de las siguientes afirmaciones sobre las pruebas de VIH es correcta?",
+  respuestacorrecta: "Las pruebas de VIH requieren análisis de sangre en un laboratorio.",
+  respuesta1: "Las pruebas de VIH son invasivas y dolorosas.",
+  respuesta2: "Las pruebas de VIH son costosas y difíciles de obtener.",
+  respuesta3: "Las pruebas de VIH son ineficaces para detectar la infección.",
+  masInfo: "Las pruebas de VIH generalmente implican un análisis de sangre en un laboratorio o pruebas rápidas que pueden realizarse en centros de salud y clínicas especializadas."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué parte del cuerpo es más comúnmente afectada por las ladillas?",
+  respuestacorrecta: "El área genital y púbica.",
+  respuesta1: "Las uñas de las manos.",
+  respuesta2: "Las manos y los brazos.",
+  respuesta3: "Las uñas de los pies.",
+  masInfo: "Las ladillas suelen infestar el vello púbico y el área genital, aunque también pueden encontrarse en otras áreas con vello corporal."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál de las siguientes opciones es un método efectivo para prevenir la transmisión del herpes?",
+  respuestacorrecta: "Usar condones durante las relaciones sexuales.",
+  respuesta1: "Tomar antibióticos regularmente.",
+  respuesta2: "Lavarse las manos frecuentemente.",
+  respuesta3: "Compartir utensilios de cocina.",
+  masInfo: "El uso adecuado de condones puede reducir significativamente el riesgo de transmisión del herpes y otras infecciones de transmisión sexual."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál de las siguientes afirmaciones es cierta sobre las ladillas?",
+  respuestacorrecta: "Son piojos púbicos.",
+  respuesta1: "Son una especie de ácaros.",
+  respuesta2: "Son un tipo de mosquito.",
+  respuesta3: "No causan picazón ni irritación.",
+  masInfo: "Las ladillas son una especie de piojos que infestan principalmente el vello púbico y otras áreas del vello corporal."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál es la principal medida de prevención contra las ladillas?",
+  respuestacorrecta: "Uso adecuado de condones durante el sexo.",
+  respuesta1: "Consumo de antibióticos.",
+  respuesta2: "Vacunación.",
+  respuesta3: "Uso de desinfectantes de manos.",
+  masInfo: "El uso adecuado de condones durante las relaciones sexuales puede ayudar a prevenir la transmisión de las ladillas y otras infecciones de transmisión sexual (ITS)."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué tipo de organismo es comúnmente responsable de la candidiasis?",
+  respuestacorrecta: "Hongos.",
+  respuesta1: "Bacterias.",
+  respuesta2: "Protozoos.",
+  respuesta3: "Virus.",
+  masInfo: "La candidiasis es una infección causada por hongos del género Candida, siendo Candida albicans la especie más comúnmente asociada."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuáles son los síntomas de la candidiasis vaginal?",
+  respuestacorrecta: "Ardor, picazón y secreción vaginal espesa y blanca.",
+  respuesta1: "Dolor al orinar y secreción vaginal rosada o sanguinolenta.",
+  respuesta2: "Tos, dificultad para respirar y fiebre alta.",
+  respuesta3: "Manchas rojas y dolorosas en los genitales.",
+  masInfo: "Los síntomas típicos de la candidiasis vaginal incluyen ardor y picazón en el área vaginal, así como una secreción vaginal espesa y blanca similar al requesón. Estos síntomas suelen ser incómodos pero no suelen causar fiebre ni otros síntomas sistémicos como tos o dificultad para respirar. Si experimentas estos síntomas, es importante buscar atención médica para un diagnóstico y tratamiento adecuados."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuáles son los factores de riesgo de la candidiasis?",
+  respuestacorrecta: "Todas las opciones.",
+  respuesta1: "Uso de antibióticos.",
+  respuesta2: "Diabetes.",
+  respuesta3: "Embarazo.",
+  masInfo: "Los factores de riesgo conocidos para la candidiasis incluyen el uso de antibióticos, el embarazo y la diabetes, así como otros factores como tener un sistema inmunológico debilitado, el uso de corticosteroides y la actividad sexual, entre otros. Estos factores pueden aumentar la probabilidad de desarrollar una infección por Candida. Si tienes factores de riesgo y experimentas síntomas de candidiasis, es importante buscar atención médica para un diagnóstico y tratamiento adecuados."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál es el tratamiento para la candidiasis?",
+  respuestacorrecta: "Antifúngicos.",
+  respuesta1: "Antivirales.",
+  respuesta2: "Antibióticos.",
+  respuesta3: "Antiparasitarios.",
+  masInfo: "La candidiasis se trata con medicamentos antifúngicos, que se pueden tomar por vía oral o aplicarlos en forma de crema o supositorio."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se puede transmitir la candidiasis vaginal?",
+  respuestacorrecta: "Todas las opciones.",
+  respuesta1: "El contacto sexual es la forma más común de transmisión.",
+  respuesta2: "La candidiasis vaginal puede transmitirse a través de objetos o superficies contaminadas.",
+  respuesta3: "Los bebés pueden contraer candidiasis de su madre durante el parto.",
+  masInfo: "La candidiasis vaginal se puede transmitir de varias maneras, incluyendo el contacto sexual, el parto y el contacto con objetos o superficies contaminadas. Aunque es menos común, la candidiasis vaginal también puede transmitirse a través de objetos o superficies contaminadas si entran en contacto con el hongo Candida y luego entran en contacto con la vagina."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué es un chancro en el contexto de las infecciones de transmisión sexual (ITS)?",
+  respuestacorrecta: "Una úlcera o llaga abierta en la piel o mucosas.",
+  respuesta1: "Una infección bacteriana en la garganta.",
+  respuesta2: "Una enfermedad de transmisión sexual sin síntomas visibles.",
+  respuesta3: "Un tipo de virus transmitido por mosquitos.",
+  masInfo: "En el contexto de las ITS, el chancro es un síntoma característico de la sífilis, una enfermedad de transmisión sexual causada por la bacteria Treponema pallidum."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál es una ITS que puede causar chancros?",
+  respuestacorrecta: "Sífilis.",
+  respuesta1: "Gonorrea.",
+  respuesta2: "Clamidia.",
+  respuesta3: "VIH/SIDA.",
+  masInfo: "La sífilis es una ITS que puede causar chancros y, si no se trata, puede llevar a complicaciones graves en el sistema nervioso, el corazón y otros órganos."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál de las siguientes afirmaciones es verdadera sobre el molusco contagioso?",
+  respuestacorrecta: "Es una infección viral de la piel que causa pequeñas protuberancias en la piel.",
+  respuesta1: "Es causado por una bacteria.",
+  respuesta2: "Se caracteriza por la presencia de ampollas llenas de líquido.",
+  respuesta3: "Es causado por un hongo.",
+  masInfo: "El molusco contagioso es una infección viral de la piel que provoca la aparición de pequeñas protuberancias perladas en la piel. El molusco contagioso es causado por un virus, y aunque no es una enfermedad de transmisión sexual, puede transmitirse a través del contacto directo con la piel afectada."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál es el tipo de herpes que generalmente causa herpes labial?",
+  respuestacorrecta: "Herpes simple tipo 1.",
+  respuesta1: "Herpes zóster.",
+  respuesta2: "Herpes simple tipo 2.",
+  respuesta3: "Herpes genital.",
+  masInfo: "El herpes labial es causado por el herpes simple tipo 1 (HSV-1). El herpes simple tipo 2 es el tipo de herpes que generalmente causa herpes genital. El herpes zóster es causado por el virus varicela-zoster, que es diferente del virus del herpes simple."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué es el molusco contagioso?",
+  respuestacorrecta: "Es una infección de la piel causada por un virus.",
+  respuesta1: "Es una infección de la piel causada por un hongo.",
+  respuesta2: "Es una infección de la piel causada por una bacteria.",
+  respuesta3: "Es una infección de la piel causada por un parásito.",
+  masInfo: "El molusco contagioso es una infección de la piel causada por un virus llamado virus del molusco contagioso (MCV). Se transmite por contacto directo con la piel infectada o por fómites contaminados. Los fómites son objetos que pueden transmitir el virus, como toallas, ropa o juguetes. Las lesiones características del molusco contagioso son papulas de color piel o rosadas, de aproximadamente 2 a 5 mm de diámetro, con un centro umbilicado. Las lesiones pueden aparecer en cualquier parte del cuerpo, pero son más comunes en el tronco, las extremidades y la cara."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál es una característica distintiva de las lesiones de molusco contagioso?",
+  respuestacorrecta: "Tienen un ombligo central.",
+  respuesta1: "Son de color rojo intenso.",
+  respuesta2: "Se presentan en grupos de ampollas.",
+  respuesta3: "Son dolorosas al tacto.",
+  masInfo: "Las lesiones de molusco contagioso tienen un ombligo central, también conocido como umbilicación. Esta característica es distintiva de las lesiones de molusco contagioso y ayuda a diferenciarlas de otras infecciones de la piel."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se propaga con mayor frecuencia el molusco contagioso de una persona a otra?",
+  respuestacorrecta: "Por contacto con la saliva.",
+  respuesta1: "Por picaduras de insectos.",
+  respuesta2: "Por compartir utensilios de cocina.",
+  respuesta3: "Por contacto sexual.",
+  masInfo: "El molusco contagioso puede transmitirse por contacto directo de piel a piel, incluyendo el contacto sexual. El virus puede transmitirse incluso si las lesiones no son visibles. Las personas con molusco contagioso pueden ser contagiosas incluso si no presentan síntomas. El riesgo de transmisión es mayor en personas con un sistema inmunitario debilitado."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué es la balanitis?",
+  respuestacorrecta: "Una inflamación de la cabeza del pene.",
+  respuesta1: "Una enfermedad del sistema nervioso.",
+  respuesta2: "Un tipo de cáncer de piel.",
+  respuesta3: "Una infección bacteriana en los ojos.",
+  masInfo: "La balanitis es una inflamación de la cabeza del pene (glande) en los hombres, que puede afectar a persona de todas las edades y suele manifestarse con síntomas como enrojecimiento, hinchazón, picazón y dolor en el área genital. La inflamación puede extenderse al prepucio (piel que cubre la cabeza del pene) en casos más graves, lo que se conoce como balanopostitis. Esta se debe a diferentes factores, entre los que se incluyen bacterias, virus, alérgenos y el más frecuente: un hongo denominado cándida."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál de las siguientes afirmaciones es cierta sobre el herpes?",
+  respuestacorrecta: "Puede causar llagas en los genitales y la boca.",
+  respuesta1: "Es causado por una bacteria.",
+  respuesta2: "Solo afecta a las personas mayores de 60 años.",
+  respuesta3: "Es una enfermedad curable.",
+  masInfo: "El herpes puede causar llagas en los genitales y la boca, así como en otras partes del cuerpo."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál de las siguientes afirmaciones es verdadera sobre el herpes genital?",
+  respuestacorrecta: "Puede causar síntomas como úlceras genitales y dolor al orinar.",
+  respuesta1: "Es causado por el virus de la influenza.",
+  respuesta2: "Solo afecta a hombres.",
+  respuesta3: "No se puede transmitir a través del contacto sexual.",
+  masInfo: "El herpes genital es una infección de transmisión sexual (ITS) causada por el virus del herpes simple (VHS), puede causar síntomas como úlceras genitales, dolor al orinar, picazón y ardor. El VHS se puede transmitir a través del contacto sexual con una persona que está infectada, incluso si no tiene síntomas. Puede afectar a hombres y mujeres."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué tipo de organismo causa la tricomoniasis?",
+  respuestacorrecta: "Protozoos.",
+  respuesta1: "Bacterias.",
+  respuesta2: "Hongos.",
+  respuesta3: "Virus.",
+  masInfo: "La tricomoniasis es una infección de transmisión sexual causada por un protozoo llamado Trichomonas vaginalis."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál es uno de los síntomas comunes de la tricomoniasis en las mujeres?",
+  respuestacorrecta: "Secreción vaginal amarilla o verdosa.",
+  respuesta1: "Dolor testicular.",
+  respuesta2: "Dolor de cabeza.",
+  respuesta3: "Tos y fiebre.",
+  masInfo: "Una secreción vaginal anormal es uno de los síntomas más comunes de la tricomoniasis en las mujeres."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se transmite con mayor frecuencia la tricomoniasis?",
+  respuestacorrecta: "Por contacto sexual.",
+  respuesta1: "A través del contacto con sangre infectada.",
+  respuesta2: "Por compartir alimentos y bebidas.",
+  respuesta3: "Por medio de las picaduras de mosquitos.",
+  masInfo: "La tricomoniasis se transmite principalmente a través del contacto sexual con una persona infectada."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál es una de las complicaciones posibles de la tricomoniasis si no se trata?",
+  respuestacorrecta: "Mayor riesgo de contraer otras infecciones de transmisión sexual (ITS).",
+  respuesta1: "Pérdida de peso inexplicada.",
+  respuesta2: "Aumento de la presión arterial.",
+  respuesta3: "Pérdida de la audición.",
+  masInfo: "La tricomoniasis no tratada puede aumentar el riesgo de contraer otras infecciones de transmisión sexual."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se transmiten las ladillas de una persona a otra?",
+  respuestacorrecta: "Por contacto sexual directo o indirecto.",
+  respuesta1: "A través de picaduras de mosquito.",
+  respuesta2: "Por compartir cepillos de dientes.",
+  respuesta3: "Por beber agua contaminada.",
+  masInfo: "Las ladillas se transmiten principalmente a través del contacto sexual con una persona infectada o por el uso compartido de ropa de cama, toallas u otros objetos personales contaminados."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál es uno de los síntomas más comunes de una infestación por ladillas?",
+  respuestacorrecta: "Picazón intensa en el área afectada.",
+  respuesta1: "Fiebre alta.",
+  respuesta2: "Visión borrosa.",
+  respuesta3: "Dolor abdominal intenso.",
+  masInfo: "La picazón intensa en el área infestada es uno de los síntomas característicos de una infestación por ladillas."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se contrae la Clamidia?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "Por vía oral y anal.",
+  respuesta2: "Por vía vaginal.",
+  respuesta3: "De madre a hijo durante el parto.",
+  masInfo: "La clamidia es una infección de transmisión sexual común. Es causada por la bacteria Chlamydia trachomatis. Esta se puede contraer durante el contacto sexual (vaginal, oral o anal) con una persona infectada sin preservativo y de madre a hijo, en el parto. Usando preservativo durante todas las relaciones sexuales orales, vaginales y/o anales tanto para prevenirla como para evitar reinfectarse."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuáles son los síntomas de la sífilis?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "Erupción cutánea que no pica, frecuentemente en manos y pies.",
+  respuesta2: "Aparición de una herida única, pequeña e indolora.",
+  respuesta3: "Inflamación de los ganglios linfáticos.",
+  masInfo: "Los síntomas al contraer sífilis aparecen dos o tres semanas después del contacto sexual y tienen dos etapas: - En la primera etapa aparece una pequeña llaga o úlcera llamada Chancro que puede aparecer en la boca, ano, vagina o pene. Es generalmente única y tiene bordes sobreelevados. La llaga o úlcera no duele y desaparece sola sin ningún tipo de tratamiento después de 15 días. - En la segunda etapa, después de seis meses (o más) después de desaparecida la llaga, puede aparecer: erupción (o ronchitas en la piel) en el cuerpo, sobre todo en el tronco, palmas y plantas, lesiones en la boca, fiebre y aumento generalizado del tamaño de los ganglios, caída del cabello."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se puede prevenir la Sífilis?",
+  respuestacorrecta: "Utilizando preservativos.",
+  respuesta1: "Vacunandose.",
+  respuesta2: "No dando la mano a una persona infectada.",
+  respuesta3: "No compartiendo cepillos de dientes.",
+  masInfo: "Hay varias medidas que se pueden tomar para prevenir la transmisión de la sífilis y otras infecciones de transmisión sexual (ITS): Usar condones durante el acto sexual: Los condones son una forma efectiva de prevenir la transmisión de la sífilis y otras ITS durante el acto sexual. Hacerse chequeos regularmente: Es importante hacerse chequeos regulares para detectar cualquier infección de transmisión sexual y recibir tratamiento de inmediato."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuáles son los síntomas de la hepatitis B?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "Fatiga, náusea o vómitos.",
+  respuesta2: "Ojos y piel amarillos (ictericia).",
+  respuesta3: "Orina de color oscuro y materia fecal de color más claro.",
+  masInfo: "Muchas personas con hepatitis B pueden no tener ningún síntoma. Por eso la única forma de detectarla es a través de un simple análisis de sangre que se realiza gratuitamente en todos los hospitales públicos y centros de salud. Sin embargo, entre algunos de los posibles síntomas, pueden tener: fatiga, náusea o vómitos, fiebre y escalofríos, orina de color oscuro, materia fecal de color más claro, ojos y piel amarillos (ictericia), dolor del lado derecho, que puede reflejarse en la espalda."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál infección de transmisión sexual es causada por un hongo?",
+  respuestacorrecta: "Candidiasis.",
+  respuesta1: "Sífilis.",
+  respuesta2: "VIH",
+  respuesta3: "Hepatitis.",
+  masInfo: "Una infección de transmisión sexual (ITS) causada por un hongo es la candidiasis. La candidiasis es una infección por hongos del género Candida que afecta principalmente a la vagina, pero también puede afectar al pene, el ano y la boca. La Candida es un tipo de hongo que normalmente se encuentra en el cuerpo y generalmente no causa problemas. Sin embargo, cuando hay un desequilibrio en la flora normal del cuerpo, la Candida puede crecer de manera excesiva y causar una infección. Los síntomas de la candidiasis pueden incluir secreción vaginal o peneana anormal, dolor durante el acto sexual, comezón y enrojecimiento de los genitales. La candidiasis se puede transmitir a través del contacto sexual sin protección con alguien que esté infectado. También se puede transmitir a través de compartir toallas o ropa íntima contaminada o al tocar la piel infectada de otra persona."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué es la tricomoniasis?",
+  respuestacorrecta: "Una Infección de Transmisión Sexual causada por un parásito.",
+  respuesta1: "Una Infección de Transmisión Sexual causada por un bacteria.",
+  respuesta2: "Una Infección de Transmisión Sexual causada por un hongo.",
+  respuesta3: "Una Infección de Transmisión Sexual causada por un virus.",
+  masInfo: "La tricomoniasis es una infección de transmisión sexual (ITS) causada por el parásito Trichomonas vaginalis. Se puede transmitir a través del contacto sexual sin protección con alguien que esté infectado. También se puede transmitir a través de compartir toallas o ropa íntima contaminada o al tocar la piel infectada de otra persona."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuáles son los síntomas de la clamidia?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "Al principio pueden no aparecer síntomas.",
+  respuesta2: "En las mujeres, flujo vaginal anormal con un fuerte olor.",
+  respuesta3: "Sensación de ardor al orinar.",
+  masInfo: "Los síntomas de la clamidia pueden variar y a veces no presentan síntomas evidentes. Sin embargo, algunos posibles síntomas de la clamidia incluyen: Flujo vaginal anormal o dolor durante la micción en las mujeres; Dolor o secreción del pene; Dolor abdominal en ambos géneros; Fiebre o dolor de cabeza; Dolor durante el acto sexual; Irritación o inflamación del ano. Es importante destacar que la clamidia puede ser transmitida sin presentar síntomas, por lo que es importante usar medidas de protección durante el acto sexual y hacerse chequeos regulares para detectar cualquier infección de transmisión sexual."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuáles son los tratamientos para la hepatitis B?",
+  respuestacorrecta: "Mediante medicamentos.",
+  respuesta1: "Mediante hierbas medicinales.",
+  respuesta2: "Mediante una vacuna.",
+  respuesta3: "No existe tratamiento.",
+  masInfo: "La infección crónica por el virus de la hepatitis B puede tratarse con fármacos, en particular agentes antivirales orales. El tratamiento puede ralentizar el avance de la cirrosis, reducir la incidencia de cáncer de hígado y mejorar la supervivencia a largo plazo. La hepatitis B es una inflamación que ataca directamente al hígado y puede causarle daño grave. Las personas infectadas pueden permanecer sin síntomas durante años y transmitirla a otras personas. Aunque la hepatitis B se trata con medicamentos, hay una vacuna segura y efectiva que puede prevenir la enfermedad y forma parte del calendario de vacunación obligatorio."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué son las ladillas?",
+  respuestacorrecta: "Una Infección de Transmisión Sexual causada por un parásito.",
+  respuesta1: "Una Infección de Transmisión Sexual causada por un bacteria.",
+  respuesta2: "Una Infección de Transmisión Sexual causada por un hongo.",
+  respuesta3: "Una Infección de Transmisión Sexual causada por un virus.",
+  masInfo: "Las ladillas son parásitos que se encuentran en la piel y en el cabello y se transmiten a través del contacto cercano con alguien que esté infectado. Las ladillas también se conocen como 'piojos púbicos' o 'piojos de la cabeza' y se pueden transmitir a través del contacto sexual sin protección, compartir toallas o ropa íntima contaminada o al tocar la piel infectada de otra persona. Los síntomas de las ladillas pueden incluir comezón intensa en la zona genital, el pubis o el ano y una erupción en la piel. A veces, las ladillas pueden no tener síntomas y pueden pasar desapercibidas durante años. Es importante hacerse chequeos regularmente y usar medidas de protección durante el acto sexual para prevenir la transmisión de las ladillas y otras infecciones de transmisión sexual. Las ladillas se pueden tratar con aplicaciones tópicas de crema especialmente formuladas para eliminar los parásitos."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué es la Sífilis?",
+  respuestacorrecta: "Una Infección de Transmisión Sexual.",
+  respuesta1: "Un virus.",
+  respuesta2: "Una marca de anticonceptivo.",
+  respuesta3: "Un órgano sexual.",
+  masInfo: "La sífilis es una Infección de Transmisión Sexual (I.T.S.) producida por una bacteria llamada Treponema Pallidum que afecta tanto a varones como a mujeres. Infecta el área genital, los labios, la boca o el ano. Por lo general se adquiere por contacto sexual con una persona que la tiene. También puede pasar de la madre al bebé durante el embarazo. La etapa temprana de la sífilis suele causar una llaga única, pequeña e indolora. Algunas veces, causa inflamación de los ganglios linfáticos cercanos. Si no se trata, generalmente causa una erupción cutánea que no pica, frecuentemente en manos y pies. Muchas personas no notan los síntomas durante años. Los síntomas pueden desaparecer y aparecer nuevamente. Las llagas causadas por la sífilis facilitan adquirir o contagiar el VIH durante las relaciones sexuales. Si está embarazada, la sífilis puede causar defectos congénitos o abortos."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se puede prevenir la clamidia?",
+  respuestacorrecta: "Utilizando preservativos.",
+  respuesta1: "No dando la mano a una persona infectada.",
+  respuesta2: "Usando una crema.",
+  respuesta3: "Vacunandose.",
+  masInfo: "Hay varias medidas que se pueden tomar para prevenir la transmisión de la clamidia y otras infecciones de transmisión sexual (ITS): Usar condones durante el acto sexual: Los condones son una forma efectiva de prevenir la transmisión de la clamidia y otras ITS durante el acto sexual. Hacerse chequeos regularmente: Es importante hacerse chequeos regulares para detectar cualquier infección de transmisión sexual y recibir tratamiento de inmediato."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se puede prevenir la Hepatitis B?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "No compartir agujas u otros elementos punzantes o cortantes.",
+  respuesta2: "Vacunandose.",
+  respuesta3: "Utilizando preservativos.",
+  masInfo: "Se previene a través de la vacuna contra la hepatitis B que está en el Calendario Nacional de Vacunación. Además, la infección puede prevenirse usando preservativo en todas las relaciones sexuales, no compartir agujas u otros elementos punzantes o cortantes."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué Infección de Transmisión Sexual detecta la prueba ELISA?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "VIH",
+  respuesta2: "Hepatitis b.",
+  respuesta3: "Sífilis",
+  masInfo: "La prueba ELISA (Enzyme-Linked Immunosorbent Assay) es una prueba de laboratorio que se utiliza para detectar anticuerpos en la sangre. Los anticuerpos son proteínas producidas por el sistema inmunológico para combatir infecciones y enfermedades. La prueba ELISA se utiliza para detectar varias infecciones de transmisión sexual (ITS), incluyendo: VIH: La prueba ELISA se utiliza para detectar anticuerpos del virus de inmunodeficiencia humana (VIH), que es el virus que causa el sida. Hepatitis B y C: La prueba ELISA se utiliza para detectar anticuerpos de la hepatitis B y C, que son infecciones del hígado causadas por virus. Sífilis: La prueba ELISA se utiliza para detectar anticuerpos de la sífilis, que es una infección de transmisión sexual causada por la bacteria Treponema pallidum."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿A qué edad hay que vacunarse contra la hepatitis B?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "A las 12 horas de vida.",
+  respuesta2: "A los 4 y 6 meses.",
+  respuesta3: "A los dos meses.",
+  masInfo: "La vacuna contra la hepatitis B se recomienda para todos los recién nacidos y para niños y adultos que no han sido vacunados anteriormente. La vacuna se administra en tres dosis: la primera dosis se administra al nacer, la segunda dosis se administra a los 1-2 meses de edad y la tercera dosis se administra a los 6-18 meses de edad. Es importante completar el esquema de vacunación completo para obtener la máxima protección contra la hepatitis B. Si no se ha vacunado anteriormente y es mayor de 18 años, todavía es posible vacunarse contra la hepatitis B."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se contrae la Sífilis?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "De madre a hijo durante el embarazo.",
+  respuesta2: "Por vía oral y anal.",
+  respuesta3: "Por vía vaginal.",
+  masInfo: "La sífilis es una infección de transmisión sexual (ITS) causada por la bacteria Treponema pallidum. Se puede contraer a través de contacto sexual con alguien que tiene sífilis, ya sea durante el acto sexual o a través del contacto con una llaga o úlcera de sífilis. También puede transmitirse de una madre infectada a su hijo durante el embarazo o el parto."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuáles son los síntomas de la gonorrea?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "Al principio pueden no aparecer síntomas.",
+  respuesta2: "En los hombres, ardor cuando orina, testículos adoloridos o hinchados.",
+  respuesta3: "En las mujeres, flujo vaginal generalmente verdoso o amarillento.",
+  masInfo: "La gonorrea puede afectar los genitales, el recto o la garganta. Muchos varones y mujeres con gonorrea pueden no presentar síntomas, especialmente cuando la infección está presente en el recto o la garganta. En la mujer, los síntomas pueden incluir: flujo vaginal generalmente verdoso o amarillento, ardor cuando orina o la necesidad de orinar más frecuentemente, sangrado después de las relaciones sexuales, sangrado entre los períodos de menstruación, dolor abdominal o pélvico. En el varón, los síntomas pueden incluir: flujo del pene generalmente verdoso o amarillento, ardor cuando orina o la necesidad de orinar más frecuentemente, testículos adoloridos o hinchados. En ambos, pueden sentir: dolor/ardor, secreción y/o sangrado."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se puede prevenir la gonorrea?",
+  respuestacorrecta: "Utilizando preservativos.",
+  respuesta1: "Utilizando un DIU.",
+  respuesta2: "Vacunandose.",
+  respuesta3: "Utilizando un lubricante.",
+  masInfo: "Hay varias medidas que se pueden tomar para prevenir la transmisión de la gonorrea y otras infecciones de transmisión sexual (ITS): Usar condones durante el acto sexual: Los condones son una forma efectiva de prevenir la transmisión de la gonorrea y otras ITS durante el acto sexual. Hacerse chequeos regularmente: Es importante hacerse chequeos regulares para detectar cualquier infección de transmisión sexual y recibir tratamiento de inmediato."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuáles son los tratamientos para la Gonorrea?",
+  respuestacorrecta: "Mediante antibióticos.",
+  respuesta1: "Mediante hierbas medicinales.",
+  respuesta2: "Mediante una vacuna.",
+  respuesta3: "No existe tratamiento.",
+  masInfo: "La gonorrea es una infección de transmisión sexual (ITS) causada por la bacteria Neisseria gonorrhoeae. Se puede tratar con antibióticos. El tratamiento generalmente consiste en tomar una dosis única de azitromicina o tomar una pastilla de doxiciclina dos veces al día durante una semana. Es importante seguir las instrucciones del médico y completar el tratamiento completo, incluso si los síntomas desaparecen. También es importante informar al médico si está embarazada o si está tomando cualquier otro medicamento, ya que algunos medicamentos pueden interferir con el tratamiento de la gonorrea. Además de tomar medicamentos, es importante informar a cualquier persona con la que haya tenido relaciones sexuales recientes para que también puedan recibir tratamiento."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Qué es la gonorrea?",
+  respuestacorrecta: "Una Infección de Transmisión Sexual causada por una bacteria.",
+  respuesta1: "Una Infección de Transmisión Sexual causada por un parásito.",
+  respuesta2: "Una Infección de Transmisión Sexual causada por un hongo.",
+  respuesta3: "Una Infección de Transmisión Sexual causada por un virus.",
+  masInfo: "La gonorrea es una infección causada por la bacteria Neisseria Gonorrhoeae. Puede causar infección de la uretra, el cervix, el recto y la garganta. Sin embargo, muchas personas no saben que tienen gonorrea porque, aunque estén infectadas, pueden no presentar síntomas. Su proveedor de cuidados de salud puede diagnosticar la gonorrea con exámenes de laboratorio. El tratamiento consiste en antibióticos. El tratamiento se está volviendo más difícil a raíz del aumento de cepas resistentes a los medicamentos. El uso correcto de preservativos de látex reduce enormemente, aunque no elimina, el riesgo de contraer y contagiar la gonorrea."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál es el tratamiento para la tricomoniasis?",
+  respuestacorrecta: "Antibióticos.",
+  respuesta1: "Mediante hierbas medicinales.",
+  respuesta2: "Aspirina y reposo.",
+  respuesta3: "Crema tópica y antihistamínicos.",
+  masInfo: "El tratamiento para la tricomoniasis es una dosis única de antibióticos orales, como metronidazol o tinidazol. Es importante seguir las instrucciones del médico y completar el tratamiento completo, incluso si los síntomas desaparecen. Es importante también informar a cualquier persona con la que haya tenido relaciones sexuales recientes para que también puedan recibir tratamiento. Es importante destacar que la tricomoniasis puede volver a aparecer después del tratamiento si no se siguen las medidas de prevención adecuadas. Por lo tanto, es importante continuar usando medidas de protección durante el acto sexual y hacerse chequeos regulares para detectar cualquier infección de transmisión sexual."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se contrae la hepatitis B?",
+  respuestacorrecta: "Todas son correctas.",
+  respuesta1: "De madre a hijo durante el parto.",
+  respuesta2: "Por vía oral, anal y vaginal.",
+  respuesta3: "Por el contacto con la sangre al compartir agujas.",
+  masInfo: "El hígado es el órgano más grande dentro de su cuerpo. Ayuda al organismo a digerir los alimentos, almacenar energía y eliminar las toxinas. La hepatitis es una inflamación del hígado. Un tipo, hepatitis B, es causado por el virus de la hepatitis B (VHB). La hepatitis B se contagia por contacto con sangre, semen u otro líquido de una persona infectada. Una mujer infectada puede contagiarle hepatitis B a su bebé durante el parto."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cómo se transmite el virus del zika?",
+  respuestacorrecta: "Por picadura de mosquito y contacto sexual.",
+  respuesta1: "Por contacto de la piel.",
+  respuesta2: "Por estornudo.",
+  respuesta3: "Solo por picadura de mosquito.",
+  masInfo: "La enfermedad por el virus de Zika es causada por un virus transmitido principalmente por mosquitos del género Aedes. Los pacientes con enfermedad por el virus de Zika pueden presentar síntomas tales como: fiebre no muy elevada, exantema, conjuntivitis, dolores musculares y articulares, malestar o cefaleas, que suelen durar entre 2 y 7 días. Hay un consenso científico sobre la relación causal entre el virus de Zika y la microcefalia y el síndrome de Guillain-Barré. El virus de Zika se transmite a las personas principalmente a través de la picadura de mosquitos infectados del género Aedes, y sobre todo de Aedes aegypti en las regiones tropicales. Los mosquitos Aedes suelen picar durante el día, sobre todo al amanecer y al anochecer, y son los mismos que transmiten el dengue, la fiebre chikungunya y la fiebre amarilla. Asimismo, es posible la transmisión sexual, y se están investigando otros modos de transmisión, como las transfusiones de sangre. Los síntomas son similares a los de otras infecciones por arbovirus, entre ellas el dengue, y consisten en fiebre, erupciones cutáneas, conjuntivitis, dolores musculares y articulares, malestar y cefaleas; suelen ser leves y durar entre 2 y 7 días."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál de las siguientes es una infección de transmisión sexual?",
+  respuestacorrecta: "Todas las opciones.",
+  respuesta1: "Clamidia.",
+  respuesta2: "Gonorrea.",
+  respuesta3: "Sífilis.",
+  masInfo: "Tanto la Clamidia, Sífilis y Gonorrea son infecciones de transmisión sexual (ITS), cada una de estas infecciones se puede transmitir de una persona a otra durante el contacto sexual, ya sea vaginal, anal u oral, y son causadas por bacterias."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuál de las siguientes es una ITS que puede causar cáncer?",
+  respuestacorrecta: "VPH (Virus del Papiloma Humano).",
+  respuesta1: "Clamidia.",
+  respuesta2: "Gonorrea.",
+  respuesta3: "Sífilis.",
+  masInfo: "El Virus del Papiloma Humano (VPH) es una Infección de Transmisión Sexual (ITS) que puede causar cáncer. El VPH es un grupo de virus que afecta la piel y las membranas mucosas del cuerpo, especialmente en el área genital."
+},
+{
+  categoria: "Prevención",
+  trivia: "ITS",
+  pregunta: "¿Cuáles son los tratamientos para la clamidia?",
+  respuestacorrecta: "Mediante antibióticos.",
+  respuesta1: "El tratamiento es muy costoso.",
+  respuesta2: "Mediante una vacuna.",
+  respuesta3: "No existe tratamiento.",
+  masInfo: "La clamidia se puede tratar con antibióticos. El tratamiento generalmente consiste en tomar una dosis única de azitromicina o tomar una pastilla de doxiciclina dos veces al día durante una semana. Es importante seguir las instrucciones del médico y completar el tratamiento completo, incluso si los síntomas desaparecen. También es importante informar al médico si está embarazada o si está tomando cualquier otro medicamento, ya que algunos medicamentos pueden interferir con el tratamiento de la clamidia. Además de tomar medicamentos, es importante informar a cualquier persona con la que haya tenido relaciones sexuales recientes para que también puedan recibir tratamiento."
+},
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Qué tipo de anticonceptivo es el preservativo?",
+      respuestacorrecta: "Un método barrera.",
+      respuesta1: "Un método hormonal.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Un método natural.",
+      masInfo: "Los preservativos son un tipo de anticonceptivo de barrera que se usan durante el acto sexual para prevenir el embarazo y las infecciones de transmisión sexual. Los preservativos se colocan en el pene o en la vagina durante el acto sexual y actúan como una barrera física que impide que los espermatozoides entren en contacto con el óvulo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Para qué sirve la barrera de látex?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Para relaciones sexuales entre mujeres.",
+      respuesta2: "Para annilingus, práctica de sexo oral en el ano.",
+      respuesta3: "Para cunnilingus, práctica del sexo oral en los genitales femeninos.",
+      masInfo: "Es una superficie de látex fina, que se realiza a partir de un preservativo. Se utiliza para protegerse de infecciones de transmisión sexual cuando se practica el sexo oral en la vagina o en el ano, o en el caso de frotar genitales."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Cómo se puede comprobar que no estén pinchados los preservativos?",
+      respuestacorrecta: "Tocando el envase. Tiene que tener aire.",
+      respuesta1: "Todas son correctas",
+      respuesta2: "Inflándolos.",
+      respuesta3: "Llenándolos de agua.",
+      masInfo: "Es importante asegurarse de que el preservativo no esté pinchado o dañado antes de usarlo para aumentar su efectividad en la prevención del embarazo y las infecciones de transmisión sexual (ITS). Algunas de las formas de comprobar que un preservativo no esté pinchado o dañado incluyen: Revisa el envase: Asegúrate de que el envase del preservativo no esté dañado o roto, si al tocarlo comprobamos que tiene aire en su interior es porque está sano el envase. Si el envase está dañado, es posible que el preservativo también lo esté."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Cuál es el método anticonceptivo que reduce la posibilidad de contraer una infección de transmisión sexual?",
+      respuestacorrecta: "El preservativo.",
+      respuesta1: "Las pastillas anticonceptivas.",
+      respuesta2: "La inyección.",
+      respuesta3: "El chip (implante subdérmico).",
+      masInfo: "El uso de preservativos es el método anticonceptivo más efectivo para reducir el riesgo de contraer infecciones de transmisión sexual (ITS). Los preservativos son un método de barrera que protege contra el contacto directo con fluidos corporales, lo que puede ayudar a reducir el riesgo de transmisión de infecciones."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Cómo se coloca el preservativo femenino?",
+      respuestacorrecta: "Se inserta en la vagina.",
+      respuesta1: "Se desenrolla sobre el pene.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Cubre solamente la vulva.",
+      masInfo: "El preservativo femenino es un método de barrera que se utiliza para protegerse de embarazos no deseados y de las infecciones de transmisión sexual (ITS) durante el acto sexual. Para colocar el preservativo femenino, siga estos pasos:\n\n1. Abra el envoltorio del preservativo con cuidado para evitar dañar el material.\n2. Retire el preservativo del envoltorio y asegúrese de que esté colocado correctamente en la parte inferior del envoltorio.\n3. Separe los labios mayores de la vagina con una mano y coloque el anillo exterior del preservativo en la vagina con la otra mano. Empuje el anillo hacia el fondo de la vagina con un dedo, asegurándose de que el preservativo quede suelto y no se doble. Con la mano que sostiene el anillo exterior, empuje el anillo hacia arriba y hacia atrás para cubrir el cuello uterino y asegurar que el preservativo esté en su lugar. Asegúrese de que el anillo exterior quede por fuera de la vagina y el anillo interior quede por dentro.\n\n4. Verifique que el preservativo esté en su lugar y que no se haya doblado o deslizado durante el acto sexual."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Se puede usar un preservativo masculino y uno femenino juntos?",
+      respuestacorrecta: "No, porque con la fricción es más fácil que se rompa.",
+      respuesta1: "Sí, es mucho más seguro.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Sí, aumenta la eficacia de los mismos casi a un 100%.",
+      masInfo: "No se recomienda usar un preservativo masculino y uno femenino juntos. Los preservativos se diseñan para cubrir y proteger el órgano sexual de una persona durante el acto sexual. Si se utilizan dos preservativos al mismo tiempo, pueden rozar o deslizarse uno contra otro, lo que puede aumentar el riesgo de rotura o deslizamiento de ambos preservativos."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Con qué elementos hay que abrir los preservativos?",
+      respuestacorrecta: "Con las manos.",
+      respuesta1: "Con los dientes.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Con tijeras.",
+      masInfo: "Los preservativos se abren con cuidado para evitar dañar el material y garantizar su efectividad. Es importante seguir las instrucciones del empaque del preservativo para asegurarse de usarlo de manera adecuada. Abra el envoltorio con cuidado con las manos, evitando usar dientes o uñas para evitar dañar el preservativo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Cuál es la eficacia de los preservativos?",
+      respuestacorrecta: "De 85% a 99% de eficacia.",
+      respuesta1: "Son 100% eficaz.",
+      respuesta2: "Son 90% eficaz.",
+      respuesta3: "Son 99% eficaz.",
+      masInfo: "Los preservativos son un método muy efectivo para prevenir el embarazo y las infecciones de transmisión sexual (ITS). Sin embargo, su efectividad depende de cómo se usen. Si se usan correctamente, los preservativos pueden ser muy efectivos. En un uso real, la efectividad varía de 85 a 99%."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Qué es lo primero que se debe hacer antes de usar un preservativo?",
+      respuestacorrecta: "Controlar que no estén vencidos.",
+      respuesta1: "Controlar que tengan lubricante.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Controlar que sean del tamaño correcto.",
+      masInfo: "Antes de usar un preservativo, es importante tomar algunas precauciones para asegurarse de que el preservativo se use correctamente y de manera efectiva. Algunas de las cosas que debes hacer antes de usar un preservativo incluyen: Lo primero es revisar la fecha de vencimiento; luego verificar el envase que tenga aire, lo que asegura que no esté pinchado."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Por qué es importante usar lubricantes a base de agua con los preservativos?",
+      respuestacorrecta: "Porque son los únicos que no dañan el preservativo de látex.",
+      respuesta1: "Porque así se pueden volver a usar.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "No es necesario usar lubricantes a base de agua.",
+      masInfo: "Los lubricantes a base de agua son una buena opción para usar con los preservativos por varias razones:\n\n1. Son compatibles con todos los tipos de preservativos. Los lubricantes a base de agua son seguros de usar con todos los tipos de preservativos, incluyendo los de látex, poliuretano y polisopreno.\n2. No dañan el material de los preservativos. Los lubricantes a base de aceite pueden dañar el material de los preservativos de látex y reducir su efectividad. Los lubricantes a base de agua no tienen este efecto y pueden ayudar a prolongar la vida útil de los preservativos.\n3. Son fáciles de limpiar: Los lubricantes a base de agua se lavan fácilmente con agua y jabón, lo que los hace más fáciles de limpiar que los lubricantes a base de aceite.\n4. Son adecuados para personas con piel sensible o alergias a ciertos productos químicos: Los lubricantes a base de agua son menos propensos a causar irritación o alergias que los lubricantes a base de aceite, lo que los hace más adecuados para personas con piel sensible o alergias a ciertos productos químicos."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿En qué momento hay que retirar el preservativo del pene?",
+      respuestacorrecta: "Inmediatamente luego de la eyaculación antes que pierda la erección.",
+      respuesta1: "Después de la eyaculación cuando el pene ya perdió la erección.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Antes de la eyaculación.",
+      masInfo: "Es importante retirar el preservativo del pene de manera adecuada para evitar el embarazo no deseado y reducir el riesgo de infecciones de transmisión sexual (ITS).\nEl preservativo debe retirarse inmediatamente después de la eyaculación, cuando el pene aún esté erecto. Para retirarlo, siga estos pasos:\n\n1. Asegúrese de que el pene esté todavía erecto antes de retirar el preservativo.\n2. Sostenga el preservativo en la base del pene mientras se retira.\n3. Desenrolle el preservativo lentamente y cuidadosamente, asegurándose de que no se filtre ningún esperma.\n4. Tire del preservativo hacia fuera y retírelo del pene. Si desea puede atar el extremo y controlar que no se haya roto."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Los preservativos tienen fecha de vencimiento?",
+      respuestacorrecta: "Sí, tienen vencimiento.",
+      respuesta1: "No, duran toda la vida.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "No, si se los cuida duran para siempre.",
+      masInfo: "Los preservativos tienen una fecha de vencimiento. Es importante tener en cuenta que la fecha de vencimiento es una indicación de cuándo el fabricante garantiza que el producto es seguro y efectivo para su uso. Después de la fecha de vencimiento, es posible que el preservativo no se mantenga en buenas condiciones y puede ser menos efectivo para prevenir el embarazo y las infecciones de transmisión sexual (ITS). Si tienes un preservativo que ha pasado su fecha de vencimiento, es importante desecharlo y reemplazarlo con uno nuevo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Cuáles son las causas por las que se puede romper un preservativo?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Usar doble preservativo.",
+      respuesta2: "Abrir el envase con los dientes.",
+      respuesta3: "Usar un lubricante incorrecto.",
+      masInfo: "Existen varias razones por las que un preservativo puede romperse o deslizarse durante el acto sexual. Algunas de las causas más comunes incluyen: No se usa correctamente; Falta de lubricación o uso incorrecto de lubricante; o estar vencidos."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Por qué el preservativo reduce la posibilidad de un embarazo?",
+      respuestacorrecta: "Porque impide el pasaje de espermatozoides.",
+      respuesta1: "Porque evita la ovulación.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Porque engrosa las paredes del útero impidiendo la implantación.",
+      masInfo: "Los preservativos son un método de anticoncepción muy efectivo para prevenir el embarazo. Durante el acto sexual, el preservativo se coloca en la punta del pene y se desenrolla hasta la base para cubrir el pene completamente. El preservativo se fabrica con un material fino y elástico llamado látex o poliuretano, que actúa como una barrera física entre el semen y la vagina. Esto impide que los espermatozoides entren en contacto con el óvulo, lo que reduce significativamente la posibilidad de un embarazo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Para qué sirve el preservativo?",
+      respuestacorrecta: "Reduce la posibilidad de un embarazo.",
+      respuesta1: "Aumenta la posibilidad de un embarazo.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Aumenta la posibilidad de contagio de una infección de transmisión sexual.",
+      masInfo: "El preservativo es un método anticonceptivo que se utiliza durante las relaciones sexuales para evitar el embarazo y reducir el riesgo de contraer infecciones de transmisión sexual (ITS)."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Qué pasa si se usa doble preservativo?",
+      respuestacorrecta: "Puede romperse más fácilmente.",
+      respuesta1: "Existe menos posibilidad de contraer una infección de transmisión sexual.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Aumenta la protección.",
+      masInfo: "Usar dos preservativos al mismo tiempo no es una práctica recomendada. De hecho, puede aumentar el riesgo de rotura o deslizamiento de los preservativos y, por lo tanto, reducir su efectividad en la prevención del embarazo y las infecciones de transmisión sexual (ITS).\n\nLos preservativos están diseñados para ser muy resistentes y efectivos cuando se usan correctamente. Al usar dos preservativos al mismo tiempo, aumentas la fricción y la tensión en el pene, lo que puede hacer que los preservativos se rompan o se deslicen más fácilmente. Además, el uso de dos preservativos puede dificultar la colocación y quitar el preservativo, lo que puede llevar a un uso incorrecto.\n\nEn lugar de usar dos preservativos al mismo tiempo, es mejor asegurarse de que el preservativo se coloca y se usa correctamente. Si se quiere aumentar aún más la protección, se puede considerar el uso de otros métodos de anticoncepción, como la pastilla anticonceptiva, junto con el preservativo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Por qué tengo que descartar el preservativo si lo apoyé del lado equivocado?",
+      respuestacorrecta: "Porque puede contener restos de líquido preseminal.",
+      respuesta1: "No es necesario descartarlo, se da vuelta y se usa.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Porque ya tomó aire y se rompe más fácilmente.",
+      masInfo: "Es importante asegurarse de que el preservativo esté colocado correctamente antes de usarlo durante el contacto sexual. Si el preservativo se coloca del lado equivocado, puede ser más difícil de desenrollar y puede no cubrir adecuadamente el pene. También es posible que haya quedado restos de líquido preseminal. Esto puede reducir la efectividad para prevenir el embarazo y las infecciones de transmisión sexual (ITS). Por estas razones, es importante descartar el preservativo si se ha colocado del lado equivocado o si se ha manipulado de alguna otra manera. Es mejor tomar precauciones adicionales y usar uno nuevo para asegurarse de que está protegiéndose a usted y a su pareja de manera adecuada."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Qué lubricantes se utilizan con los preservativos?",
+      respuestacorrecta: "Ninguna de las anteriores.",
+      respuesta1: "Vaselina.",
+      respuesta2: "Aceite de cocina.",
+      respuesta3: "Crema de manos.",
+      masInfo: "Es importante elegir un lubricante que sea compatible con el tipo de preservativo que esté utilizando. Los lubricantes a base de aceite pueden dañar los preservativos de látex y reducir su efectividad, por lo que se recomienda utilizar lubricantes a base de agua o especializados con preservativos de látex."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "Durante el sexo anal, ¿es necesario utilizar preservativo?",
+      respuestacorrecta: "Sí, porque existe posibilidad de contraer una infección de transmisión sexual.",
+      respuesta1: "No, porque no existe posibilidad de embarazo.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Sí, porque existe posibilidad de embarazo.",
+      masInfo: "Se recomienda utilizar un preservativo durante el sexo anal para reducir el riesgo de infecciones de transmisión sexual (ITS). El sexo anal puede ser más propenso a causar lesiones en la piel y en el tejido mucoso, lo que puede aumentar el riesgo de transmisión de infecciones. Además, el revestimiento del recto es más delicado que el revestimiento de la vagina y es más propenso a sufrir lesiones durante el acto sexual."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Cuál es el material con el que están fabricados la mayoría de los preservativos?",
+      respuestacorrecta: "Látex",
+      respuesta1: "Todas son correctas.",
+      respuesta2: "Goma",
+      respuesta3: "Plástico",
+      masInfo: "La mayoría de los preservativos están fabricados con látex, un material elástico y resistente que se obtiene de la savia de ciertos árboles de caucho. Los preservativos de látex son muy populares debido a su alta efectividad para prevenir el embarazo y las infecciones de transmisión sexual. También hay preservativos fabricados con materiales sintéticos como poliuretano o polisopreno, que son adecuados para personas que tienen alergia al látex. Es importante elegir un preservativo que sea seguro y efectivo para protegerse a uno mismo y a su pareja."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿En qué lugares NO es recomendable llevar los preservativos?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "En el bolsillo.",
+      respuesta2: "En la guantera del auto.",
+      respuesta3: "En la billetera.",
+      masInfo: "No hay lugares específicos en los que no sea recomendable llevar preservativos. Sin embargo, es importante tener en cuenta que los preservativos deben guardarse en un lugar fresco y seco para garantizar que se mantengan en buenas condiciones y sean seguros y efectivos para su uso. No deben guardarse en lugares muy calientes, como el auto en verano, ya que el calor puede dañar el material del preservativo y reducir su efectividad. También es importante no exponerlos a la luz solar directa, ya que esto puede afectar la calidad del material."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "¿Por qué se debe apretar la punta del preservativo antes de desenrollarlo sobre el pene?",
+      respuestacorrecta: "Porque evita que quede aire que pueda romper el preservativo.",
+      respuesta1: "No es necesario apretar la punta.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Porque esto me permite saber si está pinchado.",
+      masInfo: "Apretar la punta del preservativo antes de desenrollarlo sobre el pene evita que el aire quede atrapado en la punta del preservativo: El aire atrapado en la punta del preservativo puede hacer que el preservativo se rompa durante el uso. Apretar la punta antes de desenrollarlo permite que el aire salga y reduce el riesgo de rotura."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Preservativo",
+      pregunta: "Durante el sexo oral, ¿Es necesario utilizar preservativo?",
+      respuestacorrecta: "Sí, porque existe posibilidad de contraer una infección de transmisión sexual.",
+      respuesta1: "No, porque no existe posibilidad de embarazo.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Sí, porque existe posibilidad de embarazo.",
+      masInfo: "Durante el sexo oral, es importante usar protección para prevenir el riesgo de contraer infecciones de transmisión sexual (ITS) y el embarazo. Aunque el riesgo de contraer una ITS es menor durante el sexo oral que durante el sexo vaginal o anal, todavía existe cierto riesgo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Se puede ser alérgico al preservativo?",
+      respuestacorrecta: "Sí.",
+      respuesta1: "No.",
+      respuesta2: "Imposible, son antialérgicos.",
+      respuesta3: "Nunca.",
+      masInfo: "Ciertas personas sienten alergia al látex del preservativo, puede ser tanto el hombre como la mujer. Si se siente una sensación de ardor e irritación en la vagina o pene luego de una relación sexual, será necesario consultar a un especialista. En el caso de ser alérgico, se pueden usar preservativos de poliuretano."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué es la inyección anticonceptiva?",
+      respuestacorrecta: "Un método anticonceptivo que inyecta en el músculo.",
+      respuesta1: "Un método anticonceptivo que se coloca en el útero.",
+      respuesta2: "Un método anticonceptivo que se coloca en el brazo.",
+      respuesta3: "Un método anticonceptivo que se coloca en el pene.",
+      masInfo: "La inyección anticonceptiva es un método anticonceptivo que se aplica mediante una inyección en el músculo o debajo de la piel. La inyección anticonceptiva contiene hormonas que impiden la ovulación, es decir, la liberación de óvulos del ovario. También puede ayudar a engrosar el moco cervical, lo que dificulta la entrada del esperma al útero. La inyección anticonceptiva es un método muy efectivo para prevenir el embarazo, con una tasa de eficacia del 97% cuando se usa correctamente. Sin embargo, no protege contra las infecciones de transmisión sexual (ITS)."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "En una relación sexual, ¿quién tiene la responsabilidad de aportar un preservativo?",
+      respuestacorrecta: "Cualquiera de las personas involucradas en la relación.",
+      respuesta1: "Ninguno.",
+      respuesta2: "El varón.",
+      respuesta3: "La mujer.",
+      masInfo: "La responsabilidad de los métodos anticonceptivos debe ser un tema de diálogo en la pareja o en las personas involucradas en la relación sexual. Debe dialogarse con la pareja qué método se utilizará para postergar un embarazo o evitar una ITS, recordando que ningún método es 100% eficaz."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál de los siguientes métodos anticonceptivos es más efectivo en la prevención del embarazo?",
+      respuestacorrecta: "Dispositivo intrauterino (DIU).",
+      respuesta1: "Preservativo masculino.",
+      respuesta2: "Espermicida.",
+      respuesta3: "Pastilla anticonceptiva.",
+      masInfo: "Entre los métodos anticonceptivos disponibles, los más efectivos en la prevención del embarazo son el dispositivo intrauterino (DIU), el implante subdérmico o la ligadura de trompas. Estos métodos tienen una tasa de eficacia del 99% cuando se usan correctamente. Los mismos no previenen contra las ITS. Usados junto al preservativo, la efectividad es mucho mayor."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "Si no se utiliza ningún método anticonceptivo ¿Es cierto que la primera vez se puede producir un embarazo?",
+      respuestacorrecta: "Sí, existe posibilidad de embarazo.",
+      respuesta1: "No, porque el cuerpo todavía no está preparado para un embarazo.",
+      respuesta2: "No, por ser la primera vez.",
+      respuesta3: "No, más si es la primera vez de la mujer.",
+      masInfo: "Siempre que haya penetración del pene en la vagina sin utilizar un método anticonceptivo existe posibilidad de embarazo, aunque sea la primera vez de la mujer o de ambos. También existe posibilidad, aunque no haya habido eyaculación debido al líquido preseminal. Por eso es importante en cada relación sexual el uso del preservativo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué debo hacer después de colocarme un DIU?",
+      respuestacorrecta: "Debo realizar controles periódicos.",
+      respuesta1: "Debo realizar dos controles en la vida.",
+      respuesta2: "Nada, no necesita control médico.",
+      respuesta3: "Debo realizar un control solo una vez en la vida.",
+      masInfo: "Se debe hacer un chequeo después del primer periodo menstrual. No hay que esperar más de tres meses después de colocarse el dispositivo intrauterino para asegurarse de que todavía esté en su lugar. Las personas que usan el dispositivo intrauterino deben hacerse chequeos regulares para asegurarse de que todo esté en orden."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué es la abstinencia sexual?",
+      respuestacorrecta: "Esperar para tener relaciones sexuales.",
+      respuesta1: "Significa no tener vida sexual.",
+      respuesta2: "Significa que no te sientas atraído por nadie.",
+      respuesta3: "Tener más frecuentemente relaciones sexuales.",
+      masInfo: "Existen personas que por convicciones personales o por prácticas religiosas deciden abstenerse de tener relaciones sexuales hasta el matrimonio, o hasta encontrar a la persona indicada. La abstinencia continua es la única manera de estar absolutamente seguro de que no habrá un embarazo no planificado y de prevenir una ITS. La abstinencia no tiene efectos secundarios médicos ni hormonales. Requiere un autocontrol personal, lo que no significa que no se tenga vida sexual."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál de los siguientes métodos anticonceptivos evita la ovulación?",
+      respuestacorrecta: "Inyección anticonceptiva.",
+      respuesta1: "Dispositivo intrauterino (DIU) de cobre.",
+      respuesta2: "Método de la temperatura basal.",
+      respuesta3: "Condón.",
+      masInfo: "Sí, la inyección anticonceptiva impide la ovulación, es decir, la liberación de óvulos del ovario. La inyección anticonceptiva contiene hormonas que inhiben la ovulación y también pueden ayudar a engrosar el moco cervical, lo que dificulta la entrada del esperma al útero."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Los tampones sirven como anticonceptivos?",
+      respuestacorrecta: "No sirven como métodos anticonceptivos.",
+      respuesta1: "Sí, porque evitan el pasaje de los espermatozoides.",
+      respuesta2: "Sí, debido a que no permite la penetración.",
+      respuesta3: "Sí, porque evita la fecundación.",
+      masInfo: "Las toallas sanitarias, los tampones o la copa plástica son diferentes formas en que se usan para recolectar o absorber el sangrado menstrual y así evitar mancharse la ropa. No sirven como método anticonceptivo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué es la 'Pastilla del día después' o Anticonceptivo de emergencia?",
+      respuestacorrecta: "Un método anticonceptivo que se toma por vía oral, después de haber tenido sexo sin protección.",
+      respuesta1: "Un método anticonceptivo que se coloca en el útero.",
+      respuesta2: "Un método anticonceptivo que se coloca en el brazo.",
+      respuesta3: "Un método anticonceptivo que se coloca en el pene.",
+      masInfo: "El anticonceptivo de emergencia se utiliza después de haber tenido relaciones sexuales sin protección. Son preparados que contienen altas dosis de estrógenos y deben administrarse dentro de las 48 a 72 horas de la relación potencialmente fecundante. Sus efectos son: Inhibe la ovulación; cambia las condiciones interiores del útero y evita la fecundación antes de que el óvulo entre en contacto con el esperma; si el óvulo es fecundado, crea condiciones inhóspitas para que el óvulo no se implante en el endometrio. Es importante tener en cuenta que las pastillas de emergencia no son un método anticonceptivo a largo plazo y no deben utilizarse como tal. Son solo para uso ocasional en caso de emergencia y deben tomarse lo antes posible después de tener relaciones sexuales sin protección. Si tienes relaciones sexuales regularmente, deberías hablar con tu médico o un profesional de la salud sobre opciones anticonceptivas más seguras y efectivas a largo plazo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿El calor excesivo puede arruinar un preservativo?",
+      respuestacorrecta: "Sí, el calor los afecta.",
+      respuesta1: "No, el calor los vuelve más seguros.",
+      respuesta2: "No, el calor no lo afecta.",
+      respuesta3: "No, son resistentes a cambios bruscos de temperatura.",
+      masInfo: "Los preservativos se deterioran bajo temperaturas extremas. La luz o la humedad pueden causar gran número de rupturas o desgarros en el preservativo. Para prevenir esto, las fábricas los han hecho a prueba de climas tropicales y desérticos, con una resistencia a 30 grados de temperatura ambiente. Aun así, si se excede la temperatura cinética media establecida (30ºC), su estado puede no ser el deseado. Si el paquete del preservativo está roto o rasgado, o el preservativo está pegajoso, frágil o luce descolorido, deséchalo y utiliza uno nuevo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "Al no tomar 2 días seguidos o más la pastilla anticonceptiva, ¿existe posibilidad de embarazo?",
+      respuestacorrecta: "Sí, existe posibilidad de embarazo.",
+      respuesta1: "No, el efecto es prolongado por un mes.",
+      respuesta2: "No, es imposible.",
+      respuesta3: "No, las pastillas siguen actuando aunque no se tome algunos días.",
+      masInfo: "La eficacia de las pastillas anticonceptivas disminuye si se olvidan tomarlas. Las posibilidades de quedar embarazada dependerán de cuándo fue que no se tomó la pastilla y cuántas se saltearon. Las posibilidades de embarazo aumentan mucho más si pasas siete o más días seguidos sin las hormonas. Se debe consultar al centro médico si se da este caso."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué son las pastillas anticonceptivas?",
+      respuestacorrecta: "Un método anticonceptivo que se ingiere por vía oral.",
+      respuesta1: "Un método anticonceptivo que se coloca en la vagina.",
+      respuesta2: "Un método anticonceptivo que se coloca en el brazo.",
+      respuesta3: "Un método anticonceptivo que se coloca en el pene.",
+      masInfo: "Las pastillas o píldoras anticonceptivas son un tipo de anticonceptivo que las mujeres pueden tomar diariamente para evitar un embarazo. Estas están compuestas por hormonas, pueden ser una combinación de estrógeno y progestina que impide que los ovarios de la mujer liberen óvulos. Así como también, produce el engrosamiento de la mucosa cervical de la mujer. La mucosa cervical bloquea el esperma y evita que se una con el óvulo. Por otro lado, algunas pastillas disminuyen el engrosamiento del útero evitando que el embrión se implante en el útero."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué significan las siglas F.U.M.?",
+      respuestacorrecta: "Fecha de Última Menstruación.",
+      respuesta1: "Fecha de Último Control Médico.",
+      respuesta2: "Fecha de Última Masturbación.",
+      respuesta3: "Fecha de Último Método.",
+      masInfo: "Los embarazos se empiezan a contar a partir de la Fecha de la Última Menstruación (F.U.M). Teniendo en cuenta esto, para calcular el tiempo de embarazo se empezará a contar a partir de cuando fue la última vez que apareció la menstruación y empezar. Después, cuando se hace las ecografías esta fecha puede variar. Los doctores y las parteras empiezan a contar el embarazo desde el primer día de tu último ciclo menstrual (que por regla general es dos semanas antes de la ovulación), aunque, naturalmente, en ese momento aún no estabas embarazada. Lo cuentan así porque la mayoría de las mujeres no saben con exactitud cuándo ovulan, pero sí saben cuándo empezó su último periodo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Es recomendable guardar el preservativo en la billetera?",
+      respuestacorrecta: "No, porque se arruina fácilmente.",
+      respuesta1: "Sí, pero hasta la fecha de vencimiento.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Sí, para que esté disponible para cuando lo necesite.",
+      masInfo: "No es recomendable guardar un preservativo en la billetera debido a que la billetera es un lugar cálido y húmedo que puede dañar el preservativo. El calor y la humedad pueden debilitar el látex del preservativo y hacer que sea menos efectivo en la protección contra el embarazo y las infecciones de transmisión sexual. Es importante guardar el preservativo en un lugar fresco y seco para asegurar su eficacia. Si tienes que llevar un preservativo contigo, es mejor guardarlo en una bolsa pequeña o en un estuche de protección para evitar dañarlo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuáles son los efectos secundarios de las pastillas anticonceptivas?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Dolores de cabeza.",
+      respuesta2: "Cambios de humor.",
+      respuesta3: "Sensibilidad en los senos (pechos).",
+      masInfo: "Los efectos secundarios de las pastillas anticonceptivas pueden variar dependiendo del tipo de pastilla y de la persona que las toma. Algunos efectos secundarios comunes de las pastillas anticonceptivas incluyen: Cambios en el ciclo menstrual: Algunas personas pueden experimentar cambios en la cantidad y el patrón de sus períodos menstruales mientras toman pastillas anticonceptivas. Cambios de humor: Las pastillas anticonceptivas pueden afectar el estado de ánimo y pueden causar síntomas de depresión o ansiedad en algunas personas. Sangrado leve o manchado intermenstrual, más frecuente con las píldoras de dosis continua o de ciclo extendido."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué es la vasectomía?",
+      respuestacorrecta: "Un método anticonceptivo.",
+      respuesta1: "Una marca de preservativos.",
+      respuesta2: "Una tendencia sexual.",
+      respuesta3: "Una Infección de Transmisión Sexual.",
+      masInfo: "La vasectomía es una operación mediante la cual el cirujano especialista en urología realiza una incisión en la zona del escroto y secciona y liga el conducto deferente, interrumpiendo así el paso de espermatozoides desde los testículos hasta la uretra. Cuando el conducto deferente es seccionado, los espermatozoides no se expulsan en la eyaculación, interrumpiendo así las posibilidades de embarazo. La vasectomía no altera la producción de espermatozoides, solamente impide que se expulsen con el semen. Al no salir con el semen, los espermatozoides quedan acumulados en una parte del testículo, llamado epidídimo, y son absorbidos por el organismo. Inmediatamente después de realizar la vasectomía no es recomendable tener relaciones sin protección, puesto que todavía quedan espermatozoides en los conductos seminales y en la porción superior del conducto deferente durante un periodo de cuatro a seis semanas. Después de la cirugía de vasectomía deberán realizarse dos espermiogramas con resultado negativo para asegurar el éxito de la cirugía. Ese es un proceso casi irreversible."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué es el método de observación de la fertilidad?",
+      respuestacorrecta: "Un método para postergar, espaciar o lograr un embarazo.",
+      respuesta1: "Un método anticonceptivo artificial.",
+      respuesta2: "Una Infección de Transmisión Sexual.",
+      respuesta3: "Una Orientación Sexual.",
+      masInfo: "Los métodos de planificación familiar natural o de observación de la fertilidad se basan en el reconocimiento de la fertilidad de la mujer. El cuerpo de las mujeres da señales, o indicadores que le permiten reconocer si es fértil o infértil en un momento determinado. Entre ellos se encuentran el método de Ritmo, desarrollado por primera vez en 1.930. El mismo consistía en un método matemático calculando tiempo infértil de cada ciclo. Pero para usarlo la mujer debía tener un periodo menstrual regular y era 80% eficaz. En cambio, el método sintotérmico, una combinación de los métodos del moco cervical y la temperatura basal, es de 98% eficaz. Para esto, debe ser bien enseñado, bien aprendido y bien aplicado. Se recomienda aprenderlo con instructores especializados en el tema. Estos métodos están pensados para parejas estables y necesitan la participación de ambos miembros de la pareja, pues no evitan el contraer infecciones de transmisión sexual."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "Si una persona se realiza una vasectomía, ¿puede llegar al orgasmo?",
+      respuestacorrecta: "Sí, la vasectomía no afecta la llegada al orgasmo.",
+      respuesta1: "No, la vasectomía impide la erección.",
+      respuesta2: "No, la vasectomía llega al orgasmo.",
+      respuesta3: "No, la vasectomía genera impotencia.",
+      masInfo: "Sí, es posible que una persona que se haya realizado una vasectomía pueda llegar al orgasmo. La vasectomía es un procedimiento quirúrgico en el que se cortan y se bloquean los conductos deferentes, que son los conductos por los que los espermatozoides se transportan desde los testículos hasta el pene durante la eyaculación. El objetivo de la vasectomía es evitar que los espermatozoides se mezclen con el semen durante la eyaculación, lo que impide la fertilización. La vasectomía no afecta la producción de hormonas ni la capacidad del cuerpo para tener erecciones o llegar al orgasmo. Por lo tanto, no debería haber cambios en la sensación o el placer durante el acto sexual después de la vasectomía."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué es un aborto?",
+      respuestacorrecta: "Es la terminación de un embarazo.",
+      respuesta1: "Es una Infección de Transmisión Sexual.",
+      respuesta2: "Es un método anticonceptivo.",
+      respuesta3: "Es una práctica sexual.",
+      masInfo: "Un aborto es la terminación de un embarazo, y se puede producir tanto de forma espontánea como inducida. Sea cual sea el caso, el aborto concluye con la muerte y expulsión del feto a través del canal vaginal. En el caso de los abortos inducidos, se pueden realizar por aspiración en donde se vacía el útero. Se utiliza un dispositivo o una máquina de aspiración manual que elimina cuidadosamente el tejido del embarazo del útero. También pueden usar una pequeña herramienta quirúrgica llamada “legra” para sacar el tejido que haya quedado en el útero o para revisar el útero con el fin de asegurarse de que esté completamente vacío."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "Si una persona se realiza una vasectomía, ¿puede eyacular?",
+      respuestacorrecta: "Sí, la vasectomía no afecta la eyaculación.",
+      respuesta1: "No, la vasectomía impide la erección.",
+      respuesta2: "No, la vasectomía impide la producción de semen.",
+      respuesta3: "No, la vasectomía genera impotencia.",
+      masInfo: "La vasectomía es una operación mediante la cual, el cirujano especialista en urología realiza una incisión en la zona del escroto y secciona y liga el conducto deferente, interrumpiendo así el paso de espermatozoides desde los testículos hasta la uretra o conducto seminal. La vasectomía no afecta al hombre a nivel sexual, es decir, éste continúa teniendo la misma capacidad de erección, la misma libido y la misma capacidad para alcanzar el orgasmo. La cirugía tampoco modifica la producción de hormonas ni hace que disminuya el placer sexual. Todo se mantiene intacto, lo único es que el semen no contendrá espermatozoides, algo inapreciable a simple vista. Resulta muy difícil y costoso revertir la operación, no siendo posible en la mayoría de los casos, por lo que el paciente debe estar 100% seguro de que quiere someterse a ella."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿En qué parte del sistema genital femenino ocurre la fecundación?",
+      respuestacorrecta: "En las trompas de uterinas.",
+      respuesta1: "En el ovario.",
+      respuesta2: "En el útero.",
+      respuesta3: "En la vagina.",
+      masInfo: "La fecundación humana es interna, es decir se produce dentro del aparato genital femenino, concretamente en las trompas uterinas. El óvulo es fecundado en la trompa (1 día) y luego avanza hacia el útero (entre 2 y 5 días). Al cabo de cinco días llega a la cavidad uterina y el embrión anida en la misma (entre 6 y 7 días)."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuánto tiempo dura la inyección anticonceptiva?",
+      respuestacorrecta: "Tres meses.",
+      respuesta1: "Una semana.",
+      respuesta2: "Seis meses.",
+      respuesta3: "Un día.",
+      masInfo: "La inyección anticonceptiva se coloca una vez al mes y otros cada tres meses. Es un método anticonceptivo que se aplica mediante una inyección en el músculo o debajo de la piel y contiene hormonas que impiden la ovulación, es decir, la liberación de óvulos del ovario. También puede ayudar a engrosar el moco cervical, lo que dificulta la entrada del esperma al útero."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál de los siguientes métodos anticonceptivos es prácticamente irreversible?",
+      respuestacorrecta: "La vasectomía.",
+      respuesta1: "El DIU.",
+      respuesta2: "El preservativo.",
+      respuesta3: "Las pastillas anticonceptivas.",
+      masInfo: "Los métodos anticonceptivos que son prácticamente irreversibles incluyen la vasectomía y la ligadura de trompas. La vasectomía es un procedimiento quirúrgico en el que se cortan o bloquean los conductos deferentes, los tubos que transportan el esperma del testículo al pene. La vasectomía es reversible en algunos casos, pero el procedimiento para reversarla es complicado y no siempre es efectivo. La ligadura de trompas es un procedimiento quirúrgico en el que se cortan y sellan las trompas de Falopio, los tubos que transportan el óvulo del ovario al útero. La ligadura de trompas es prácticamente irreversible, aunque en algunos casos se puede intentar reversar mediante un procedimiento quirúrgico complicado. Es importante tener en cuenta que estos métodos son prácticamente irreversibles y deben ser considerados cuidadosamente antes de tomar una decisión."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "Si se produce una relación sexual durante la menstruación, ¿se puede producir un embarazo?",
+      respuestacorrecta: "Sí, existe posibilidad de Embarazo.",
+      respuesta1: "No, porque el cuerpo todavía no está preparado para un embarazo.",
+      respuesta2: "No, porque la menstruación impide el pasaje del espermatozoide.",
+      respuesta3: "No, porque la ovulación todavía no ha sucedido.",
+      masInfo: "Si no se utiliza ningún método anticonceptivo o de planificación familiar natural existe la posibilidad de un embarazo. Además existe la posibilidad de contraer una ITS."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Qué es un proyecto de vida?",
+      respuestacorrecta: "Un conjunto de metas y aspiraciones a largo plazo.",
+      respuesta1: "Un plan a corto plazo.",
+      respuesta2: "Una idea vaga sobre el futuro.",
+      respuesta3: "Una lista de deseos.",
+      masInfo: "El proyecto de vida es un plan a largo plazo que incluye metas personales, profesionales y sociales, ayudando a guiar nuestras acciones y decisiones a lo largo de la vida. Empezar un proyecto de vida implica una reflexión profunda sobre tus valores, pasiones y aspiraciones. Primero, identifica tus metas a largo plazo, considerando aspectos como educación, carrera, relaciones y desarrollo personal. Luego, establece metas específicas y alcanzables a corto y mediano plazo que te acerquen a esos objetivos mayores. Es vital desarrollar un plan de acción con pasos concretos y plazos definidos, y estar preparado para adaptarlo según las circunstancias cambien. La autoaceptación y la perseverancia son clave para superar desafíos. Mantén un enfoque positivo y flexible mientras trabajas en tu proyecto de vida, siempre recordando que es un viaje continuo de autodescubrimiento y crecimiento personal."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál es un paso importante para establecer metas en un proyecto de vida?",
+      respuestacorrecta: "Establecer metas realistas y alcanzables.",
+      respuesta1: "No establecer metas para evitar decepciones.",
+      respuesta2: "Establecer solo metas a corto plazo.",
+      respuesta3: "Hacer metas inalcanzables para desafiarse a sí mismo.",
+      masInfo: "Establecer metas realistas y alcanzables es fundamental para mantener la motivación y lograr el éxito en un proyecto de vida. Al definir metas claras y alcanzables, se crea un sentido de dirección y propósito, lo que impulsa a las personas a esforzarse y perseverar a medida que trabajan hacia sus objetivos. Estas metas proporcionan hitos medibles que permiten evaluar el progreso y ajustar el enfoque según sea necesario, lo que a su vez aumenta la confianza y la determinación para superar los desafíos en el camino hacia la realización personal y el cumplimiento de metas a largo plazo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál es la importancia de la educación en la planificación del proyecto de vida?",
+      respuestacorrecta: "La educación puede abrir oportunidades laborales y mejorar el nivel de vida.",
+      respuesta1: "No tiene impacto en el proyecto de vida.",
+      respuesta2: "La educación solo es importante para las nuevas generaciones.",
+      respuesta3: "La educación sólo es relevante para obtener un buen empleo.",
+      masInfo: "La educación es un pilar fundamental para el desarrollo personal y profesional, ya que proporciona habilidades y conocimientos que son valiosos en diversos aspectos de la vida. No solo amplía nuestra comprensión del mundo y fomenta el pensamiento crítico, sino que también abre puertas a oportunidades laborales más amplias y gratificantes. Al adquirir una educación sólida, las personas están mejor equipadas para enfrentar los desafíos del mundo moderno, acceder a empleos de calidad y contribuir de manera significativa a sus comunidades, lo que, en última instancia, allana el camino para un futuro más próspero y enriquecedor."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál de las siguientes afirmaciones es cierta acerca de la autoestima en el proyecto de vida?",
+      respuestacorrecta: "La autoestima alta puede contribuir a un proyecto de vida saludable y exitoso.",
+      respuesta1: "La autoestima baja no tiene impacto en el proyecto de vida.",
+      respuesta2: "La autoestima solo es importante en las relaciones sociales.",
+      respuesta3: "La autoestima sólo es relevante en situaciones profesionales.",
+      masInfo: "Una autoestima saludable es esencial para el bienestar emocional, proporcionando una base sólida para manejar el estrés y las adversidades con resiliencia. Además, una autoimagen positiva fomenta la confianza en uno mismo, lo que no solo facilita la definición de metas claras en un proyecto de vida, sino que también brinda la determinación necesaria para superar obstáculos y perseguir esas metas con pasión y persistencia."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál de las siguientes opciones es un ejemplo de habilidad de afrontamiento en el proyecto de vida?",
+      respuestacorrecta: "Buscar apoyo, enfrentar los problemas y aprender de las experiencias.",
+      respuesta1: "Ignorar los problemas y esperar que desaparezcan.",
+      respuesta2: "Culpar a los demás por los problemas personales.",
+      respuesta3: "Evitar todas las situaciones difíciles.",
+      masInfo: "Las habilidades de afrontamiento desempeñan un papel crucial en la superación de desafíos en un proyecto de vida. Saber buscar apoyo en momentos difíciles no solo proporciona perspectivas valiosas, sino que también alivia el peso emocional, permitiendo encontrar soluciones de manera más efectiva."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál es un componente esencial del bienestar emocional en el proyecto de vida?",
+      respuestacorrecta: "La autoaceptación y la gestión adecuada de las emociones.",
+      respuesta1: "Ignorar las emociones para evitar el dolor.",
+      respuesta2: "Suprimir todas las emociones negativas.",
+      respuesta3: "No mostrar emociones para parecer fuerte.",
+      masInfo: "El bienestar emocional es esencial para una vida equilibrada y satisfactoria. Implica la habilidad de reconocer, aceptar y gestionar las emociones de manera saludable y constructiva, lo que no solo fortalece las relaciones interpersonales y la autoestima, sino que también contribuye a un estado de ánimo positivo y a una mayor resiliencia ante los desafíos de la vida."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál de los siguientes es un paso importante para crear un proyecto de vida?",
+      respuestacorrecta: "Todas las opciones.",
+      respuesta1: "Reflexionar sobre tus valores y creencias",
+      respuesta2: "Desarrollar un plan de acción.",
+      respuesta3: "Establecer objetivos a corto, mediano y largo plazo.",
+      masInfo: "Para crear un proyecto de vida significativo y alcanzar el éxito, es esencial reflexionar sobre tus valores y creencias personales, ya que estos actúan como la brújula moral que guía tus decisiones y acciones. Establecer objetivos a corto, mediano y largo plazo te proporciona un sentido de dirección y te ayuda a dividir tus aspiraciones en pasos alcanzables, facilitando así el proceso de logro. Además, desarrollar un plan de acción con pasos concretos y plazos definidos te brinda una estructura sólida, permitiéndote seguir un camino claro hacia la realización de tus sueños y metas en el viaje de tu proyecto de vida."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál de los siguientes es un obstáculo para alcanzar tus objetivos?",
+      respuestacorrecta: "Todas las opciones.",
+      respuesta1: "La falta de motivación.",
+      respuesta2: "Las circunstancias imprevistas.",
+      respuesta3: "La falta de apoyo.",
+      masInfo: "Para alcanzar tus objetivos en un proyecto de vida, es fundamental desarrollar la resiliencia necesaria para superar los obstáculos que puedan surgir en el camino. La falta de motivación puede vencerse mediante la creación de hábitos positivos y recordando constantemente el propósito detrás de tus metas, mientras que la falta de apoyo puede contrarrestarse buscando redes de apoyo, ya sea en amigos, familiares o mentores. Además, las circunstancias imprevistas pueden manejarse mediante la flexibilidad y la capacidad de adaptación, ajustando tu enfoque y estrategias según las cambiantes condiciones, lo que te permitirá seguir progresando hacia tus metas incluso en medio de desafíos inesperados."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿En cuántas etapas suele dividirse la creación de un proyecto de vida?",
+      respuestacorrecta: "Cuatro etapas.",
+      respuesta1: "Solo una etapa.",
+      respuesta2: "Tres etapas.",
+      respuesta3: "Dos etapas.",
+      masInfo: "Las cuatro etapas esenciales de un proyecto de vida ofrecen un enfoque estructurado y reflexivo para alcanzar metas significativas. La fase de reflexión implica una introspección profunda para comprender tus valores, pasiones y aspiraciones, mientras que la planificación te permite establecer metas claras y estrategias para alcanzarlas. La fase de acción implica tomar medidas concretas y perseverar en medio de los desafíos, y la evaluación constante te brinda la oportunidad de ajustar tu enfoque según las lecciones aprendidas, creando así un ciclo de mejora continua en tu viaje hacia la realización personal y el éxito."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Qué implica la etapa de reflexión en un proyecto de vida?",
+      respuestacorrecta: "Evaluar valores y deseos personales.",
+      respuesta1: "Establecer metas.",
+      respuesta2: "Todas las opciones.",
+      respuesta3: "Tomar decisiones apresuradas.",
+      masInfo: "En esta etapa, se reflexiona sobre lo que se valora y se desea en la vida. Implica mirar hacia adentro, comprenderse a uno mismo en profundidad y usar este conocimiento para tomar decisiones que te lleven hacia una vida significativa y satisfactoria."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál es la importancia de la planificación en un proyecto de vida?",
+      respuestacorrecta: "Ayuda a definir metas claras.",
+      respuesta1: "No es importante.",
+      respuesta2: "Es solo para personas obsesivas.",
+      respuesta3: "Solo aumenta la confusión.",
+      masInfo: "La planificación en un proyecto de vida desempeña un papel fundamental al proporcionar una estructura sólida y metas claras. Al establecer objetivos específicos y alcanzables, puedes visualizar tus aspiraciones de manera concreta y dividirlas en pasos manejables, lo que facilita el seguimiento del progreso y la identificación de áreas que requieren atención adicional. Esta claridad en los objetivos no solo te orienta hacia tus metas, sino que también te brinda un sentido de propósito, motivándote a tomar medidas consistentes y enfocadas para alcanzar tus sueños y aspiraciones en el proyecto de vida."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Qué se debe hacer en la etapa de acción de un proyecto de vida?",
+      respuestacorrecta: "Trabajar para lograr las metas establecidas.",
+      respuesta1: "Cambiar de metas constantemente.",
+      respuesta2: "Todas las opciones.",
+      respuesta3: "Olvidar las metas.",
+      masInfo: "En la etapa de acción de un proyecto de vida, el impulso se convierte en movimiento a medida que se toman medidas concretas y deliberadas para traducir las metas definidas en logros tangibles. Esta fase no solo implica esfuerzo y dedicación, sino también adaptabilidad para enfrentar desafíos inesperados y ajustar las estrategias según sea necesario. La acción continua y enfocada no solo acerca a la persona a sus objetivos, sino que también fomenta el crecimiento personal, construyendo así un camino sólido hacia el cumplimiento de sus sueños y aspiraciones."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál de las siguientes NO es una característica de un proyecto de vida exitoso?",
+      respuestacorrecta: "Inmovilidad.",
+      respuesta1: "Flexibilidad.",
+      respuesta2: "Adaptabilidad.",
+      respuesta3: "Constancia.",
+      masInfo: "Un proyecto de vida verdaderamente exitoso requiere flexibilidad para adaptarse a las cambiantes circunstancias y oportunidades. La constancia es esencial para mantener la motivación y superar los obstáculos, mientras que la adaptabilidad permite ajustar estrategias y metas en función de nuevas experiencias y aprendizajes. La combinación de estas cualidades no solo facilita la realización de objetivos, sino que también fomenta un sentido profundo de logro y satisfacción personal en el viaje hacia una vida significativa y plena."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Por qué es importante revisar y ajustar un proyecto de vida con el tiempo?",
+      respuestacorrecta: "Para mantener el rumbo.",
+      respuesta1: "Para ignorar el progreso.",
+      respuesta2: "Porque no importa.",
+      respuesta3: "Para perder el enfoque.",
+      masInfo: "La revisión y ajuste periódico en un proyecto de vida son como brújulas que guían hacia el logro continuo. Al evaluar regularmente el progreso, se pueden identificar áreas de mejora y se pueden tomar decisiones informadas para adaptar las estrategias según las nuevas circunstancias. Esta práctica no solo asegura que el proyecto de vida siga siendo relevante y significativo a lo largo del tiempo, sino que también promueve un sentido de dirección claro y constante, permitiendo así alcanzar las metas establecidas de manera más efectiva y satisfactoria."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Qué papel juegan los valores personales en un proyecto de vida?",
+      respuestacorrecta: "Ayudan a definir metas y decisiones.",
+      respuesta1: "Ningún papel.",
+      respuesta2: "Todas las opciones.",
+      respuesta3: "Son irrelevantes.",
+      masInfo: "Los valores personales actúan como el núcleo central de nuestras vidas, influyendo en nuestras elecciones y acciones diarias. Al tener claridad sobre nuestros valores, podemos establecer metas que estén alineadas con nuestras creencias más profundas y tomar decisiones coherentes que resuenen con nuestra identidad. Estos valores proporcionan una brújula moral, orientándonos hacia un camino auténtico y significativo en nuestro proyecto de vida, y nos guían hacia metas que no solo son realizables, sino también intrínsecamente satisfactorias y gratificantes."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál es el beneficio de establecer metas SMART en un proyecto de vida?",
+      respuestacorrecta: "Hacer que las metas sean específicas y alcanzables.",
+      respuesta1: "Complicar el proceso.",
+      respuesta2: "No hay beneficio.",
+      respuesta3: "Hacer que las metas sean vagas.",
+      masInfo: "Las metas SMART, al ser específicas, permiten una comprensión clara de lo que se quiere lograr, estableciendo un punto de referencia preciso. Al ser medibles, brindan la capacidad de cuantificar el progreso, proporcionando indicadores concretos que muestran cómo se están alcanzando los objetivos. Además, al ser alcanzables, las metas SMART son realistas y factibles, lo que aumenta la motivación y la confianza al ver que se están logrando avances tangibles. Además, ser relevantes implica que las metas están alineadas con los valores y objetivos personales, mientras que tener un tiempo definido establece un plazo límite, creando un sentido de urgencia y compromiso, lo que en conjunto asegura una planificación y ejecución efectiva en un proyecto de vida."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Qué se entiende por \"éxito\" en el contexto de un proyecto de vida?",
+      respuestacorrecta: "Lograr metas personales y felicidad.",
+      respuesta1: "Acumular riqueza.",
+      respuesta2: "Todas las opciones.",
+      respuesta3: "Ser famoso.",
+      masInfo: "El éxito en un proyecto de vida va más allá de la acumulación de riqueza o reconocimiento externo; se trata de alcanzar metas personales que estén alineadas con los valores y aspiraciones individuales. Al perseguir metas significativas y encontrar satisfacción en el proceso, se construye una sensación profunda de realización y felicidad interior."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál es la diferencia entre una meta a corto plazo y una meta a largo plazo?",
+      respuestacorrecta: "El plazo de tiempo para alcanzar la meta.",
+      respuesta1: "No hay diferencia.",
+      respuesta2: "Las metas a largo plazo son más vagas.",
+      respuesta3: "Las metas a corto plazo son más importantes.",
+      masInfo: "Las metas a corto plazo son logros que se pueden alcanzar en un período de tiempo relativamente breve, generalmente en semanas, meses o, a lo sumo, unos pocos años. Son esenciales para mantener la motivación y proporcionan pequeños triunfos que refuerzan la confianza y el impulso hacia metas más grandes a largo plazo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Por qué es importante tener pasiones e intereses en un proyecto de vida?",
+      respuestacorrecta: "Para encontrar satisfacción y sentido en la vida.",
+      respuesta1: "Para parecer interesante.",
+      respuesta2: "Para impresionar a los demás.",
+      respuesta3: "No es importante.",
+      masInfo: "Las pasiones y los intereses son como combustible para la vida, brindando una profunda sensación de propósito y alegría a lo cotidiano. Al perseguir actividades que nos apasionan, se crea un sentido de realización que trasciende lo material, elevando la calidad de nuestras experiencias y fortaleciendo nuestra conexión con el mundo que nos rodea. Estas pasiones no solo nos inspiran y motivan, sino que también enriquecen nuestras relaciones y nos brindan una perspectiva positiva que ilumina incluso los días más oscuros, creando así una vida plena de significado y gratificación."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál de las siguientes acciones refleja la auto-reflexión en un proyecto de vida?",
+      respuestacorrecta: "Evaluar las fortalezas y debilidades personales.",
+      respuesta1: "Seguir las expectativas de los demás.",
+      respuesta2: "No pensar en el futuro.",
+      respuesta3: "Ignorar los propios deseos.",
+      masInfo: "La auto-reflexión va más allá de una simple introspección; implica una evaluación profunda y honesta de nuestras fortalezas y debilidades, nuestras creencias y valores, así como nuestras experiencias y emociones. Este proceso nos proporciona una comprensión íntima de nosotros mismos, permitiéndonos tomar decisiones informadas y alineadas con nuestra verdadera naturaleza."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál es un ejemplo de un obstáculo común en la realización de un proyecto de vida?",
+      respuestacorrecta: "Falta de perseverancia.",
+      respuesta1: "Tener metas pequeñas.",
+      respuesta2: "No tener pasiones.",
+      respuesta3: "Ignorar los consejos.",
+      masInfo: "La perseverancia actúa como un motor interno que nos impulsa a seguir adelante incluso en las circunstancias más desafiantes. Cuando enfrentamos obstáculos, la perseverancia nos da la fuerza para no rendirnos, nos enseña a aprender de los fracasos y nos brinda la resistencia necesaria para persistir en la búsqueda de nuestras metas. Al mantenernos firmes frente a las adversidades, la perseverancia no solo nos ayuda a superar los obstáculos, sino que también fortalece nuestra resiliencia y nos prepara para enfrentar futuros desafíos con valentía y determinación en nuestro proyecto de vida."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Cuál es la importancia de la autoaceptación en un proyecto de vida?",
+      respuestacorrecta: "Para construir una autoimagen positiva.",
+      respuesta1: "No es importante.",
+      respuesta2: "Para ser perfecto.",
+      respuesta3: "Para complacer a los demás.",
+      masInfo: "La autoaceptación nos permite abrazar nuestras imperfecciones y peculiaridades, creando una base sólida para una autoimagen positiva y una autoestima saludable. Al aceptarnos tal como somos, sin juzgarnos ni compararnos con los demás, cultivamos una relación positiva con nosotros mismos, lo que a su vez nos dota de la confianza necesaria para enfrentar desafíos y tomar decisiones con valentía en nuestro camino hacia el crecimiento personal y el éxito en el proyecto de vida."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Por qué es esencial establecer límites en un proyecto de vida?",
+      respuestacorrecta: "Para proteger el tiempo y la energía.",
+      respuesta1: "Para no tener amigos.",
+      respuesta2: "Para ser solitario.",
+      respuesta3: "Para evitar compromisos.",
+      masInfo: "Establecer límites claros es esencial para salvaguardar nuestra salud mental y emocional. Al definir nuestras fronteras, podemos proteger nuestra energía y evitar el agotamiento, permitiéndonos enfocarnos en lo que realmente importa y mantener un equilibrio entre nuestras responsabilidades y nuestras necesidades personales. Además, los límites también fomentan relaciones saludables, estableciendo expectativas claras y promoviendo el respeto mutuo, lo que contribuye significativamente a nuestra calidad de vida y bienestar general en nuestro proyecto de vida."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Qué se entiende por \"crecimiento personal\" en el contexto de un proyecto de vida?",
+      respuestacorrecta: "Buscar continuamente mejorar y aprender.",
+      respuesta1: "No cambiar nunca.",
+      respuesta2: "Evitar desafíos.",
+      respuesta3: "Estar satisfecho con el estado actual.",
+      masInfo: "El crecimiento personal es un viaje transformador que implica una continua autoexploración y desarrollo. Esto incluye la disposición para salir de la zona de confort, aprender de las experiencias, y cultivar habilidades emocionales e intelectuales. La mejora constante no solo enriquece nuestras vidas, sino que también nos dota de la resiliencia necesaria para enfrentar los desafíos y adaptarnos a las cambiantes circunstancias, permitiéndonos evolucionar como individuos y alcanzar nuestro máximo potencial en diversos aspectos de la vida."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Proyecto",
+      pregunta: "¿Qué significa tener una mentalidad de crecimiento en un proyecto de vida?",
+      respuestacorrecta: "Creer que las habilidades y cualidades pueden desarrollarse con esfuerzo.",
+      respuesta1: "Estar satisfecho con el estado actual.",
+      respuesta2: "No buscar mejorar.",
+      respuesta3: "Evitar los desafíos.",
+      masInfo: "Una mentalidad de crecimiento implica la creencia de que las habilidades y cualidades pueden mejorarse a través del esfuerzo y la práctica, fomentando la motivación para aprender y mejorar constantemente."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué hormona desencadena el crecimiento del vello púbico y axilar durante la pubertad?",
+      respuestacorrecta: "Testosterona.",
+      respuesta1: "Insulina.",
+      respuesta2: "Melatonina.",
+      respuesta3: "Estrógeno.",
+      masInfo: "La testosterona es responsable del crecimiento del vello púbico y axilar tanto en hombres como en mujeres durante la pubertad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué es la ginecomastia en los varones adolescentes?",
+      respuestacorrecta: "Crecimiento excesivo de los senos.",
+      respuesta1: "Crecimiento del vello facial.",
+      respuesta2: "Aparición de acné.",
+      respuesta3: "Cambio de voz.",
+      masInfo: "La ginecomastia es el desarrollo excesivo del tejido mamario en los varones, un fenómeno común durante la pubertad debido a desequilibrios hormonales."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué glándula produce la hormona tiroidea que regula el metabolismo durante la pubertad?",
+      respuestacorrecta: "Glándula tiroides.",
+      respuesta1: "Páncreas.",
+      respuesta2: "Hipófisis.",
+      respuesta3: "Glándula suprarrenal.",
+      masInfo: "La glándula tiroides produce hormonas tiroideas que regulan el metabolismo y tienen efectos durante la pubertad, como el crecimiento y el desarrollo."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué hormona es responsable del desarrollo de las glándulas mamarias en las mujeres durante la pubertad?",
+      respuestacorrecta: "Estrógeno.",
+      respuesta1: "Testosterona.",
+      respuesta2: "Prolactina.",
+      respuesta3: "Progesterona.",
+      masInfo: "El estrógeno es la principal hormona responsable del desarrollo de las glándulas mamarias en las mujeres durante la pubertad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué es la espermatogénesis?",
+      respuestacorrecta: "Producción de espermatozoides.",
+      respuesta1: "Producción de óvulos.",
+      respuesta2: "Desarrollo del útero.",
+      respuesta3: "Proceso de fecundación.",
+      masInfo: "La espermatogénesis es el proceso mediante el cual se producen espermatozoides maduros a partir de células germinales en los testículos de los hombres."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Cuál de las siguientes hormonas es responsable del crecimiento y desarrollo del útero durante la pubertad?",
+      respuestacorrecta: "Estrógeno.",
+      respuesta1: "Progesterona.",
+      respuesta2: "Prolactina.",
+      respuesta3: "Testosterona.",
+      masInfo: "El estrógeno es la hormona responsable del crecimiento y desarrollo del útero en las mujeres durante la pubertad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Cuál de las siguientes afirmaciones es cierta sobre la pubertad en los varones?",
+      respuestacorrecta: "Puede comenzar entre los 9 y 14 años.",
+      respuesta1: "Ocurre a la misma edad que en las mujeres.",
+      respuesta2: "No hay cambios emocionales asociados.",
+      respuesta3: "No hay cambios hormonales significativos.",
+      masInfo: "La pubertad en los varones generalmente comienza entre los 9 y 14 años, con cambios hormonales y físicos significativos."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué hormona es responsable del desarrollo de las características sexuales secundarias durante la pubertad?",
+      respuestacorrecta: "Testosterona.",
+      respuesta1: "Insulina.",
+      respuesta2: "Cortisol.",
+      respuesta3: "Estrógeno.",
+      masInfo: "La testosterona es la principal hormona responsable del desarrollo de las características sexuales secundarias en los hombres durante la pubertad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué cambio es común en la voz de los varones durante la pubertad debido al crecimiento del cartílago laríngeo?",
+      respuestacorrecta: "Se vuelve más grave.",
+      respuesta1: "Se vuelve más aguda.",
+      respuesta2: "Se vuelve más suave.",
+      respuesta3: "No cambia.",
+      masInfo: "El crecimiento del cartílago laríngeo durante la pubertad causa un cambio en la voz de los varones, volviéndose más grave."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Cuál es la principal función de las hormonas sexuales durante la pubertad?",
+      respuestacorrecta: "Regular el crecimiento y desarrollo sexual.",
+      respuesta1: "Regular el apetito.",
+      respuesta2: "Controlar la presión arterial.",
+      respuesta3: "Mantener la temperatura corporal.",
+      masInfo: "Las hormonas sexuales, como el estrógeno y la testosterona, juegan un papel fundamental en el crecimiento y desarrollo sexual durante la pubertad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué función tienen las hormonas sexuales en el desarrollo de las características sexuales secundarias?",
+      respuestacorrecta: "Estimular el desarrollo de características sexuales distintivas.",
+      respuesta1: "Estabilizar el estado de ánimo.",
+      respuesta2: "Controlar el sueño.",
+      respuesta3: "Regular la temperatura corporal.",
+      masInfo: "Las hormonas sexuales estimulan el desarrollo de las características sexuales secundarias, como el vello facial, el crecimiento mamario y el desarrollo muscular."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué cambio es común en la piel durante la pubertad debido al aumento de las glándulas sebáceas?",
+      respuestacorrecta: "Aparición de acné.",
+      respuesta1: "Reducción de acné.",
+      respuesta2: "Mayor propensión a las arrugas.",
+      respuesta3: "Piel más seca.",
+      masInfo: "El aumento de las glándulas sebáceas durante la pubertad puede llevar a la aparición de acné en la piel debido al exceso de producción de sebo."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué parte del sistema genital femenino madura durante la pubertad y permite la fertilización del óvulo?",
+      respuestacorrecta: "Trompas de Falopio.",
+      respuesta1: "Útero.",
+      respuesta2: "Vulva.",
+      respuesta3: "Ovarios.",
+      masInfo: "Las trompas de Falopio maduran durante la pubertad y son el sitio donde ocurre la fertilización del óvulo por el espermatozoide."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué parte del sistema reproductor masculino se desarrolla durante la pubertad y produce espermatozoides?",
+      respuestacorrecta: "Testículos.",
+      respuesta1: "Próstata.",
+      respuesta2: "Epidídimo.",
+      respuesta3: "Vesícula seminal.",
+      masInfo: "Los testículos son la parte del sistema reproductor masculino que se desarrolla durante la pubertad y produce espermatozoides."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué órgano interno de las mujeres se desarrolla durante la pubertad y juega un papel en la menstruación y la fertilización?",
+      respuestacorrecta: "Útero.",
+      respuesta1: "Ovarios.",
+      respuesta2: "Vulva.",
+      respuesta3: "Trompas de Falopio.",
+      masInfo: "Durante la pubertad, el útero se desarrolla y desempeña un papel importante en la menstruación y la posibilidad de embarazo."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué parte del cuerpo experimenta un aumento en la densidad ósea durante la pubertad?",
+      respuestacorrecta: "Columna vertebral.",
+      respuesta1: "Cráneo.",
+      respuesta2: "Dedos.",
+      respuesta3: "Piernas.",
+      masInfo: "Durante la pubertad, la columna vertebral y los huesos largos experimentan un aumento en la densidad ósea, lo que contribuye al crecimiento y la resistencia física."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué es el botón mamario?",
+      respuestacorrecta: "Una protuberancia en el pecho que indica el desarrollo de las glándulas mamarias.",
+      respuesta1: "Un dispositivo para medir el crecimiento mamario.",
+      respuesta2: "Un síntoma de una enfermedad mamaria.",
+      respuesta3: "Un instrumento médico utilizado en exámenes mamarios.",
+      masInfo: "Durante la pubertad, las mujeres y a veces los varones pueden experimentar la aparición de un pequeño bulto o protuberancia en el pecho conocido como botón mamario, que indica el desarrollo inicial de las glándulas mamarias."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué parte del sistema reproductor masculino se desarrolla como una característica sexual secundaria durante la pubertad?",
+      respuestacorrecta: "Próstata.",
+      respuesta1: "Ovarios.",
+      respuesta2: "Testículos.",
+      respuesta3: "Trompas de Falopio.",
+      masInfo: "La próstata es una parte del sistema reproductor masculino que se desarrolla como una característica sexual secundaria durante la pubertad y juega un papel importante en la producción de semen."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué parte del cuerpo experimenta un aumento en la grasa subcutánea como parte de los cambios secundarios durante la pubertad en las mujeres?",
+      respuestacorrecta: "Abdomen y caderas.",
+      respuesta1: "Pecho.",
+      respuesta2: "Piernas.",
+      respuesta3: "Brazos.",
+      masInfo: "Durante la pubertad, las mujeres suelen experimentar un aumento en la grasa subcutánea en áreas como el abdomen y las caderas, como parte de los cambios secundarios normales."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué factores contribuyen a los cambios en el estado de ánimo durante la pubertad?",
+      respuestacorrecta: "Todas las opciones.",
+      respuesta1: "Cambios hormonales.",
+      respuesta2: "Presiones sociales.",
+      respuesta3: "Cambios físicos.",
+      masInfo: "Los cambios en el estado de ánimo durante la pubertad son el resultado de una combinación de cambios hormonales, físicos y presiones sociales que enfrentan los adolescentes a medida que se desarrollan."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Cuál es una característica común del desarrollo psicológico durante la pubertad?",
+      respuestacorrecta: "Mayor autonomía y búsqueda de identidad.",
+      respuesta1: "Mayor estabilidad emocional.",
+      respuesta2: "Disminución del interés en el mundo exterior.",
+      respuesta3: "Disminución del deseo de socializar.",
+      masInfo: "Durante la pubertad, las personas suelen buscar mayor autonomía y explorar su identidad, lo que a menudo implica cuestionar y redefinir sus valores y creencias."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué parte del cerebro, responsable del control de impulsos y toma de decisiones, sigue desarrollándose durante la pubertad?",
+      respuestacorrecta: "Lóbulo frontal.",
+      respuesta1: "Hipotálamo.",
+      respuesta2: "Amígdala.",
+      respuesta3: "Cerebelo.",
+      masInfo: "El lóbulo frontal del cerebro, especialmente la corteza prefrontal, es responsable del control de impulsos y la toma de decisiones. Esta área continúa desarrollándose durante la pubertad y la adolescencia."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué papel juegan las amistades en el desarrollo emocional durante la pubertad?",
+      respuestacorrecta: "Contribuyen a la formación de identidad y proporcionan apoyo emocional.",
+      respuesta1: "No tienen influencia.",
+      respuesta2: "Son responsables de las fluctuaciones emocionales.",
+      respuesta3: "Son una distracción.",
+      masInfo: "Las amistades desempeñan un papel crucial durante la pubertad al contribuir a la formación de la identidad y proporcionar apoyo emocional. Estas ayudan a los adolescentes a desarrollar habilidades sociales y emocionales."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Qué es la búsqueda de autonomía?",
+      respuestacorrecta: "Búsqueda de independencia y toma de decisiones propias.",
+      respuesta1: "Búsqueda de conformidad y obediencia.",
+      respuesta2: "Búsqueda de aislamiento social.",
+      respuesta3: "Búsqueda de protección y supervisión.",
+      masInfo: "La búsqueda de autonomía durante la pubertad implica el deseo de independencia y la capacidad para tomar decisiones propias, que son aspectos clave del desarrollo psicológico en esta etapa."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Pubertad",
+      pregunta: "¿Cuál es una preocupación común en el desarrollo emocional de los adolescentes durante la pubertad?",
+      respuestacorrecta: "Preocupación por la apariencia y la aceptación social.",
+      respuesta1: "Pérdida de interés en las relaciones románticas.",
+      respuesta2: "Preocupación exclusiva por el bienestar físico.",
+      respuesta3: "Pérdida de interés en el rendimiento académico.",
+      masInfo: "Durante la pubertad, muchos adolescentes se preocupan por su apariencia y buscan la aceptación social, lo que puede influir en su desarrollo emocional y autoestima."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Las bebidas alcohólicas son perjudiciales para las relaciones sexuales?",
+      respuestacorrecta: "Sí.",
+      respuesta1: "Depende de la droga.",
+      respuesta2: "No.",
+      respuesta3: "Depende de cada persona.",
+      masInfo: "El alcohol perjudica las áreas del cerebro responsables del aprendizaje y la memoria, las habilidades verbales y la percepción visual-espacial. Por consiguiente, el consumo excesivo de alcohol afecta la creación de nuevos recuerdos, las habilidades de resolución de problemas, el pensamiento abstracto, la atención y la concentración. Los estudios sugieren que el consumo de alcohol en adolescentes afecta de forma negativa la función neurocognitiva, como la capacidad de estudiar y obtener buenos resultados en los exámenes. El alcohol suprime el sistema nervioso central, lo cual a su vez disminuye la excitación y la respuesta sexual a la estimulación. Otro de los puntos negativos, es que disminuye la lubricación vaginal, puede demorar la eyaculación o anularla. Al perder el control racional del cuerpo, puede llevar a las personas a tener relaciones sexuales de riesgos, es decir sin cuidados anticonceptivos, exponiéndose a infecciones de transmisión sexual o embarazos no deseados."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Las drogas son perjudiciales para las relaciones sexuales?",
+      respuestacorrecta: "Sí.",
+      respuesta1: "Depende del organismo.",
+      respuesta2: "No.",
+      respuesta3: "Depende de cada persona.",
+      masInfo: "Las drogas generan un mayor rechazo a los estímulos sexuales y también ansiedad. La sustancia más perjudicial es la heroína porque provoca una mayor dependencia física, por ser la que precisamente estimula una mayor necesidad de consumo diario. Del mismo modo, el alcohol es también de las más perjudiciales para el sexo. El cannabis o mariguana, su uso esporádico no suele tener efectos significativos en la sexualidad, aunque muchas mujeres se quejan de sequedad vaginal. Sin embargo, su consumo a largo plazo puede afectar a la secreción de hormonas, sobre todo la testosterona. En cuanto a los medicamentos, que también contienen drogas, habría que consultar al especialista qué sí afectan a las relaciones sexuales y si también tienen interacción con los métodos anticonceptivos."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Por qué la erección del pene por la mañana?",
+      respuestacorrecta: "Es una reacción natural.",
+      respuesta1: "Por ver imágenes eróticas antes de dormir.",
+      respuesta2: "Por una enfermedad.",
+      respuesta3: "Por soñar algo sexual.",
+      masInfo: "Es normal amanecer con una erección del pene por la mañana, ya que esto es una parte normal y saludable del funcionamiento sexual masculino. Las erecciones matutinas, también conocidas como erecciones espontáneas, se producen durante el sueño y se deben a la actividad del sistema nervioso autónomo. El sistema nervioso autónomo es el sistema nervioso que controla funciones involuntarias del cuerpo, como la frecuencia cardíaca y la respiración, y también puede afectar la actividad sexual. Las erecciones matutinas son una señal de que el sistema nervioso autónomo está funcionando adecuadamente y no son necesariamente un signo de excitación sexual. Es normal tener erecciones matutinas a cualquier edad y no son una causa de preocupación. Estas ocurren realmente durante toda la noche, con una frecuencia de entre una y cinco veces, y una duración de entre 15 y 40 minutos."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Cuántos óvulos tiene una mujer?",
+      respuestacorrecta: "Entre 400 y 800 mil.",
+      respuesta1: "Más de 2 millones.",
+      respuesta2: "Entre 100 y 200 mil.",
+      respuesta3: "Entre 1 y 2 millones.",
+      masInfo: "Las mujeres tienen un número limitado de óvulos en sus ovarios desde el momento de su nacimiento. El número de óvulos varía de persona a persona, pero en general, las mujeres tienen alrededor de 400.000 óvulos cuando nacen. Durante la pubertad, comienzan a desarrollar óvulos maduros que pueden ser liberados durante la ovulación y fertilizados por espermatozoides. Con el tiempo, el número de óvulos disminuye debido a la ovulación y al envejecimiento. A medida que una mujer envejece, el número de óvulos que quedan en los ovarios disminuye y la calidad de los óvulos también puede disminuir. Esto puede afectar la capacidad de una mujer para quedar embarazada."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿A qué edad se tiene la primera menstruación?",
+      respuestacorrecta: "Generalmente entre los 8 y los 16 años.",
+      respuesta1: "Se da con el nacimiento.",
+      respuesta2: "Generalmente entre los 16 y los 25 años.",
+      respuesta3: "Generalmente entre el año y los 8 años.",
+      masInfo: "La primera menstruación, llamada menarca, suele presentarse, aproximadamente, a los 12,5 años de edad (rango: 8 a 16 años). Y aunque estrictamente la mujer ya es capaz de reproducirte, su cuerpo continuará creciendo algunos años más para alcanzar el completo potencial que tiene una mujer adulta."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es un orgasmo?",
+      respuestacorrecta: "El punto de mayor excitación sexual.",
+      respuesta1: "Una ITS.",
+      respuesta2: "Un órgano sexual.",
+      respuesta3: "Una orientación sexual.",
+      masInfo: "El orgasmo es una sensación de placer y una respuesta fisiológica que ocurre durante o al final de la actividad sexual. Pueden ser diferentes para cada persona y pueden variar en intensidad y duración. Durante un orgasmo, el cuerpo experimenta una serie de cambios fisiológicos, como una mayor frecuencia cardíaca y respiración, una tensión muscular y una liberación de hormonas como la oxitocina y la serotonina. También pueden acompañarse de una sensación de placer y satisfacción. Pueden ser experimentados por personas de cualquier género y pueden ser alcanzados de diferentes maneras, como mediante el contacto físico con otra persona o mediante la estimulación individual."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Dónde se produce el semen?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "En la próstata.",
+      respuesta2: "En el epidídimo.",
+      respuesta3: "En el testículo.",
+      masInfo: "El semen es un líquido viscoso y blanquecino que es expulsado a través de la uretra durante la eyaculación. Está compuesto por espermatozoides y plasma seminal que se forma por el aporte de los testículos, el epidídimo, las vesículas seminales, la próstata, las glándulas de Cowper, las glándulas de Littre y los vasos deferentes."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Por qué después de la eyaculación el pene pierde la erección?",
+      respuestacorrecta: "Por una acción natural.",
+      respuesta1: "Por una infección.",
+      respuesta2: "No se pierde la erección.",
+      respuesta3: "Para producir más esperma.",
+      masInfo: "Después de la eyaculación, el pene suele perder la erección debido a una disminución del flujo sanguíneo en el tejido esponjoso del pene. Durante la erección, el flujo sanguíneo aumenta en el pene debido a la relajación de los músculos lisos en el tejido esponjoso y a la contracción de los músculos circundantes. Después de la eyaculación, el cuerpo libera una hormona llamada oxitocina, que ayuda a promover la contracción de los músculos lisos y a reducir el flujo sanguíneo al pene. Esto puede hacer que el pene pierda la erección. Es normal que el pene pierda la erección después de la eyaculación y no es necesariamente un signo de problemas de salud."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es la espermarquia?",
+      respuestacorrecta: "La primera eyaculación del hombre.",
+      respuesta1: "Un método anticonceptivo.",
+      respuesta2: "Una ITS.",
+      respuesta3: "Un órgano sexual.",
+      masInfo: "Se llama espermarquia a la primera eyaculación del pene. Tiene lugar generalmente entre los 12 y los 14 años, aunque la variación individual es amplia. Puede ocurrir de forma involuntaria durante la noche, en el transcurso del sueño (polución nocturna) que es un fenómeno totalmente normal, o ser voluntaria por masturbación. Durante la espermarquia, los espermatozoides son producidos en los testículos y luego son almacenados en las vesículas seminales hasta que son expulsados durante la eyaculación."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Una mujer puede ovular dos veces con días de diferencia en un mismo periodo?",
+      respuestacorrecta: "Es poco común que se ovule dos veces durante el mismo ciclo menstrual.",
+      respuesta1: "Imposible, el ovario libera un solo óvulo.",
+      respuesta2: "Si, puede liberar más de un óvulo.",
+      respuesta3: "Si, libera millones de óvulos por día.",
+      masInfo: "Es poco común que se ovule dos veces durante el mismo ciclo menstrual. La ovulación ocurre cuando un óvulo maduro es liberado desde el ovario y se desplaza por las trompas uterinas hacia el útero, donde puede ser fertilizado por un espermatozoide. En la mayoría de los ciclos menstruales, solo se libera un óvulo durante la ovulación. Sin embargo, en algunos casos excepcionales, es posible que se ovule dos veces durante el mismo ciclo pero en forma casi simultánea. Esto se conoce como ovulación múltiple y es más común en mujeres que tienen trastornos hormonales o que toman ciertos tipos de medicamentos para estimular la ovulación. Es importante tener en cuenta que la ovulación múltiple es relativamente rara y que la mayoría de las mujeres solo ovulan una vez durante cada ciclo menstrual."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es la eyaculación precoz?",
+      respuestacorrecta: "Expulsión prematura del semen.",
+      respuesta1: "Expulsión retrasada del semen.",
+      respuesta2: "Cuando no se puede eyacular.",
+      respuesta3: "Una ITS.",
+      masInfo: "La eyaculación precoz es una falta de control sobre el reflejo eyaculatorio; por tanto, es un trastorno de la fase del orgasmo durante la relación sexual. La gran mayoría de los hombres experimentan una eyaculación precoz en algún punto de su vida sexual. El hombre eyacula antes de la penetración de su pareja o segundos después de hacerlo. La eyaculación precoz puede ser causada por una variedad de factores, como ansiedad, estrés, depresión, trastornos hormonales o problemas de salud física. Es una condición común y puede ser tratada con éxito."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es la eyaculación masculina?",
+      respuestacorrecta: "Expulsión del esperma.",
+      respuesta1: "Un órgano sexual.",
+      respuesta2: "En método anticonceptivo.",
+      respuesta3: "Una ITS.",
+      masInfo: "La eyaculación masculina supone la expulsión del esperma y suele ir acompañada del orgasmo. Es fruto de estimulaciones repetitivas del pene mientras se mantiene una relación sexual o una masturbación. Tras la eyaculación, el pene pierde de forma progresiva la erección, por lo que es extraño que se pueda eyacular dos veces seguidas."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Cuáles de esto no es parte del órgano sexual femenino?",
+      respuestacorrecta: "Próstata.",
+      respuesta1: "Útero.",
+      respuesta2: "Trompas uterinas.",
+      respuesta3: "Cérvix.",
+      masInfo: "La próstata es una glándula que se encuentra en el órgano sexual masculino. Está unida al cuello de la vejiga de la orina y a la uretra, y segrega el semen cuya función es estimular el movimiento de los espermatozoides."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es la sexualidad?",
+      respuestacorrecta: "Involucra lo biológico, psicológico, cultural, y espiritual.",
+      respuesta1: "Involucra solo lo genital.",
+      respuesta2: "Involucra solo lo espiritual.",
+      respuesta3: "Involucra solo lo psicológico.",
+      masInfo: "La sexualidad es un aspecto fundamental de la vida humana y se refiere a las emociones, actitudes, valores y comportamientos relacionados con la atracción sexual y el placer sexual. La sexualidad incluye la identidad de género, la orientación sexual, el comportamiento sexual, las relaciones íntimas y la reproducción. La sexualidad es una parte importante de la identidad de una persona y puede ser influenciada por muchos factores, como la cultura, la religión, la historia familiar y la propia experiencia personal. La sexualidad es un tema complejo y cada persona tiene su propia forma única de expresar su sexualidad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Se puede ovular dos veces durante un mismo periodo?",
+      respuestacorrecta: "Si, puede liberar más de un óvulo pero en forma simultanea.",
+      respuesta1: "Si, libera millones de óvulos por día.",
+      respuesta2: "Si, puede ovular más de una vez en distintos momentos de su ciclo.",
+      respuesta3: "Imposible, el ovario libera un solo óvulo.",
+      masInfo: "Fisiológicamente, al iniciar un ciclo menstrual se estimula el crecimiento de varios folículos, habitualmente solo uno es el predominante y es el ovulatorio; pero algunas mujeres pueden desarrollar dos o más folículos ovulatorios y tener una ovulación múltiple, lo cual sucede al mismo tiempo, no en momentos diferentes."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "El alcohol ¿disminuye el efecto de las pastillas anticonceptivas?",
+      respuestacorrecta: "Depende si se produce un vómito.",
+      respuesta1: "Depende de la droga.",
+      respuesta2: "Si.",
+      respuesta3: "No.",
+      masInfo: "El alcohol no disminuye el efecto de las pastillas anticonceptivas. Sin embargo, el anticonceptivo puede influir sobre el metabolismo del alcohol haciendo a la persona más susceptible a la intoxicación. El alcohol no tiene un efecto directo sobre la pastilla anticonceptiva, pero si existiera una intoxicación que lleve al vómito, puede afectar la absorción de la pastilla y por ende su efecto."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Por qué a algunas personas después de eyacular les da sueño?",
+      respuestacorrecta: "Por una cuestión hormonal.",
+      respuesta1: "Por cansancio.",
+      respuesta2: "Es un mito.",
+      respuesta3: "Por debilidad.",
+      masInfo: "Después de eyacular, el cuerpo libera una hormona llamada prolactina, que puede contribuir a sentirse cansado o con sueño. La prolactina es una hormona producida por la glándula pituitaria y se libera después de la eyaculación, la lactancia y el estrés. También puede ser liberada durante la fase de sueño profundo. Además, la eyaculación también puede ser agotadora físicamente y puede dejar al cuerpo sintiéndose cansado. También puede haber una disminución temporal en los niveles de testosterona después de la eyaculación, lo que también puede contribuir a sentirse cansado. Es importante tener en cuenta que estos efectos pueden variar de persona a persona y no necesariamente ocurren en todas las personas después de eyacular."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿A qué se llama coito?",
+      respuestacorrecta: "Cuando el pene penetra en la vagina o ano.",
+      respuesta1: "Cuando el hombre eyacula.",
+      respuesta2: "Cuando ambos tienen un orgasmo al mismo tiempo.",
+      respuesta3: "Cuando la mujer tiene un orgasmo.",
+      masInfo: "El coito es un término que se refiere a la actividad sexual en la que se tienen relaciones sexuales de penetración. Esta actividad sexual también se conoce como penetración o relaciones sexuales. Durante el coito, el pene es introducido en la vagina o ano. Es una forma común de tener relaciones sexuales, pero hay muchas otras formas de expresar la sexualidad y tener relaciones íntimas con otra persona. Es importante tener en cuenta que el coito es una actividad sexual que puede tener riesgos, como el embarazo no deseado o la transmisión de infecciones de transmisión sexual, y es importante tomar medidas de protección adecuadas usando preservativos."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Por qué la erección se desvía hacia un lado en algunas personas?",
+      respuestacorrecta: "Por el tejido del cuerpo.",
+      respuesta1: "Por genética.",
+      respuesta2: "Producto de la masturbación.",
+      respuesta3: "Por deformidad.",
+      masInfo: "La moderada desviación del pene en erección es normal. Si la desviación es muy acusada y/o resulta molesta o dolorosa al mantener relaciones sexuales, consulte a su médico. Esto puede ser causado por una condición conocida como enfermedad de Peyronie, en la que se desarrolla una cicatriz dura en el tejido del pene, lo que puede causar una curvatura o deformidad en la erección. La enfermedad de Peyronie puede ser causada por una lesión en el pene, una inflamación o una infección, y puede afectar a cualquier edad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Desde qué edad una persona puede eyacular?",
+      respuestacorrecta: "Entre los 10 y los 15 años.",
+      respuesta1: "A partir de los 2 años.",
+      respuesta2: "A los 20 años.",
+      respuesta3: "A partir de los 8 años.",
+      masInfo: "La producción de esperma se inicia poco después de empezar la pubertad, generalmente entre los 12 y 15 años, en función de cada persona. Durante este periodo, los testículos crecen y pueden producirse erecciones espontáneas. Estas erecciones espontáneas se hacen cada vez más frecuentes y a veces pueden venir seguidas de una eyaculación."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿A qué se llama \"sueños húmedos\"?",
+      respuestacorrecta: "Es cuando se eyacula dormido.",
+      respuesta1: "Es cuando una persona se orina estando dormido.",
+      respuesta2: "Es cuando se sueña con meterse al agua.",
+      respuesta3: "Es cuando se sueña con ahogarse.",
+      masInfo: "Una emisión nocturna o polución nocturna es una eyaculación involuntaria de semen que tiene lugar durante el sueño. Las poluciones nocturnas son más comunes durante los últimos años de la adolescencia, aunque se presentan también en el adulto. Pueden estar, o no, acompañadas por sueños eróticos. Son una parte normal y saludable del funcionamiento sexual masculino y no son necesariamente un signo de excitación sexual o de problemas de salud."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Cuáles de estos es parte del órgano genital masculino?",
+      respuestacorrecta: "Epidídimo.",
+      respuesta1: "Trompas de Falopio.",
+      respuesta2: "Vulva.",
+      respuesta3: "Clítoris.",
+      masInfo: "El epidídimo es un tubo estrecho y alargado, situado en la parte superior del testículo; conecta los conductos deferentes al reverso de cada testículo. Está constituido por la reunión y apelotonamiento de los conductos seminíferos. Se distingue una cabeza, cuerpo y cola que continúa con el conducto deferente. Tiene aproximadamente 5 cm de longitud por 12 mm de ancho. Está presente en todos los mamíferos machos. Es parte del aparato reproductor masculino. Es el lugar en donde maduran y se almacenan los espermatozoides."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Por qué se produce la erección del pene?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Por una acción de los vasos sanguíneos.",
+      respuesta2: "Por una acción del cerebro.",
+      respuesta3: "Por un estímulo.",
+      masInfo: "La erección del pene es un proceso fisiológico que ocurre cuando el pene se vuelve rígido y se endurece debido a un aumento del flujo sanguíneo en el tejido esponjoso del pene. Esto se debe a la relajación de los músculos lisos en el tejido esponjoso y a la contracción de los músculos circundantes, lo que permite que la sangre fluya hacia el pene y se retenga allí. La erección del pene puede ser causada por factores físicos, como el contacto físico o la estimulación sexual, o por factores mentales, como el pensamiento o la fantasía erótica. La erección del pene es una parte normal y saludable del funcionamiento sexual y puede ocurrir a cualquier edad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Cuáles de estos es parte del órgano sexual femenino?",
+      respuestacorrecta: "Cérvix.",
+      respuesta1: "Pulmón.",
+      respuesta2: "Próstata.",
+      respuesta3: "Testículos.",
+      masInfo: "El cuello uterino o cérvix uterino es la porción fibromuscular inferior del útero que se proyecta dentro de la vagina, y es un componente anatómico exclusivo de la hembra en los mamíferos. Esta apertura o hueco deja que salga la sangre del útero durante la menstruación (período). También deja que entren los espermatozoides al útero y a las trompas uterinas. Aunque, por lo general mide de 3 a 4 cm de longitud y unos 2,5 cm de diámetro, el cérvix se puede dilatar unos 10 cm durante el parto para dejar que pase el bebé, y su tamaño puede variar según la edad, el número de partos y el momento del ciclo menstrual."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Cuántos espermatozoides producen los testículos al día?",
+      respuestacorrecta: "Millones.",
+      respuesta1: "Uno.",
+      respuesta2: "Miles.",
+      respuesta3: "Algunos pocos.",
+      masInfo: "El número de espermatozoides producidos por los testículos puede variar ampliamente y puede depender de factores como la edad, la salud general y el estilo de vida. En general, los testículos pueden producir entre 40 millones y 1.500 millones de espermatozoides por mililitro (ml) de semen. El cuerpo humano produce nuevos espermatozoides constantemente y, en promedio, un hombre puede producir entre 2 y 5 ml de semen por eyaculación. Esto significa que un hombre puede producir entre 80 millones y 7.500 millones de espermatozoides por eyaculación. Es importante tener en cuenta que el número de espermatozoides producidos por un hombre puede variar ampliamente y no es necesariamente un indicador de la fertilidad o la salud reproductiva."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Cuánto tiempo vive un óvulo?",
+      respuestacorrecta: "Entre 12 y 48 horas.",
+      respuesta1: "Entre 2 y 5 días.",
+      respuesta2: "Más de 5 días.",
+      respuesta3: "Una semana.",
+      masInfo: "Una vez que el óvulo es liberado durante la ovulación, vive aproximadamente 24 horas. Si no es fertilizado durante este tiempo, se desintegra y es eliminado del cuerpo. Si es fertilizado por un espermatozoide durante la ovulación y se implanta en el útero, puede desarrollarse en un embrión y llevar a un embarazo."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Cuántos días dura el ciclo menstrual?",
+      respuestacorrecta: "Depende de la persona.",
+      respuesta1: "Más de 28 días.",
+      respuesta2: "Lo normal son 28 días.",
+      respuesta3: "Menos de 28.",
+      masInfo: "Es importante tener en cuenta que el ciclo menstrual y la duración de la menstruación varían de persona en persona, y es normal que la duración de la menstruación varíe de mes en mes. La duración y el flujo menstrual pueden variar debido a factores como la edad, el estado de salud general y los cambios hormonales."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "Si una persona no tuvo su primera menstruación y tiene relación sin protección, ¿puede producirse un embarazo?",
+      respuestacorrecta: "Si, porque antes de la menstruación hay una primera ovulación.",
+      respuesta1: "No, porque todavía el cuerpo no está preparado.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "No, por una cuestión hormonal.",
+      masInfo: "Sí, es posible que una persona pueda quedar embarazada si tiene relaciones sexuales sin protección, incluso si no ha tenido su primera menstruación. Algunas personas pueden ovular antes de tener su primera menstruación. Además, el esperma puede sobrevivir en el cuerpo durante varios días después de tener relaciones sexuales, lo que significa que es posible quedar embarazada incluso si no se está ovulando en el momento en que se tienen relaciones sexuales."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué es la menorragia?",
+      respuestacorrecta: "El sangrado abundante y prolongado.",
+      respuesta1: "El sangrado amarronado.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "El sangrado escaso.",
+      masInfo: "La menorragia es un término médico que se utiliza para describir una menstruación excesivamente abundante. La menorragia se caracteriza por un flujo menstrual muy abundante que dura más de 7 días o que es tan abundante que interrumpe las actividades normales de una persona. La menorragia puede ser causada por una variedad de factores, como cambios hormonales, problemas con el sistema reproductivo o el uso de ciertos medicamentos. La menorragia puede ser un problema grave de salud y puede tener un impacto en la calidad de vida de una persona. Puede causar anemia debido a la pérdida excesiva de hierro, y también puede causar fatiga, dolor abdominal y dolor durante las relaciones sexuales."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Por qué después del parto cuando se da de amamantar tarda en aparecer la menstruación?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Por los niveles altos de prolactina.",
+      respuesta2: "Porque al amamantar se produce prolactina.",
+      respuesta3: "Porque la prolactina causa amenorrea.",
+      masInfo: "Después del parto, es normal que la menstruación se retrase o se detenga por completo durante el periodo de lactancia. Esto se debe a que la lactancia puede inhibir la ovulación (es decir, el proceso por el cual el cuerpo de una mujer libera un óvulo desde uno de sus ovarios) y retrasar la menstruación.\nLa lactancia es una forma natural de anticoncepción y puede ser muy efectiva para prevenir el embarazo durante los primeros meses después del parto, especialmente si se da de amamantar al bebé exclusivamente y con frecuencia. Esto se debe a que la lactancia puede inhibir la producción de hormonas que estimulan la ovulación y pueden retrasar o detener la menstruación.\nSin embargo, es importante tener en cuenta que la lactancia como método anticonceptivo puede ser menos efectiva para algunas mujeres y no es un método anticonceptivo seguro para todas las mujeres."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Cuántos días puede durar la menstruación?",
+      respuestacorrecta: "De 3 a 7 días.",
+      respuesta1: "Un día.",
+      respuesta2: "Más de 7 días.",
+      respuesta3: "De dos a 4 días.",
+      masInfo: "El ciclo menstrual y la duración de la menstruación varían de persona en persona, y es normal que la duración de la menstruación varíe de mes en mes. En general, la menstruación dura de 3 a 7 días, aunque algunas personas pueden tener ciclos más cortos o más largos. Es importante tener en cuenta que la duración y el flujo menstrual también pueden variar debido a factores como la edad, el estado de salud general y los cambios hormonales."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué hormona aumenta en la fase lútea?",
+      respuestacorrecta: "Progesterona.",
+      respuesta1: "Estrógenos.",
+      respuesta2: "Melanina.",
+      respuesta3: "Melatonia.",
+      masInfo: "Después de la ovulación, que es el proceso por el cual el aparato genital femenino libera un óvulo desde uno de sus ovarios, los niveles de progesterona aumentan de forma gradual. La progesterona ayuda a preparar el útero para la posible implantación de un embrión y a mantener el embarazo si ocurre la fertilización y la implantación. Los niveles de progesterona aumentan durante toda la fase lútea y alcanzan su punto máximo justo antes de la menstruación.\n\nSi el óvulo es fertilizado durante la ovulación y se implanta en el útero, los niveles de progesterona se mantienen altos y la fase lútea continúa durante todo el embarazo. Si el óvulo no es fertilizado, los niveles de progesterona disminuyen y el útero se desprende del endometrio, lo que causa la menstruación y marca el comienzo de un nuevo ciclo menstrual."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Los anticonceptivos de larga duración pueden producir amenorrea?",
+      respuestacorrecta: "Si, porque impiden la ovulación por lo que no hay menstruación.",
+      respuesta1: "No, porque no impiden la ovulación.",
+      respuesta2: "Si, pero solo a partir de los 30 años.",
+      respuesta3: "Si, pero solo a los primeros años de uso.",
+      masInfo: "Sí, los anticonceptivos de larga duración, como los dispositivos intrauterinos (DIU) que liberan hormonas y los parches anticonceptivos, pueden producir amenorrea, que es la ausencia de menstruación. La amenorrea puede ser un efecto secundario de los anticonceptivos de larga duración y puede ocurrir cuando los niveles hormonales del cuerpo están regulados por estos métodos. Los anticonceptivos de larga duración funcionan al regular los niveles hormonales del cuerpo y evitar la ovulación (es decir, el proceso por el cual el cuerpo de una mujer libera un óvulo desde uno de sus ovarios). Al evitar la ovulación, también pueden detener o retrasar la menstruación. Esto puede ser beneficioso para algunas personas, ya que puede reducir o eliminar la menstruación por completo. Sin embargo, para otras personas, la amenorrea puede ser un efecto secundario no deseado de los anticonceptivos de larga duración."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué es el ciclo menstrual?",
+      respuestacorrecta: "El tiempo desde una menstruación hasta la próxima menstruación.",
+      respuesta1: "El tiempo desde la menstruación a la ovulación.",
+      respuesta2: "El tiempo que tarda en desaparecer el sangrado.",
+      respuesta3: "El tiempo desde la ovulación hasta la menstruación.",
+      masInfo: "El ciclo menstrual comienza con el primer día de la menstruación y termina el día antes del comienzo de la siguiente menstruación. El objetivo principal del ciclo menstrual es preparar el cuerpo para la posibilidad de un embarazo. Durante el ciclo menstrual, el útero se prepara para recibir un embrión implantado, y uno o más óvulos maduros son liberados por los ovarios para ser fertilizados. Si una mujer no queda embarazada durante el ciclo menstrual, el útero se desprende del endometrio y comienza a menstruar."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿A qué se llama ciclo anovulatorio?",
+      respuestacorrecta: "A los ciclos en donde no hay ovulación.",
+      respuesta1: "A los ciclos con sangrados intensos.",
+      respuesta2: "A los ciclos menstruales de 28 días.",
+      respuesta3: "A los ciclos en donde hay ovulación.",
+      masInfo: "Un ciclo anovulatorio es aquel en el que no ocurre la ovulación, lo que significa que no hay óvulos disponibles para ser fertilizados. Esto puede ser causado por una variedad de factores, como cambios en los niveles hormonales, problemas con el sistema reproductivo o el uso de ciertos medicamentos.\nUn ciclo anovulatorio puede ser temporal o permanente y puede tener un impacto en la capacidad de una mujer para quedarse embarazada."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué es el moco cervical?",
+      respuestacorrecta: "Un flujo que se produce en el cuello uterino.",
+      respuesta1: "Un flujo que produce el ovario.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Un flujo que produce las trompas uterinas.",
+      masInfo: "El moco cervical es un líquido transparente o blanco espeso que se produce en la cérvix o cuello uterino, que es la parte inferior del útero que se abre a la vagina. Este cambia de consistencia y cantidad durante el ciclo menstrual y puede ser una forma efectiva de predecir cuándo ovulas (es decir, cuándo el cuerpo de una mujer libera un óvulo desde uno de sus ovarios). El moco cervical se produce gracias a las glándulas cérvicas, que se encuentran en la cérvix y producen el moco. Se produce principalmente para proteger y lubricar la vagina y la cérvix, pero también juega un papel importante en la fertilización. Cuando estás cerca de ovular, el moco cervical se vuelve más abundante y más elástico. Esto se debe a los cambios en los niveles de estrógenos durante el ciclo menstrual. El moco cervical más abundante y elástico es más propenso a atrapar y proteger los espermatozoides, lo que puede facilitar la fertilización y el embarazo."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Cuáles son las causas de la amenorrea?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Embarazo.",
+      respuesta2: "La pérdida excesiva o repentina de peso.",
+      respuesta3: "Situación de stress.",
+      masInfo: "La causa más común de amenorrea es el embarazo, la lactancia y la menopausia. También, los cambios en los niveles de estrógeno y progesterona pueden interferir con la menstruación. Esto puede ser causado por cambios en la salud, el estilo de vida o el uso de ciertos medicamentos. Las situaciones de estres, o pérdida excesiva o repentina de peso pueden ser motivos de la amenorrea."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué es la dismenorrea?",
+      respuestacorrecta: "Todas las anteriores.",
+      respuesta1: "Es un dolor agudo y espasmódico.",
+      respuesta2: "Un dolor que mejora con el tiempo.",
+      respuesta3: "Empieza antes de la menstruación y desparece a los días.",
+      masInfo: "La dismenorrea es un trastorno menstrual que se caracteriza por dolor abdominal o de espalda durante la menstruación. El dolor puede ser leve o intenso y puede afectar a la actividad diaria de la persona.\nLa dismenorrea primaria es el tipo más común de dismenorrea y se produce sin una causa específica. Se cree que puede ser causada por la liberación de sustancias químicas llamadas prostaglandinas durante la menstruación, que pueden provocar contracciones uterinas y dolor. La dismenorrea secundaria es menos común y se debe a una afección subyacente, como endometriosis, quistes ováricos o enfermedad pélvica inflamatoria."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Por qué se produce la ovulación?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Al aumentar el estrógeno aumenta la hormona luteinizante.",
+      respuesta2: "El aumento de la hormona luteinizante produce la maduración del óvulo.",
+      respuesta3: "Por el aumento de los niveles de estrógenos.",
+      masInfo: "La ovulación ocurre debido a cambios en los niveles hormonales que ocurren durante el ciclo menstrual. Durante la primera mitad del ciclo menstrual, el aparato genital femenino produce estrógeno, que estimula el crecimiento y el desarrollo del útero y los ovarios. En la segunda mitad del ciclo, el cuerpo produce progesterona, que ayuda a preparar el útero para la posible implantación de un embrión. La ovulación ocurre cuando los niveles de estrógeno y progesterona alcanzan ciertos umbrales y estimulan la liberación de un óvulo maduro desde un ovario."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Durante el embarazo puede haber menstruación?",
+      respuestacorrecta: "No, porque hay no hay ovulación.",
+      respuesta1: "Si, el embarazo no impide la menstruación.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Si, porque a una amiga le paso.",
+      masInfo: "Durante el embarazo, la menstruación se detiene y no debería haber sangrado que se parezca a la menstruación. Sin embargo, durante el embarazo, es posible que haya algunas manchas de sangre o sangrado ligero. Esto puede deberse a varias causas, como el proceso de implantación del embrión en el útero o el crecimiento del revestimiento del útero durante el embarazo. Sin embargo, cualquier sangrado durante el embarazo debe ser evaluado por un profesional de la salud para determinar la causa y asegurar que no haya problemas de salud."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Por qué el moco cervical cambia de color, textura y cantidad?",
+      respuestacorrecta: "Por la variación de los niveles de hormonas.",
+      respuesta1: "Porque cuando es pegajoso no deja pasar los espermatozoides.",
+      respuesta2: "Porque cuando es transparente y elástico deja pasar los espermatozoides.",
+      respuesta3: "Todas son correctas.",
+      masInfo: "El moco cervical cambia de consistencia y cantidad durante el ciclo menstrual y puede ser una forma efectiva de predecir cuándo ovulas (es decir, cuándo el cuerpo de una mujer libera un óvulo desde uno de sus ovarios). Los cambios en el moco cervical se deben principalmente a los cambios en los niveles hormonales durante el ciclo menstrual."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Por qué los métodos anticonceptivos hormonales impiden la ovulación?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Porque tienen estrógeno y progesterona.",
+      respuesta2: "Impiden la producción de la hormona luteinizante LH.",
+      respuesta3: "Porque mantienen estables los niveles hormonales.",
+      masInfo: "Los métodos anticonceptivos hormonales impiden la ovulación de varias maneras. Algunos de ellos funcionan bloqueando la liberación de los óvulos desde los ovarios, mientras que otros alteran las paredes del útero para que no pueda recibir un embrión implantado. También pueden alterar el moco cervical, haciéndolo más espeso y menos propicio para el paso de los espermatozoides hacia el útero."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿El DIU de cobre afecta la ovulación?",
+      respuestacorrecta: "No, solo espesa el moco cervical.",
+      respuesta1: "Si.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Depende del día del ciclo.",
+      masInfo: "El dispositivo intrauterino (DIU) de cobre es un método anticonceptivo que se coloca en el útero para evitar el embarazo. El DIU de cobre libera pequeñas cantidades de cobre en el útero, lo que altera la manera en que el esperma se mueve y previene la fertilización del óvulo. Aunque el DIU de cobre no afecta directamente la ovulación, puede ayudar a prevenir el embarazo al evitar que el óvulo y el esperma se encuentren y se fertilicen. Es importante tener en cuenta que el DIU de cobre es muy efectivo para evitar el embarazo, pero no protege contra enfermedades de transmisión sexual (ETS)."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué hormona aumenta al final de la fase folicular?",
+      respuestacorrecta: "Estrógenos.",
+      respuesta1: "Melanina.",
+      respuesta2: "Progesterona.",
+      respuesta3: "Melatonia.",
+      masInfo: "Los niveles de estrógenos aumentan durante la fase folicular y alcanzan su punto máximo justo antes de la ovulación. Después de la ovulación, los niveles de estrógenos disminuyen."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué es el sangrado por deprivación?",
+      respuestacorrecta: "Es un sangrado que se produce cuando se consumen pastillas anticonceptivas.",
+      respuesta1: "Es otro nombre que recibe la menstruación.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Es un sangrado que se da cuando el embrión se implanta en el útero.",
+      masInfo: "Los métodos anticonceptivos hormonales funcionan al regular los niveles hormonales del cuerpo y evitar la ovulación (es decir, el proceso por el cual el cuerpo de una mujer libera un óvulo desde uno de sus ovarios). Al interrumpir el uso de un método anticonceptivo hormonal o durante la semana de descanso, los niveles hormonales del cuerpo pueden desequilibrarse y puede ocurrir un sangrado por deprivación. El sangrado por deprivación suele ser similar a la menstruación, pero puede ser más ligero o más pesado y puede durar más o menos tiempo."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué es la menarca?",
+      respuestacorrecta: "Se llama así a la primera menstruación.",
+      respuesta1: "Una marca de copa menstrual.",
+      respuesta2: "Se llama así a la última menstruación.",
+      respuesta3: "Se llama así a la menstruación abundante.",
+      masInfo: "La menarca es el término médico que se utiliza para describir la primera menstruación o el primer sangrado menstrual de una mujer. Es una parte normal y esperada del desarrollo físico y sexual de las mujeres y suele ocurrir entre los 12 y los 15 años de edad, aunque puede ocurrir tanto antes como después. Es una señal de que el cuerpo está maduro y está listo para la reproducción. Después de la menarca, la mayoría de las personas podrán quedarse embarazadas si tienen relaciones sexuales sin protección."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué es la amenorrea?",
+      respuestacorrecta: "Se llama así a la ausencia de menstruación.",
+      respuesta1: "Se llama así a la desaparición de la menstruación a partir de los 50 años.",
+      respuesta2: "Otro nombre para llamar a la menstruación.",
+      respuesta3: "Se llama así a la menstruación abundante.",
+      masInfo: "La amenorrea es la ausencia de menstruación en una mujer que ya ha experimentado la menarca (es decir, que ya ha tenido su primera menstruación). La amenorrea puede ser temporal o permanente, y puede ser causada por una variedad de factores. La amenorrea primaria se refiere a la ausencia de menstruación en una mujer que aún no ha tenido su primera menstruación. La amenorrea primaria puede ser causada por problemas de desarrollo, trastornos hormonales o problemas genéticos. La amenorrea secundaria se refiere a la ausencia de menstruación en una mujer que ya ha tenido su primera menstruación. La amenorrea secundaria puede ser causada por cambios en los niveles hormonales, problemas con el sistema reproductivo, el embarazo, el lactancia, el estrés, el ejercicio extremo o la obesidad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Cómo se divide el ciclo menstrual?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Menstruación, fase folicular.",
+      respuesta2: "Ovulación y fase lútea.",
+      respuesta3: "Preovulatoria y Postovulatoria.",
+      masInfo: "El ciclo menstrual se divide en dos fases principales: la fase folicular y la fase lútea. La fase folicular es la primera parte del ciclo menstrual y comienza el primer día de la menstruación. Durante esta fase, el cuerpo de una mujer produce estrógeno, que estimula el crecimiento y el desarrollo del útero y los ovarios. Al final de la fase folicular, se produce la ovulación, que es el proceso por el cual el cuerpo de una mujer libera un óvulo (también conocido como un huevo) desde uno de sus ovarios. La fase lútea es la segunda parte del ciclo menstrual y comienza después de la ovulación. Durante esta fase, el cuerpo de una mujer produce progesterona, que ayuda a preparar el útero para la posible implantación de un embrión. Si el óvulo es fertilizado durante la ovulación y se implanta en el útero, la fase lútea continúa y prepara el cuerpo para el embarazo. Si el óvulo no es fertilizado, los niveles de progesterona disminuyen y el útero se desprende del endometrio, lo que causa la menstruación y marca el comienzo de un nuevo ciclo menstrual. La fase preovulatoria es la primera parte del ciclo menstrual y se refiere al período antes de la ovulación. La fase postovulatoria es la segunda parte del ciclo menstrual y se refiere al período después de la ovulación."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Menstruación",
+      pregunta: "¿Qué es la ovulación?",
+      respuestacorrecta: "La salida del óvulo del ovario.",
+      respuesta1: "La salida del óvulo de la vagina.",
+      respuesta2: "La salida del óvulo del útero.",
+      respuesta3: "El pasaje del óvulo por las trompas uterinas.",
+      masInfo: "La ovulación es el proceso por el cual el cuerpo de una mujer libera un óvulo (también conocido como un huevo) desde uno de sus ovarios. La ovulación es una parte importante del ciclo menstrual y es necesaria para que una mujer pueda quedarse embarazada. La ovulación ocurre cuando un óvulo maduro es liberado desde uno de los ovarios y es transportado por las trompas de Falopio hacia el útero. Si el óvulo es fertilizado por un espermatozoide durante este viaje, puede implantarse en el útero y comenzar a desarrollarse en un embrión. Si el óvulo no es fertilizado, se desprende del útero y se elimina junto con el endometrio durante la menstruación."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el ligamento del ovario?",
+      respuestacorrecta: "Un ligamento que sujeta los ovarios a la pared abdominal.",
+      respuesta1: "La extirpación quirúrgica de los ovarios.",
+      respuesta2: "La parte inferior del útero que conecta con la vagina.",
+      respuesta3: "La unión de los ovarios con el útero.",
+      masInfo: "El ligamento del ovario es una estructura que sujeta los ovarios a la pared abdominal en el sistema reproductor femenino. Está compuesto por tejido conectivo y se extiende desde los ovarios hasta la pared lateral de la pelvis. Los ligamentos del ovario son importantes para mantener la posición y la estabilidad de los ovarios en la cavidad pélvica. Además, estos ligamentos también contienen vasos sanguíneos y nervios que proveen la irrigación y la inervación de los ovarios."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué son las fiámbrias?",
+      respuestacorrecta: "Conductos que transportan los óvulos hacia el útero.",
+      respuesta1: "Estructuras que protegen los ovarios.",
+      respuesta2: "Pequeños músculos del útero.",
+      respuesta3: "Glándulas productoras de hormonas sexuales.",
+      masInfo: "Las fiámbrias son estructuras en forma de dedos que se encuentran en la parte externa de las trompas de Falopio, cerca de los ovarios. Su función principal es proteger los ovarios y capturar los óvulos liberados durante la ovulación. Las fiámbrias tienen la capacidad de moverse y barrenar la superficie del ovario para capturar el óvulo y dirigirlo hacia el interior de la trompa de Falopio. Una vez que el óvulo es capturado por las fiámbrias, comienza su viaje a través de la trompa hacia el útero, donde puede encontrarse con un espermatozoide y ocurrir la fertilización."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el miometrio?",
+      respuestacorrecta: "La capa muscular del útero.",
+      respuesta1: "La capa externa del útero.",
+      respuesta2: "El revestimiento interno del útero.",
+      respuesta3: "Un músculo que recubre la vagina.",
+      masInfo: "El miometrio es la capa muscular del útero, y es una de las capas principales que conforman el órgano. Está compuesto por tejido muscular liso y es responsable de las contracciones uterinas durante el parto y la menstruación. El miometrio es una capa gruesa y elástica que se expande durante el embarazo para acomodar el crecimiento del feto y luego se contrae para ayudar en el proceso de parto. Además, las contracciones regulares del miometrio durante la menstruación ayudan a expulsar el revestimiento interno del útero, conocido como endometrio."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el perineo?",
+      respuestacorrecta: "El área entre el ano y los genitales.",
+      respuesta1: "Un hueso de la pelvis.",
+      respuesta2: "La capa muscular del útero.",
+      respuesta3: "Una glándula productora de hormonas sexuales.",
+      masInfo: "El perineo es la región del cuerpo que se encuentra entre el ano y los genitales en ambos sexos. Es una zona que incluye músculos, tejido conectivo, vasos sanguíneos y nervios. En las mujeres, el perineo también es la región que se extiende desde la abertura vaginal hasta el ano. El perineo desempeña un papel importante en el control de la función urinaria y fecal, así como en la actividad sexual. Además, durante el parto, el perineo puede estirarse y dilatarse para permitir el paso del bebé."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué son las glándulas de Skene?",
+      respuestacorrecta: "Glándulas que lubrican la vagina durante la excitación sexual.",
+      respuesta1: "Glándulas presentes en el cerebro que regulan las emociones.",
+      respuesta2: "La capa muscular del útero.",
+      respuesta3: "El área entre el ano y los genitales.",
+      masInfo: "Las glándulas de Skene, también conocidas como glándulas parauretrales o próstata femenina, son pequeñas glándulas ubicadas cerca de la uretra en la zona anterior de la vagina. Estas glándulas son responsables de la producción de fluidos lubricantes que se liberan durante la excitación sexual. La lubricación proporcionada por las glándulas de Skene facilita la penetración y el movimiento suave durante el acto sexual, aumentando la comodidad y el placer. Estas glándulas se consideran homólogas a la próstata masculina debido a su similitud estructural y función de secreción."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué son los labios externos e internos?",
+      respuestacorrecta: "Pliegues de piel que rodean la abertura vaginal.",
+      respuesta1: "Glándulas que lubrican la vagina durante la excitación sexual.",
+      respuesta2: "La capa muscular del útero.",
+      respuesta3: "El área entre el ano y los genitales.",
+      masInfo: "Los labios externos e internos, también conocidos como labios mayores y labios menores, son pliegues de piel que se encuentran en la región genital femenina. Los labios mayores son los pliegues de piel más grandes y externos, mientras que los labios menores son los pliegues más pequeños y se encuentran dentro de los labios mayores. Estos labios rodean la abertura vaginal y protegen las estructuras internas de los genitales femeninos. Además de su función protectora, los labios externos e internos también tienen un papel en la sensibilidad sexual y pueden variar en tamaño, forma y color."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el capuchón o prepucio del clítoris?",
+      respuestacorrecta: "Una capa de tejido que protege el glande del clítoris.",
+      respuesta1: "Una estructura ósea que rodea al clítoris.",
+      respuesta2: "Un conducto que transporta el flujo sanguíneo al clítoris.",
+      respuesta3: "Un músculo que controla la erección del clítoris.",
+      masInfo: "El capuchón o prepucio del clítoris es una capa de tejido que cubre y protege el glande del clítoris. El glande del clítoris es la parte más sensible y externa del clítoris, y se encuentra en la parte superior de la vulva. El capuchón del clítoris se asemeja al prepucio del pene y tiene la función de proteger el glande del clítoris, manteniendo su sensibilidad y evitando la irritación directa. Durante la estimulación sexual, el capuchón del clítoris puede moverse hacia atrás para exponer el glande y aumentar la sensación de placer."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Cuál es el nombre del pliegue de piel que cubre la punta del pene no circuncidado?",
+      respuestacorrecta: "Prepucio.",
+      respuesta1: "Epidídimo.",
+      respuesta2: "Pene.",
+      respuesta3: "Uretra.",
+      masInfo: "El prepucio es un pliegue de piel que cubre la punta del pene no circuncidado. Protege la punta sensible del pene y puede retraerse para exponer el glande durante la actividad sexual o la higiene."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el glande?",
+      respuestacorrecta: "La punta o extremo del pene.",
+      respuesta1: "Un órgano reproductor femenino.",
+      respuesta2: "Un conducto que transporta los espermatozoides.",
+      respuesta3: "Una glándula que produce hormonas sexuales.",
+      masInfo: "El glande es la parte final o punta del pene. Es una estructura redondeada y sensible que se encuentra en la parte distal del cuerpo del pene. El glande es una zona muy sensible y erógena. Durante la excitación sexual, el glande puede volverse más sensible y responder a la estimulación para generar placer sexual."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el cuerpo cavernoso?",
+      respuestacorrecta: "Un tejido eréctil responsable de la erección del pene.",
+      respuesta1: "Un conducto que transporta el semen hacia el exterior.",
+      respuesta2: "Pliegues de piel que rodean la abertura vaginal.",
+      respuesta3: "Un conducto que transporta el flujo sanguíneo al clítoris.",
+      masInfo: "El cuerpo cavernoso es un tejido eréctil que se encuentra en el pene. Es una de las dos estructuras cilíndricas y paralelas que conforman el tejido eréctil del pene, junto con el cuerpo esponjoso. Durante la excitación sexual, el cuerpo cavernoso se llena de sangre, lo que provoca la erección del pene. El aumento del flujo sanguíneo en el cuerpo cavernoso hace que se expanda y se vuelva rígido, permitiendo así la penetración durante el acto sexual."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el cérvix?",
+      respuestacorrecta: "El canal que conecta el útero con la vagina.",
+      respuesta1: "Una glándula que produce hormonas sexuales.",
+      respuesta2: "Es el área externa y visible de los genitales femeninos.",
+      respuesta3: "Un músculo que se encuentra en la cavidad abdominal.",
+      masInfo: "El cérvix, también conocido como cuello uterino, es el canal que conecta el útero con la vagina. Es una estructura cilíndrica que se encuentra en la parte inferior del útero y tiene una abertura en su extremo inferior llamada orificio cervical externo. Durante el ciclo menstrual, el cérvix se abre ligeramente para permitir el paso del flujo menstrual y se cierra durante el embarazo para proteger al feto en desarrollo. Durante el parto, el cérvix se dilata para permitir el paso del bebé."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es la uretra?",
+      respuestacorrecta: "Un conducto que transporta la orina fuera del cuerpo.",
+      respuesta1: "Un órgano reproductor femenino.",
+      respuesta2: "Un conducto por donde sale la menstruación.",
+      respuesta3: "Un órgano reproductor masculino.",
+      masInfo: "La uretra es un conducto que se encuentra tanto en hombres como en mujeres y tiene la función de transportar la orina desde la vejiga urinaria hacia el exterior del cuerpo durante la micción. En los hombres, la uretra también cumple la función de transportar el esperma desde los conductos deferentes durante la eyaculación, pero su función principal es el transporte de la orina."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el prepucio?",
+      respuestacorrecta: "Un pliegue de piel que cubre la punta del pene.",
+      respuesta1: "Un órgano reproductor masculino.",
+      respuesta2: "Un conducto que transporta los espermatozoides.",
+      respuesta3: "Una glándula que produce hormonas masculinas.",
+      masInfo: "El prepucio es un pliegue de piel que cubre la punta del pene en hombres no circuncidados. Se encuentra en la parte superior del glande y puede retraerse para exponerlo durante la actividad sexual o la higiene. El prepucio tiene una función protectora al cubrir y mantener el glande sensible. En las personas circuncidadas, el prepucio ha sido removido quirúrgicamente."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el escroto?",
+      respuestacorrecta: "El saco de piel que contiene los testículos.",
+      respuesta1: "La punta o extremo del pene.",
+      respuesta2: "El conducto que transporta los espermatozoides.",
+      respuesta3: "Una glándula que produce hormonas sexuales.",
+      masInfo: "El escroto es el saco de piel que se encuentra debajo del pene y aloja los testículos en el aparato reproductor masculino. Su función principal es proteger y mantener la temperatura adecuada para los testículos, ya que la producción de esperma se ve afectada por la temperatura. El escroto puede cambiar de tamaño y ajustarse para regular la temperatura al contraerse o relajarse en respuesta a las condiciones ambientales."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el epidídimo?",
+      respuestacorrecta: "Una estructura donde los espermatozoides maduran y se almacenan.",
+      respuesta1: "Un conducto que transporta los espermatozoides.",
+      respuesta2: "El saco de piel que contiene los testículos.",
+      respuesta3: "Una glándula que produce hormonas sexuales.",
+      masInfo: "El epidídimo es una estructura en forma de tubo que se encuentra en la parte posterior de cada testículo en el aparato reproductor masculino. Su función principal es permitir la maduración y el almacenamiento de los espermatozoides antes de su liberación durante la eyaculación. El epidídimo proporciona un ambiente adecuado para que los espermatozoides completen su desarrollo y adquieran movilidad."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es la vesícula seminal?",
+      respuestacorrecta: "Una glándula que produce fluidos para el semen.",
+      respuesta1: "Un conducto que transporta los espermatozoides.",
+      respuesta2: "Una estructura donde los espermatozoides maduran y se almacenan.",
+      respuesta3: "Una glándula que produce hormonas sexuales.",
+      masInfo: "La vesícula seminal es una glándula situada en la pelvis masculina, justo detrás de la vejiga urinaria. Su función es producir y almacenar un líquido viscoso y rico en nutrientes que se mezcla con los espermatozoides para formar el semen. Este fluido proporcionado por la vesícula seminal contribuye al volumen total del semen y ayuda a nutrir y proteger a los espermatozoides durante su viaje hacia el óvulo."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es la vejiga?",
+      respuestacorrecta: "Un órgano que almacena la orina.",
+      respuesta1: "Un conducto que transporta los espermatozoides.",
+      respuesta2: "Una estructura donde los espermatozoides maduran y se almacenan.",
+      respuesta3: "Una glándula que produce hormonas sexuales.",
+      masInfo: "La vejiga es un órgano ubicado en la pelvis, encima de la zona púbica, y es parte del sistema urinario en hombres y mujeres. Su función principal es almacenar la orina producida por los riñones hasta que se produce la micción. La vejiga tiene la capacidad de expandirse y contraerse para acomodar diferentes volúmenes de orina, y su vaciado se controla mediante el músculo llamado esfínter uretral."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el conducto deferente?",
+      respuestacorrecta: "Un conducto que transporta los espermatozoides.",
+      respuesta1: "Un órgano que almacena el semen.",
+      respuesta2: "El saco de piel que contiene los testículos.",
+      respuesta3: "Una estructura donde los espermatozoides maduran y se almacenan.",
+      masInfo: "El conducto deferente, también conocido como conducto espermático, es un tubo largo y delgado que se encuentra en el aparato reproductor masculino. Su función principal es transportar los espermatozoides desde el epidídimo, donde maduran y se almacenan, hasta la uretra durante la eyaculación. Los conductos deferentes se conectan con las vesículas seminales para formar los conductos eyaculadores, que llevan los espermatozoides y los fluidos del semen hacia la uretra."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es la glándula bulbouretral o de Cowper?",
+      respuestacorrecta: "Una glándula que produce fluidos para el semen.",
+      respuesta1: "Un conducto que transporta los espermatozoides.",
+      respuesta2: "La punta o extremo del pene.",
+      respuesta3: "Una estructura donde los espermatozoides maduran y se almacenan.",
+      masInfo: "La glándula bulbouretral, también conocida como glándula de Cowper, es una glándula pequeña y alargada ubicada debajo de la próstata en el aparato reproductor masculino. Su función principal es secretar un líquido claro y viscoso que se mezcla con los espermatozoides y otros fluidos para formar el semen. Estos fluidos de la glándula bulbouretral ayudan a lubricar la uretra y neutralizar cualquier traza de orina residual, proporcionando un ambiente más favorable para los espermatozoides durante la eyaculación."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el ovario?",
+      respuestacorrecta: "Un órgano reproductor que produce óvulos y hormonas.",
+      respuesta1: "Un conducto que transporta los espermatozoides.",
+      respuesta2: "Un canal en donde se produce la fecundación.",
+      respuesta3: "Un orificio que transporta la menstruación.",
+      masInfo: "El ovario es un órgano reproductor femenino ubicado en la pelvis, uno a cada lado del útero. Su función principal es producir y liberar óvulos (ovocitos) durante el ciclo menstrual en el proceso conocido como ovulación. Además, los ovarios también son responsables de producir hormonas sexuales femeninas, como los estrógenos y la progesterona, que desempeñan un papel vital en la regulación del ciclo menstrual y el desarrollo de características sexuales secundarias."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué son las glándulas de Bartolino?",
+      respuestacorrecta: "Glándulas situadas cerca de la vagina que secretan fluidos lubricantes.",
+      respuesta1: "Conductos que transportan los óvulos.",
+      respuesta2: "Membrana que recubre las paredes del útero.",
+      respuesta3: "Conductos que transportan la menstruación.",
+      masInfo: "Las glándulas de Bartolino, también conocidas como glándulas vestibulares mayores, son dos glándulas pequeñas ubicadas en cada lado de la abertura vaginal, en la parte inferior de los labios mayores. Estas glándulas son responsables de secretar un líquido lubricante durante la excitación sexual femenina. El fluido lubricante ayuda a mantener la lubricación adecuada de la vagina, facilitando la penetración sexual y previniendo la incomodidad o el dolor durante las relaciones sexuales."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el endometrio?",
+      respuestacorrecta: "El revestimiento interno del útero que se desprende durante la menstruación.",
+      respuesta1: "Una glándula que produce óvulos.",
+      respuesta2: "Ninguna de las opciones.",
+      respuesta3: "Un orificio que transporta la menstruación.",
+      masInfo: "El endometrio es el tejido que recubre la pared interna del útero. Es un tejido altamente vascularizado y glandular que se prepara mensualmente para recibir y nutrir un posible óvulo fertilizado. En caso de que no se produzca la fertilización, el endometrio se desprende durante la menstruación, lo que da lugar al sangrado menstrual. Después de la menstruación, el endometrio se regenera y vuelve a crecer en preparación para un nuevo ciclo menstrual."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el útero?",
+      respuestacorrecta: "Un órgano reproductor femenino donde se desarrolla el embrión y el feto.",
+      respuesta1: "Una membrana que se desprende durante la menstruación.",
+      respuesta2: "Un órgano reproductor femenino que produce óvulos y hormonas.",
+      respuesta3: "Glándulas situadas cerca de la vagina que secretan fluidos lubricantes.",
+      masInfo: "El útero, también conocido como matriz, es un órgano reproductor femenino ubicado en la pelvis. Tiene forma de pera invertida y su función principal es alojar y nutrir al embrión en desarrollo durante el embarazo. El útero se compone de tres capas: el endometrio (revestimiento interno), el miometrio (capa muscular) y el perimetrio (capa externa). Durante el ciclo menstrual, el endometrio se prepara para recibir un óvulo fertilizado y, en caso de no producirse la fecundación, se desprende y es expulsado durante la menstruación."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué son las trompas uterinas?",
+      respuestacorrecta: "Conductos que transportan los óvulos desde los ovarios hasta el útero.",
+      respuesta1: "Un órgano reproductor femenino donde se implanta y desarrolla el embrión.",
+      respuesta2: "Glándulas situadas cerca de la vagina que secretan fluidos lubricantes.",
+      respuesta3: "El revestimiento interno del útero que se desprende durante la menstruación.",
+      masInfo: "Las trompas uterinas, también conocidas como trompas de Falopio, son dos estructuras tubulares que conectan los ovarios con el útero en el sistema reproductor femenino. Estas trompas desempeñan un papel crucial en la reproducción, ya que son el sitio donde ocurre la fertilización. Cada mes, durante la ovulación, un óvulo es liberado por uno de los ovarios y capturado por las trompas uterinas. Allí, si hay presencia de espermatozoides, la fertilización puede ocurrir. Luego, el óvulo fertilizado (llamado embrión) se desplaza hacia el útero, donde se implanta y se desarrolla."
+    },
+    {
+      categoria: "Salud",
+      trivia: "Sexualidad",
+      pregunta: "¿Qué es el cuello uterino?",
+      respuestacorrecta: "La parte inferior del útero que conecta con la vagina.",
+      respuesta1: "El revestimiento interno del útero que se desprende durante la menstruación.",
+      respuesta2: "Un órgano reproductor femenino donde se implanta y desarrolla el embrión.",
+      respuesta3: "Conductos que transportan los óvulos desde los ovarios hasta el útero.",
+      masInfo: "El cuello uterino, también conocido como cuello del útero, es la porción inferior del útero que se extiende hacia la vagina. Es una estructura cilíndrica y fibrosa que juega un papel importante en la salud y el funcionamiento del sistema reproductor femenino. El cuello uterino tiene un orificio llamado óstium uterino interno que comunica con la cavidad uterina, y otro orificio llamado óstium uterino externo que se abre hacia la vagina. El cuello uterino actúa como una barrera protectora entre la vagina y el útero, y también juega un papel importante en el embarazo, ya que se dilata durante el parto para permitir el paso del bebé."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      pregunta: "¿Qué es esta imagen?",
+      respuestacorrecta: "Aparato reproductor femenino.",
+      respuesta1: "Aparato sexual femenino.",
+      respuesta2: "Aparato sexual masculino.",
+      respuesta3: "Pene.",
+      masInfo: "El aparato reproductor femenino está compuesto por órganos como los ovarios, trompas de Falopio, útero y vagina, los cuales son fundamentales para la reproducción.",
+      imagenUrl: "aparatoreproductorfemenino.png"
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "aparatoreproductormasculino.png",
+      pregunta: "¿Qué es esta imagen?",
+      respuestacorrecta: "Aparato sexual masculino.",
+      respuesta1: "Aparato sexual masculino.",
+      respuesta2: "Aparato sexual femenino.",
+      respuesta3: "Útero.",
+      masInfo: "El aparato reproductor masculino incluye órganos como los testículos, pene, vesículas seminales, y la próstata, esenciales para la producción y transporte de espermatozoides."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "ciclomenstrual.png",
+      pregunta: "¿Qué representa esta imagen?",
+      respuestacorrecta: "Ciclo menstrual.",
+      respuesta1: "Menstruación.",
+      respuesta2: "Ovulación.",
+      respuesta3: "Fecundación.",
+      masInfo: "El ciclo menstrual es un proceso natural que ocurre en el sistema reproductor femenino, donde el cuerpo se prepara para un posible embarazo. Si no ocurre fecundación, el revestimiento del útero se desprende, resultando en la menstruación."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "cigoto.png",
+      pregunta: "¿Qué es esta célula?",
+      respuestacorrecta: "Cigoto.",
+      respuesta1: "Embrión.",
+      respuesta2: "Espermatozoide.",
+      respuesta3: "Óvulo.",
+      masInfo: "El cigoto es la célula resultante de la fecundación entre un óvulo y un espermatozoide, y es la primera etapa del desarrollo embrionario."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "clitoris.png",
+      pregunta: "¿Qué parte del cuerpo femenino es esta?",
+      respuestacorrecta: "Clítoris.",
+      respuesta1: "Cérvix.",
+      respuesta2: "Ovario.",
+      respuesta3: "Útero.",
+      masInfo: "El clítoris es un órgano del aparato reproductor femenino que tiene un papel importante en el placer sexual. Es altamente sensible y su función es principalmente sexual."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "diu.png",
+      pregunta: "¿Qué es este dispositivo?",
+      respuestacorrecta: "DIU.",
+      respuesta1: "Condón.",
+      respuesta2: "Preservativo.",
+      respuesta3: "Implante subdérmico.",
+      masInfo: "El DIU (Dispositivo Intrauterino) es un pequeño dispositivo en forma de 'T' que se coloca en el útero para prevenir el embarazo. Existen DIUs de cobre y hormonales."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "Espermatozoide.png",
+      pregunta: "¿Qué son estas células?",
+      respuestacorrecta: "Espermatozoides.",
+      respuesta1: "Neurona.",
+      respuesta2: "Cigoto.",
+      respuesta3: "Células sanguíneas.",
+      masInfo: "Los espermatozoides son las células reproductoras masculinas encargadas de fertilizar el óvulo femenino durante la reproducción sexual."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "ovarios.png",
+      pregunta: "¿Qué órgano es este?",
+      respuestacorrecta: "Ovario.",
+      respuesta1: "Cérvix.",
+      respuesta2: "Testículo.",
+      respuesta3: "Útero.",
+      masInfo: "Los ovarios son las glándulas reproductoras femeninas que producen óvulos y hormonas como el estrógeno y la progesterona."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "ovulacion.png",
+      pregunta: "¿Qué proceso representa esta imagen?",
+      respuestacorrecta: "Ovulación.",
+      respuesta1: "Implantación.",
+      respuesta2: "Menstruación.",
+      respuesta3: "Fecundación.",
+      masInfo: "La ovulación es el proceso en el que un ovario libera un óvulo maduro, que se desplaza hacia las trompas de Falopio, donde puede ser fecundado por un espermatozoide."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "pastillasanticonceptivas.png",
+      pregunta: "¿Qué es esta medicación?",
+      respuestacorrecta: "Pastillas anticonceptivas.",
+      respuesta1: "Inuprofeno.",
+      respuesta2: "Antibióticos.",
+      respuesta3: "Suplementos vitamínicos.",
+      masInfo: "Las pastillas anticonceptivas son un método anticonceptivo oral que contiene hormonas para prevenir el embarazo al inhibir la ovulación."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "pene.png",
+      pregunta: "¿Qué parte del cuerpo masculino es esta?",
+      respuestacorrecta: "Pene.",
+      respuesta1: "Conducto deferente.",
+      respuesta2: "Testículos.",
+      respuesta3: "Próstata.",
+      masInfo: "El pene es el órgano sexual masculino y también sirve para la excreción de orina. Es una parte clave del aparato reproductor masculino."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "preservativo.png",
+      pregunta: "¿Qué es este objeto?",
+      respuestacorrecta: "Preservativo.",
+      respuesta1: "Implante subdérmico.",
+      respuesta2: "DIU.",
+      respuesta3: "Anillo vaginal.",
+      masInfo: "El preservativo es un método anticonceptivo de barrera que se coloca sobre el pene erecto antes de la relación sexual para prevenir el embarazo y reducir el riesgo de infecciones de transmisión sexual (ITS)."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "testiculos.png",
+      pregunta: "¿Qué órgano es este?",
+      respuestacorrecta: "Testículos.",
+      respuesta1: "Pene.",
+      respuesta2: "Ovarios.",
+      respuesta3: "Próstata.",
+      masInfo: "Los testículos son las glándulas sexuales masculinas responsables de la producción de espermatozoides y hormonas como la testosterona."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "trompadefalopio.png",
+      pregunta: "¿Qué parte del aparato reproductor femenino es esta?",
+      respuestacorrecta: "Trompa de Falopio.",
+      respuesta1: "Útero.",
+      respuesta2: "Ovario.",
+      respuesta3: "Útero.",
+      masInfo: "Las trompas de Falopio son los conductos que conectan los ovarios con el útero. Es el lugar donde ocurre la fertilización del óvulo por el espermatozoide."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "anillo.png",
+      pregunta: "¿Qué es este dispositivo?",
+      respuestacorrecta: "Anillo anticonceptivo.",
+      respuesta1: "Implante subdérmico.",
+      respuesta2: "Preservativo femenino.",
+      respuesta3: "Parche anticonceptivo.",
+      masInfo: "El anillo anticonceptivo es un método anticonceptivo flexible que se coloca en la vagina y libera hormonas para prevenir el embarazo. Se deja en su lugar durante tres semanas y luego se retira por una semana."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "cervix.png",
+      pregunta: "¿Qué parte del cuerpo femenino es esta?",
+      respuestacorrecta: "Cérvix.",
+      respuesta1: "Ovario.",
+      respuesta2: "Vagina.",
+      respuesta3: "Útero.",
+      masInfo: "El cérvix es la parte inferior y estrecha del útero que se conecta con la vagina. Juega un papel crucial en el parto y en la protección del útero de infecciones."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "fecundacion.png",
+      pregunta: "¿Qué proceso es este?",
+      respuestacorrecta: "Fecundación.",
+      respuesta1: "Implantación.",
+      respuesta2: "Ovulación.",
+      respuesta3: "Menstruación.",
+      masInfo: "La fecundación es el proceso en el que un espermatozoide se une a un óvulo, resultando en la formación de un cigoto, que es el primer paso en el desarrollo de un nuevo organismo."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "glande.png",
+      pregunta: "¿Qué parte del pene es esta?",
+      respuestacorrecta: "Glande.",
+      respuesta1: "Conducto deferente.",
+      respuesta2: "Prepucio.",
+      respuesta3: "Pene.",
+      masInfo: "El glande es la parte final del pene, que es muy sensible y juega un papel importante en el placer sexual. Está cubierto por el prepucio en hombres no circuncidados."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "implante.png",
+      pregunta: "¿Qué es este dispositivo?",
+      respuestacorrecta: "Implante subdérmico.",
+      respuesta1: "Condón.",
+      respuesta2: "DIU.",
+      respuesta3: "Parche anticonceptivo.",
+      masInfo: "El implante subdérmico es un pequeño dispositivo que se coloca bajo la piel del brazo y libera hormonas para prevenir el embarazo durante varios años."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "parche.png",
+      pregunta: "¿Qué es este dispositivo?",
+      respuestacorrecta: "Parche anticonceptivo.",
+      respuesta1: "DIU.",
+      respuesta2: "Anillo anticonceptivo.",
+      respuesta3: "Preservativo femenino.",
+      masInfo: "El parche anticonceptivo es un método anticonceptivo que se adhiere a la piel y libera hormonas para prevenir el embarazo. Se cambia una vez a la semana."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "preservativofemenino.png",
+      pregunta: "¿Qué es este dispositivo?",
+      respuestacorrecta: "Preservativo femenino.",
+      respuesta1: "Preservativo masculino.",
+      respuesta2: "DIU.",
+      respuesta3: "Anillo anticonceptivo.",
+      masInfo: "El preservativo femenino es un método anticonceptivo de barrera que se coloca dentro de la vagina antes de la relación sexual. Previene el embarazo y reduce el riesgo de infecciones de transmisión sexual."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "prostata.png",
+      pregunta: "¿Qué órgano es este?",
+      respuestacorrecta: "Próstata.",
+      respuesta1: "Pene.",
+      respuesta2: "Testículos.",
+      respuesta3: "Vesículas seminales.",
+      masInfo: "La próstata es una glándula en el aparato reproductor masculino que produce parte del líquido seminal, el cual nutre y transporta los espermatozoides."
+    },
+    {
+      categoria: "¿Qué es?",
+      trivia: "Imágenes",
+      imagenUrl: "vagina.png",
+      pregunta: "¿Qué parte del cuerpo femenino es esta?",
+      respuestacorrecta: "Vagina.",
+      respuesta1: "Clítoris.",
+      respuesta2: "Cérvix.",
+      respuesta3: "Útero.",
+      masInfo: "La vagina es el canal muscular del aparato reproductor femenino que conecta el útero con el exterior del cuerpo. Es fundamental para la menstruación, la reproducción y el parto."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál es la función de los métodos anticonceptivos?",
+      respuestacorrecta: "Reducir la posibilidad de un embarazo.",
+      respuesta1: "Prevenir contra las infecciones de transmisión sexual.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Prevenir contra algunas de las infecciones de transmisión sexual.",
+      masInfo: "Los métodos anticonceptivos son formas de reducir la posibilidad de un embarazo no deseado y planear una familia. Existen diferentes tipos de métodos anticonceptivos, como pastillas anticonceptivas, parches anticonceptivos, dispositivos intrauterinos (DIU), preservativos, etc."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿En qué parte del cuerpo va colocado el DIU?",
+      respuestacorrecta: "En el útero.",
+      respuesta1: "Se toma por la boca.",
+      respuesta2: "En el brazo.",
+      respuesta3: "Se inyecta.",
+      masInfo: "El dispositivo intrauterino (DIU) es un método anticonceptivo que se coloca en el útero para reducir la posibilidad de un embarazo no deseado. El DIU es un pequeño dispositivo de plástico o cobre en forma de T que se coloca en el útero a través del cuello uterino."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Pueden las pastillas anticonceptivas prevenir contra las ITS?",
+      respuestacorrecta: "No, solo el preservativo.",
+      respuesta1: "Si.",
+      respuesta2: "Solo si se toma antes de tener relaciones.",
+      respuesta3: "Solo las de 21 pastillas.",
+      masInfo: "Las pastillas anticonceptivas son un método anticonceptivo que se utilizan para reducir la posibilidad de embarazo no deseado. Algunos tipos de pastillas anticonceptivas también contienen hormonas que pueden ayudar a prevenir el cáncer de ovario y el cáncer de endometrio. Sin embargo, las pastillas anticonceptivas no protegen contra las infecciones de transmisión sexual (ITS), solo el preservativo reduce el riesgo de transmisión."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿En cuáles de estas situaciones hay más probabilidad de embarazo?",
+      respuestacorrecta: "Todas tienen la misma probabilidad de embarazo.",
+      respuesta1: "Relación sexual en la ducha.",
+      respuesta2: "Relación sexual en la cama.",
+      respuesta3: "Relación sexual en el auto.",
+      masInfo: "No importa el lugar en donde se realice el acto sexual, todas tienen las mismas probabilidad de embarazo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál es la eficacia del DIU?",
+      respuestacorrecta: "99%",
+      respuesta1: "70%",
+      respuesta2: "91%",
+      respuesta3: "80%",
+      masInfo: "El dispositivo intrauterino (DIU) es un método anticonceptivo muy eficaz para prevenir el embarazo. Los DIU de cobre tienen una tasa de eficacia del 99,4%, lo que significa que menos de 1 de cada 100 personas que utilizan un DIU de cobre quedarán embarazadas en un año. Los DIU hormonales tienen una tasa de eficacia del 99,8%, lo que significa que menos de 1 de cada 100 personas que utilizan un DIU hormonal quedarán embarazadas en un año."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál es la eficacia del anillo vaginal?",
+      respuestacorrecta: "93%",
+      respuesta1: "99%",
+      respuesta2: "70%",
+      respuesta3: "80%",
+      masInfo: "El anillo vaginal es un método anticonceptivo muy eficaz para prevenir el embarazo. Tiene una tasa de eficacia del 93%. Es importante tener en cuenta que el anillo vaginal es un método anticonceptivo muy eficaz, pero como con cualquier método anticonceptivo, no es 100% seguro."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuáles son los métodos anticonceptivos de barrera?",
+      respuestacorrecta: "El preservativo.",
+      respuesta1: "Las pastillas.",
+      respuesta2: "El implante subdérmico.",
+      respuesta3: "El DIU.",
+      masInfo: "Los métodos anticonceptivos de barrera son aquellos que crean una barrera física entre el pene y el útero durante el contacto sexual para evitar el embarazo no deseado. Algunos ejemplos de métodos anticonceptivos de barrera incluyen: Preservativos: Los preservativos se utilizan para protegerse durante el contacto sexual y son uno de los métodos anticonceptivos más efectivos. Los preservativos están disponibles en dos tipos: los preservativos masculinos, que se colocan en el pene, y los preservativos femeninos, que se insertan en la vagina. Los preservativos se deben usar cada vez que se tenga contacto sexual y se deben colocar correctamente para ser efectivos. Diafragma: El diafragma es una capa de látex o caucho que se coloca en la vagina para cubrir el cuello uterino durante el contacto sexual. El diafragma se debe usar junto con un espermicida para aumentar su efectividad."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué son las ligaduras de trompas?",
+      respuestacorrecta: "Un método anticonceptivo.",
+      respuesta1: "Extirpación del aparato reproductor femenino.",
+      respuesta2: "Extirpación de las trompas uterinas.",
+      respuesta3: "Ruptura del útero.",
+      masInfo: "La ligadura de trompas es un método anticonceptivo que consiste en la sección y ligadura de las trompas uterinas, lugar habitual de la fecundación, que comunica los ovarios con el útero. Es el método anticonceptivo irreversible que más se usa en el mundo: más de 150 millones de mujeres se han esterilizado."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuánto tiempo es efectivo el parche anticonceptivo?",
+      respuestacorrecta: "Una semana.",
+      respuesta1: "Un día.",
+      respuesta2: "Un mes.",
+      respuesta3: "Un año.",
+      masInfo: "El parche anticonceptivo es un método anticonceptivo que se coloca en la piel y se deja allí durante una semana. Luego se retira y se coloca un parche nuevo en un lugar diferente al inicio de la siguiente semana. El parche anticonceptivo es efectivo durante el tiempo que se encuentra en su lugar en la piel."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuánto tiempo es efectivo el DIU?",
+      respuestacorrecta: "Entre 10 a 12 años.",
+      respuesta1: "Un día.",
+      respuesta2: "Un año.",
+      respuesta3: "Un mes.",
+      masInfo: "El dispositivo intrauterino (DIU) es un método anticonceptivo eficaz que puede durar hasta 10 años. Sin embargo, algunos tipos de DIU tienen una duración más corta, como los DIU de cobre que pueden durar hasta 5 años y los DIU hormonales que pueden durar hasta 3 años. Es importante que acudas a un profesional de la salud para obtener más información sobre el tipo de DIU que es adecuado para ti y para programar revisiones periódicas para asegurarte de que el DIU sigue siendo efectivo."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿En qué parte del cuerpo va colocado el anillo vaginal?",
+      respuestacorrecta: "En la vagina.",
+      respuesta1: "En el dedo.",
+      respuesta2: "Se toma por la boca.",
+      respuesta3: "En el brazo.",
+      masInfo: "El anillo vaginal es un método anticonceptivo que se coloca en la vagina. El anillo es un cilindro de plástico suave y flexible que contiene hormonas (estrógeno y progestina). El anillo se coloca en la vagina y se deja allí durante tres semanas. Luego se retira durante una semana y se coloca un anillo nuevo al inicio de la siguiente semana."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿En qué parte del cuerpo va colocado el implante subdérmico?",
+      respuestacorrecta: "En el brazo.",
+      respuesta1: "En el útero.",
+      respuesta2: "Se toma por la boca.",
+      respuesta3: "Se inyecta.",
+      masInfo: "El implante subdérmico es un método anticonceptivo que se coloca debajo de la piel en el brazo. El implante es un pequeño cilindro de plástico que contiene una hormona llamada progestina. El implante se coloca en una pequeña incisión en el brazo. Esta se cura en unos pocos días y el implante comienza a liberar la hormona progestina en el cuerpo, lo que evita la ovulación."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "Si una persona vomita o tiene diarrea, ¿pierde el efecto de la pastilla si la consumió hace poco?",
+      respuestacorrecta: "Sí.",
+      respuesta1: "Depende de la pastilla.",
+      respuesta2: "No.",
+      respuesta3: "Depende de la persona.",
+      masInfo: "Los vómitos y la diarrea impiden la absorción del anticonceptivo, lo que no permite alcanzar o mantener los niveles necesarios para evitar la ovulación."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿En qué parte del cuerpo va colocado el parche anticonceptivo?",
+      respuestacorrecta: "Sobre la piel.",
+      respuesta1: "En la vagina.",
+      respuesta2: "En el útero.",
+      respuesta3: "Se inyecta.",
+      masInfo: "El parche anticonceptivo es un método anticonceptivo que se coloca en la piel. Es un pedazo de tela adhesiva que contiene hormonas (estrógeno y progestina). Se coloca en la piel y se deja allí durante una semana. Luego se retira y se coloca un parche nuevo en un lugar diferente al inicio de la siguiente semana."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué significa DIU?",
+      respuestacorrecta: "Dispositivo Intra Uterino.",
+      respuesta1: "Dispositivo de Infecciones Urinarias.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "Dispositivo Intra Unidad.",
+      masInfo: "DIU es la sigla de Dispositivo Intrauterino, también conocido como \"DIU\" o \"dispositivo de cobre\". Se trata de un método anticonceptivo que se coloca en el útero para reducir la posibilidad de un embarazo no deseado. El DIU es un pequeño dispositivo de plástico o cobre en forma de T que se coloca en el útero. Es seguro y efectivo para prevenir el embarazo y puede usarse durante varios años. Sin embargo, el DIU no protege contra las infecciones de transmisión sexual (ITS), por lo que es necesario utilizar métodos de protección adicionales como el preservativo durante el contacto sexual."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál es el mecanismo de acción del implante subdérmico?",
+      respuestacorrecta: "Todas son correctas.",
+      respuesta1: "Impide la ovulación.",
+      respuesta2: "Inhibición del crecimiento endometrial.",
+      respuesta3: "Espesa el moco del cuello del útero.",
+      masInfo: "El implante subdérmico es un método anticonceptivo que se coloca debajo de la piel en el brazo. Actúa de varias maneras para prevenir el embarazo: impide la ovulación, espesa el moco del cuello del útero e inhibe el crecimiento endometrial."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál de estos métodos anticonceptivos previene contra las ITS?",
+      respuestacorrecta: "El preservativo.",
+      respuesta1: "El DIU.",
+      respuesta2: "Todas son correctas.",
+      respuesta3: "El implante subdérmico.",
+      masInfo: "Es importante tener en cuenta que ninguno de los métodos anticonceptivos mencionados (DIU, implante subdérmico, anillo vaginal, parche anticonceptivo) protege contra infecciones de transmisión sexual (ITS). Solo el preservativo cumple esta función."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál es la eficacia del parche anticonceptivo?",
+      respuestacorrecta: "93%",
+      respuesta1: "99%",
+      respuesta2: "70%",
+      respuesta3: "50%",
+      masInfo: "El parche anticonceptivo es un método anticonceptivo muy eficaz para prevenir el embarazo. Tiene una tasa de eficacia del 93%. Es importante tener en cuenta que, aunque es muy eficaz, no es 100% seguro. Es posible que olvides colocar el parche en el plazo indicado o que el parche se salga de su lugar durante las relaciones sexuales, lo que puede reducir su eficacia."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿A qué se denomina 'coito interrumpido'?",
+      respuestacorrecta: "Cuando una persona retira el pene de la vagina o ano antes de eyacular.",
+      respuesta1: "Es una infección de transmisión sexual.",
+      respuesta2: "Cuando no se eyacula.",
+      respuesta3: "Cuando no hay orgasmos.",
+      masInfo: "El coito interrumpido, también conocido como retirada o marcha atrás, es un método poco confiable porque el líquido preseminal, que es secretado por las glándulas de Cowper para lubricar la uretra tras la erección, puede contener espermatozoides que pueden provocar un embarazo. Además, no previene contra las infecciones de transmisión sexual (ITS)."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuánto tiempo es efectivo el anillo vaginal?",
+      respuestacorrecta: "Tres semanas a un mes.",
+      respuesta1: "Un día.",
+      respuesta2: "Un año.",
+      respuesta3: "Tres años.",
+      masInfo: "El anillo vaginal es un método anticonceptivo que se coloca en la vagina y se deja allí durante tres semanas. Luego se retira durante una semana y se coloca un anillo nuevo al inicio de la siguiente semana. El anillo vaginal es efectivo durante el tiempo que se encuentra en su lugar en la vagina."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuál es la eficacia del implante subdérmico?",
+      respuestacorrecta: "99%",
+      respuesta1: "91%",
+      respuesta2: "70%",
+      respuesta3: "80%",
+      masInfo: "El implante subdérmico es un método anticonceptivo muy eficaz para prevenir el embarazo. Tiene una tasa de eficacia del 99,9%, lo que significa que menos de 1 de cada 100 mujeres que utilizan un implante subdérmico quedarán embarazadas en un año. También es importante utilizar otros métodos de protección durante las relaciones sexuales como el preservativo, ya que no protege contra infecciones de transmisión sexual (ITS)."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Los antibióticos disminuyen el efecto de las pastillas anticonceptivas?",
+      respuestacorrecta: "Sí.",
+      respuesta1: "Depende del organismo.",
+      respuesta2: "No.",
+      respuesta3: "Depende de la persona.",
+      masInfo: "Algunos fármacos entre ellos antiepilépticos y algunos antibióticos podrían afectar la eficacia de los anticonceptivos, ya sea por efecto a nivel hepático o favorecer su eliminación, por lo que debe consultar con su médico si amerita alguna protección extra."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿El cigarrillo puede causar trombosis cerebrales en las personas que consumen pastillas anticonceptivas?",
+      respuestacorrecta: "Sí.",
+      respuesta1: "Depende de la droga.",
+      respuesta2: "No.",
+      respuesta3: "Depende de la persona.",
+      masInfo: "El tabaco se asocia a aumento de la posibilidad de trombosis en las usuarias de anticonceptivos, esto es mayor sobre los 35 años. Se llama trombosis a las formación de un coágulo de sangre en el interior de un vaso sanguíneo o en el corazón."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Cuánto tiempo es efectivo el implante subdérmico?",
+      respuestacorrecta: "Tres años.",
+      respuesta1: "Un día.",
+      respuesta2: "Un año.",
+      respuesta3: "Un mes.",
+      masInfo: "El implante subdérmico es un método anticonceptivo muy eficaz que puede durar hasta 3 años. Es importante tener en cuenta que el implante subdérmico es un método anticonceptivo muy eficaz, pero no protege contra infecciones de transmisión sexual (ITS). Es importante utilizar otros métodos de protección como el preservativo durante las relaciones sexuales para protegerse contra las ITS."
+    },
+    {
+      categoria: "Proyecto",
+      trivia: "Anticonceptivos",
+      pregunta: "¿Qué pasa si se rompe el preservativo durante una relación sexual?",
+      respuestacorrecta: "Hay riesgo de quedar embarazada o infectarse de una ITS.",
+      respuesta1: "Nada.",
+      respuesta2: "Hay riesgo solo de quedar embarazada.",
+      respuesta3: "Hay riesgo solo de infectarse de una ITS.",
+      masInfo: "Si el preservativo se rompe, incluso antes de la eyaculación, hay riesgo tanto de embarazo como de infección. En efecto, el líquido preseminal que sale del pene antes de la eyaculación también contiene espermatozoides en baja cantidad, pero con probabilidad de que se produzca un embarazo."
+    }
+  
+];
