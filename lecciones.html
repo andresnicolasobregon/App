@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecciones - ESI</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        #categoria-info { display: flex !important; }
+        #boxlecciones { display: flex !important; flex-direction: column !important; align-items: center !important; width: 90% !important; margin: 0 auto !important; }
+        #menu { display: flex !important; }
+        #text {
+            background: #f5f5f5 !important;
+            padding: 20px !important;
+            border-radius: 5px !important;
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+            min-height: 100px !important;
+            max-height: 300px !important;
+            overflow-y: auto !important;
+            margin: 20px 0 !important;
+        }
+        #progress-bar2 {
+            width: 100% !important;
+            height: 10px !important;
+            background: #ddd !important;
+            border-radius: 5px !important;
+            overflow: hidden !important;
+            margin: 20px 0 !important;
+        }
+        #progress {
+            height: 100% !important;
+            background: #a267f5 !important;
+            transition: width 0.3s !important;
+        }
+        #controls {
+            display: flex !important;
+            gap: 10px !important;
+            margin: 20px 0 !important;
+        }
+        #controls button {
+            padding: 10px 20px !important;
+            background: #a267f5 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+        }
+        #leccionpregunta {
+            display: none !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            margin: 20px 0 !important;
+            padding: 20px !important;
+            background: #ede9feff !important;
+            border-radius: 10px !important;
+        }
+        #question-text {
+            font-size: 18px !important;
+            margin-bottom: 20px !important;
+            text-align: center !important;
+        }
+        .leccionpreguntabtn {
+            display: flex !important;
+            gap: 10px !important;
+        }
+        #true-btn, #false-btn {
+            padding: 10px 30px !important;
+            background: #a267f5 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+            font-size: 16px !important;
+        }
+        #next-lesson {
+            display: none !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            margin: 20px 0 !important;
+        }
+        #next-btn {
+            padding: 10px 30px !important;
+            background: #ff9800 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+        }
+        #felicitaciones2 {
+            display: none !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding: 20px !important;
+        }
+        #felicitaciones2 img {
+            max-width: 150px !important;
+            margin: 20px 0 !important;
+        }
+        #restart-btn {
+            padding: 10px 30px !important;
+            background: #a267f5 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+            margin-top: 20px !important;
+        }
+        #customAlert {
+            display: none !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0,0,0,0.5) !important;
+            justify-content: center !important;
+            align-items: center !important;
+            z-index: 1000 !important;
+        }
+        .alert-box {
+            background: white !important;
+            padding: 20px !important;
+            border-radius: 10px !important;
+            text-align: center !important;
+            max-width: 400px !important;
+        }
+        .alert-box img {
+            max-width: 100px !important;
+            margin: 10px 0 !important;
+        }
+        .alert-box button {
+            padding: 10px 20px !important;
+            background: #a267f5 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+            margin-top: 10px !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- BARRA DE INFORMACIÓN -->
+    <div id="categoria-info">
+        <img id="categoria-imagen" src="logocresi.png" alt="Logo">
+        <h2 id="categoria-nombre">Aprender</h2>
+        <div id="contador">
+            <img src="corazon2.svg" alt="corazon" class="icocontador">
+            <div id="vidas">3</div>
+        </div>
+        <div id="contador">
+            <img src="icodiamante.svg" alt="diamante" class="icocontador">
+            <div id="correctas">0</div>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR LECCIONES -->
+    <div id="boxlecciones">
+        <h2>Aprender: La pubertad</h2>
+        <div id="text"></div>
+        <div id="progress-bar2">
+            <div id="progress"></div>
+        </div>
+        <div id="controls">
+            <button id="play">Reproducir</button>
+            <button id="pause">Pausar</button>
+            <button id="restart">Reiniciar</button>
+        </div>
+        <div id="leccionpregunta">
+            <p id="question-text"></p>
+            <div class="leccionpreguntabtn">
+                <button id="true-btn">Verdadero</button>
+                <button id="false-btn">Falso</button>
+            </div>
+        </div>
+        <div id="next-lesson">
+            <button id="next-btn">Siguiente Lección</button>
+        </div>
+        <div id="felicitaciones2">
+            <h2>¡Felicidades, has completado todas las lecciones!</h2>
+            <img src="felicitaciones.png" alt="Felicitaciones">
+            <button id="restart-btn">Volver al inicio</button>
+        </div>
+    </div>
+
+    <!-- ALERTA PERSONALIZADA -->
+    <div id="customAlert">
+        <div class="alert-box">
+            <h2 id="alertmensaje"></h2>
+            <img src="" alt="resultado" id="alertImagen">
+            <button id="closeAlert">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- MENÚ FLOTANTE -->
+    <div id="menu">
+        <div class="floating-button" id="playButton2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M7 4v16l13 -8z" />
+            </svg>
+        </div>
+        <div id="volado">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#a267f5ff" fill-opacity="1" d="M0,160L48,133.3C96,107,192,53,288,64C384,75,480,149,576,197.3C672,245,768,267,864,272C960,277,1056,267,1152,250.7C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="menu-button" id="home-icon"><img src="home.svg" alt="home"></div>
+        <div class="menu-button" id="search-icon"><img src="buscar.svg" alt="buscar"></div>
+        <div class="menu-button" id="contact-icon"><img src="correo.svg" alt="correo"></div>
+        <div class="menu-button" id="corazon-icon"><img src="corazon.svg" alt="amor"></div>
+        <div class="menu-button" id="infografia-icon"><img src="infografia.svg" alt="infografia"></div>
+        <div class="menu-button" id="trivia-icon"><img src="jugartrivia.svg" alt="trivia"></div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="shared-config.js"></script>
+    <script>
+        const lessons = [
+            { 
+                text: "¡¡Hola!! ¿Cómo están? Hoy vamos a hablar sobre la Pubertad. La pubertad marca el fin de la niñez. Durante esta etapa experimentamos grandes cambios físicos, emocionales y psicológicos para alcanzar la capacidad de reproducirnos.",
+                questions: [
+                    { question: "¿La pubertad solo implica cambios físicos?", correctAnswer: false },
+                    { question: "¿La pubertad es la transición de la niñez hacia la adolescencia?", correctAnswer: true }
+                ]
+            },
+            { 
+                text: "En las mujeres los cambios incluyen: Crecimiento de los senos, vello corporal, menstruación. En los varones: Crecimiento del pene y testículos, vello corporal, eyaculación. Estos cambios ocurren a ritmo diferente en cada persona.",
+                questions: [
+                    { question: "¿Todos experimentan los cambios de pubertad al mismo ritmo?", correctAnswer: false },
+                    { question: "¿En los varones aparece la eyaculación durante la pubertad?", correctAnswer: true }
+                ]
+            }
+        ];
+
+        let currentLesson = 0;
+        let currentQuestion = 0;
+        let words = [];
+        let currentWord = 0;
+        let isPlaying = false;
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeLecciones);
+        } else {
+            initializeLecciones();
+        }
+
+        function initializeLecciones() {
+            updateCounters();
+            setupEventListeners();
+            startLesson();
+        }
+
+        function setupEventListeners() {
+            document.getElementById('play').addEventListener('click', playLesson);
+            document.getElementById('pause').addEventListener('click', pauseLesson);
+            document.getElementById('restart').addEventListener('click', restartLesson);
+            document.getElementById('true-btn').addEventListener('click', () => handleAnswer(true));
+            document.getElementById('false-btn').addEventListener('click', () => handleAnswer(false));
+            document.getElementById('next-btn').addEventListener('click', nextLesson);
+            document.getElementById('restart-btn').addEventListener('click', goHome);
+            document.getElementById('closeAlert').addEventListener('click', () => {
+                document.getElementById('customAlert').style.display = 'none';
+            });
+            document.getElementById('home-icon').addEventListener('click', goHome);
+            document.getElementById('search-icon').addEventListener('click', () => navigateTo('buscador.html'));
+            document.getElementById('contact-icon').addEventListener('click', () => navigateTo('contacto.html'));
+            document.getElementById('corazon-icon').addEventListener('click', () => navigateTo('amor.html'));
+            document.getElementById('infografia-icon').addEventListener('click', () => navigateTo('infografia.html'));
+            document.getElementById('trivia-icon').addEventListener('click', () => navigateTo('trivia.html'));
+        }
+
+        function updateCounters() {
+            document.getElementById('vidas').textContent = vidas;
+            document.getElementById('correctas').textContent = correctas;
+        }
+
+        function startLesson() {
+            currentWord = 0;
+            document.getElementById("text").innerHTML = "";
+            document.getElementById("progress").style.width = "0%";
+            words = lessons[currentLesson].text.split(" ");
+            isPlaying = false;
+        }
+
+        function displayNextWord() {
+            if (currentWord < words.length) {
+                document.getElementById("text").innerHTML += words[currentWord] + " ";
+                updateProgress();
+                currentWord++;
+                if (isPlaying) {
+                    setTimeout(displayNextWord, 400);
+                }
+            } else {
+                showQuestion();
+            }
+        }
+
+        function updateProgress() {
+            const progress = (currentWord / words.length) * 100;
+            document.getElementById("progress").style.width = progress + "%";
+        }
+
+        function playLesson() {
+            if (!isPlaying) {
+                isPlaying = true;
+                displayNextWord();
+                speakText();
+            }
+        }
+
+        function pauseLesson() {
+            isPlaying = false;
+            window.speechSynthesis.cancel();
+        }
+
+        function restartLesson() {
+            isPlaying = false;
+            currentWord = 0;
+            document.getElementById("text").innerHTML = "";
+            document.getElementById("progress").style.width = "0%";
+            window.speechSynthesis.cancel();
+            playLesson();
+        }
+
+        function speakText() {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(lessons[currentLesson].text);
+                utterance.lang = 'es-ES';
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function showQuestion() {
+            document.getElementById('leccionpregunta').style.display = 'flex';
+            const question = lessons[currentLesson].questions[currentQuestion];
+            document.getElementById("question-text").textContent = question.question;
+        }
+
+        function handleAnswer(isTrue) {
+            const question = lessons[currentLesson].questions[currentQuestion];
+            const isCorrect = (isTrue === question.correctAnswer);
+
+            document.getElementById('customAlert').style.display = 'flex';
+            document.getElementById('alertImagen').src = isCorrect ? 'CorrectoNew.png' : 'IncorrectoNew.png';
+            document.getElementById('alertmensaje').textContent = isCorrect ? '¡Correcto!' : 'Incorrecto';
+
+            if (isCorrect) {
+                correctas++;
+                document.getElementById("correctas").textContent = correctas;
+            }
+
+            currentQuestion++;
+            if (currentQuestion < lessons[currentLesson].questions.length) {
+                setTimeout(() => {
+                    document.getElementById('customAlert').style.display = 'none';
+                    showQuestion();
+                }, 1500);
+            } else {
+                setTimeout(() => {
+                    document.getElementById('customAlert').style.display = 'none';
+                    document.getElementById('leccionpregunta').style.display = 'none';
+                    document.getElementById("next-lesson").style.display = "flex";
+                }, 1500);
+            }
+        }
+
+        function nextLesson() {
+            currentLesson++;
+            if (currentLesson < lessons.length) {
+                currentQuestion = 0;
+                document.getElementById("next-lesson").style.display = "none";
+                document.getElementById('leccionpregunta').style.display = 'none';
+                startLesson();
+                playLesson();
+            } else {
+                showCongratulations();
+            }
+        }
+
+        function showCongratulations() {
+            document.getElementById("text").style.display = "none";
+            document.getElementById("progress-bar2").style.display = "none";
+            document.getElementById("controls").style.display = "none";
+            document.getElementById("next-lesson").style.display = "none";
+            document.getElementById("felicitaciones2").style.display = "flex";
+        }
+
+        function goHome() {
+            saveGameData();
+            window.location.href = 'index.html';
+        }
+
+        function navigateTo(page) {
+            saveGameData();
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

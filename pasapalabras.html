@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasapalabra - ESI</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        #categoria-info { display: flex !important; }
+        #game-container { display: flex !important; flex-direction: column !important; align-items: center !important; }
+        #menu { display: flex !important; }
+        #circle-container {
+            position: relative !important;
+            width: 270px !important;
+            height: 300px !important;
+            margin: 20px auto !important;
+            display: flex !important;
+        }
+        #definition {
+            font-size: 18px !important;
+            margin: 20px !important;
+            text-align: center !important;
+            width: 90% !important;
+            min-height: 60px !important;
+        }
+        #input-container {
+            margin: 20px 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+        #wordInput {
+            padding: 10px !important;
+            font-size: 16px !important;
+            width: 300px !important;
+            border: 1px solid #ccc !important;
+            border-radius: 5px !important;
+        }
+        #botonespasapalabra {
+            display: flex !important;
+            gap: 10px !important;
+            margin-top: 10px !important;
+        }
+        #botonespasapalabra button {
+            padding: 10px 20px !important;
+            background: #a267f5 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+        }
+        #result {
+            margin-top: 20px !important;
+            font-size: 18px !important;
+            color: #a267f5 !important;
+            font-weight: bold !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- BARRA DE INFORMACIÓN -->
+    <div id="categoria-info">
+        <img id="categoria-imagen" src="logocresi.png" alt="Logo">
+        <h2 id="categoria-nombre">Pasapalabra</h2>
+        <div id="contador">
+            <img src="corazon2.svg" alt="corazon" class="icocontador">
+            <div id="vidas">3</div>
+        </div>
+        <div id="contador">
+            <img src="icodiamante.svg" alt="diamante" class="icocontador">
+            <div id="correctas">0</div>
+        </div>
+    </div>
+
+    <!-- JUEGO PASAPALABRA -->
+    <div id="game-container">
+        <h2>Pasapalabra ESI</h2>
+        <div id="circle-container"></div>
+        <div id="definition"></div>
+        <div id="input-container">
+            <input type="text" id="wordInput" placeholder="Introduce tu respuesta">
+            <div id="botonespasapalabra">
+                <button onclick="checkAnswer()">Comprobar</button>
+                <button onclick="passWord()">Pasar</button>
+            </div>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <!-- MENÚ FLOTANTE -->
+    <div id="menu">
+        <div class="floating-button" id="playButton2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M7 4v16l13 -8z" />
+            </svg>
+        </div>
+        <div id="volado">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#a267f5ff" fill-opacity="1" d="M0,160L48,133.3C96,107,192,53,288,64C384,75,480,149,576,197.3C672,245,768,267,864,272C960,277,1056,267,1152,250.7C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="menu-button" id="home-icon"><img src="home.svg" alt="home"></div>
+        <div class="menu-button" id="search-icon"><img src="buscar.svg" alt="buscar"></div>
+        <div class="menu-button" id="contact-icon"><img src="correo.svg" alt="correo"></div>
+        <div class="menu-button" id="corazon-icon"><img src="corazon.svg" alt="amor"></div>
+        <div class="menu-button" id="infografia-icon"><img src="infografia.svg" alt="infografia"></div>
+        <div class="menu-button" id="trivia-icon"><img src="jugartrivia.svg" alt="trivia"></div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="shared-config.js"></script>
+    <script>
+        let palabrasArray = [];
+        let currentWordIndex = 0;
+        let currentLetter = "";
+        let letras = [];
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializePasapalabra);
+        } else {
+            initializePasapalabra();
+        }
+
+        function initializePasapalabra() {
+            updateCounters();
+            startGame();
+            setupEventListeners();
+        }
+
+        function setupEventListeners() {
+            document.getElementById('home-icon').addEventListener('click', goHome);
+            document.getElementById('search-icon').addEventListener('click', () => navigateTo('buscador.html'));
+            document.getElementById('contact-icon').addEventListener('click', () => navigateTo('contacto.html'));
+            document.getElementById('corazon-icon').addEventListener('click', () => navigateTo('amor.html'));
+            document.getElementById('infografia-icon').addEventListener('click', () => navigateTo('infografia.html'));
+            document.getElementById('trivia-icon').addEventListener('click', () => navigateTo('trivia.html'));
+            document.getElementById('wordInput').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    checkAnswer();
+                }
+            });
+        }
+
+        function updateCounters() {
+            document.getElementById('vidas').textContent = vidas;
+            document.getElementById('correctas').textContent = correctas;
+        }
+
+        function startGame() {
+            letras = Object.keys(palabras);
+            currentLetter = letras[0];
+
+            function seleccionarAlAzar(array) {
+                const indice = Math.floor(Math.random() * array.length);
+                return array[indice];
+            }
+
+            palabrasArray = [];
+            for (let letra in palabras) {
+                const opciones = palabras[letra];
+                if (opciones.length > 0) {
+                    const palabraYDefinicion = seleccionarAlAzar(opciones);
+                    palabrasArray.push({
+                        letra: letra,
+                        palabra: palabraYDefinicion.palabra,
+                        definicion: palabraYDefinicion.definicion
+                    });
+                }
+            }
+
+            createAlphabetCircle(letras);
+            showDefinition();
+        }
+
+        function createAlphabetCircle(letrasArray) {
+            const circleContainer = document.getElementById("circle-container");
+            circleContainer.innerHTML = "";
+
+            const radius = 120;
+            const angleIncrement = (2 * Math.PI) / letrasArray.length;
+
+            letrasArray.forEach((letter, index) => {
+                const angle = index * angleIncrement;
+                const x = radius * Math.cos(angle) + radius;
+                const y = radius * Math.sin(angle) + radius;
+
+                const letterDiv = document.createElement("div");
+                letterDiv.style.cssText = `
+                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    text-align: center;
+                    border-radius: 50%;
+                    background-color: #a267f5;
+                    color: white;
+                    font-weight: bold;
+                    left: ${x}px;
+                    top: ${y}px;
+                `;
+                letterDiv.id = `letter-${letter.toUpperCase()}`;
+                letterDiv.innerText = letter.toUpperCase();
+
+                circleContainer.appendChild(letterDiv);
+            });
+
+            highlightCurrentLetter();
+        }
+
+        function highlightCurrentLetter() {
+            const letterDiv = document.getElementById(`letter-${currentLetter.toUpperCase()}`);
+            if (letterDiv) {
+                letterDiv.style.borderWidth = '3px';
+                letterDiv.style.borderColor = '#fff';
+            }
+        }
+
+        function showDefinition() {
+            if (currentWordIndex < palabrasArray.length) {
+                const currentWord = palabrasArray[currentWordIndex];
+                document.getElementById("definition").innerText = currentWord.definicion;
+                document.getElementById("wordInput").value = "";
+                document.getElementById("wordInput").placeholder = `Palabra de ${currentWord.palabra.length} letras`;
+                document.getElementById("result").innerText = "";
+            }
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById("wordInput").value.trim().toLowerCase();
+            const currentWord = palabrasArray[currentWordIndex];
+            const currentLetterDiv = document.getElementById(`letter-${currentWord.letra}`);
+
+            if (userAnswer === currentWord.palabra.toLowerCase()) {
+                document.getElementById("result").innerText = "¡Correcto!";
+                document.getElementById("result").style.color = '#28a745';
+                if (currentLetterDiv) {
+                    currentLetterDiv.style.backgroundColor = '#28a745';
+                }
+                correctas++;
+                document.getElementById("correctas").innerText = correctas;
+                currentWordIndex++;
+
+                if (currentWordIndex >= palabrasArray.length) {
+                    const nextLetterIndex = letras.indexOf(currentLetter) + 1;
+                    if (nextLetterIndex < letras.length) {
+                        currentLetter = letras[nextLetterIndex];
+                        palabrasArray = [];
+                        currentWordIndex = 0;
+
+                        function seleccionarAlAzar(array) {
+                            const indice = Math.floor(Math.random() * array.length);
+                            return array[indice];
+                        }
+
+                        const opciones = palabras[currentLetter];
+                        if (opciones.length > 0) {
+                            const palabraYDefinicion = seleccionarAlAzar(opciones);
+                            palabrasArray.push({
+                                letra: currentLetter,
+                                palabra: palabraYDefinicion.palabra,
+                                definicion: palabraYDefinicion.definicion
+                            });
+                        }
+
+                        highlightCurrentLetter();
+                        showDefinition();
+                    } else {
+                        finalizarJuego();
+                    }
+                } else {
+                    showDefinition();
+                }
+            } else {
+                document.getElementById("result").innerText = "Incorrecto, intenta de nuevo.";
+                document.getElementById("result").style.color = '#dc3545';
+                if (currentLetterDiv) {
+                    currentLetterDiv.style.backgroundColor = '#dc3545';
+                }
+            }
+        }
+
+        function passWord() {
+            const currentWord = palabrasArray[currentWordIndex];
+            const currentLetterDiv = document.getElementById(`letter-${currentWord.letra}`);
+
+            if (currentLetterDiv) {
+                currentLetterDiv.style.backgroundColor = '#6c757d';
+            }
+            currentWordIndex++;
+
+            if (currentWordIndex >= palabrasArray.length) {
+                const nextLetterIndex = letras.indexOf(currentLetter) + 1;
+                if (nextLetterIndex < letras.length) {
+                    currentLetter = letras[nextLetterIndex];
+                    palabrasArray = [];
+                    currentWordIndex = 0;
+
+                    function seleccionarAlAzar(array) {
+                        const indice = Math.floor(Math.random() * array.length);
+                        return array[indice];
+                    }
+
+                    const opciones = palabras[currentLetter];
+                    if (opciones.length > 0) {
+                        const palabraYDefinicion = seleccionarAlAzar(opciones);
+                        palabrasArray.push({
+                            letra: currentLetter,
+                            palabra: palabraYDefinicion.palabra,
+                            definicion: palabraYDefinicion.definicion
+                        });
+                    }
+
+                    highlightCurrentLetter();
+                    showDefinition();
+                } else {
+                    finalizarJuego();
+                }
+            } else {
+                showDefinition();
+            }
+        }
+
+        function finalizarJuego() {
+            document.getElementById("result").innerText = "¡Has completado todas las palabras!";
+            document.getElementById("result").style.color = '#28a745';
+            document.getElementById("definition").innerText = "";
+            document.getElementById("input-container").style.display = "none";
+            
+            const volverBtn = document.createElement('button');
+            volverBtn.textContent = 'Volver';
+            volverBtn.style.cssText = 'padding: 10px 20px; background: #a267f5; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;';
+            volverBtn.onclick = goHome;
+            document.getElementById("game-container").appendChild(volverBtn);
+        }
+
+        function goHome() {
+            saveGameData();
+            window.location.href = 'index.html';
+        }
+
+        function navigateTo(page) {
+            saveGameData();
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

@@ -13,9 +13,6 @@ const totalPreguntas = 0;
 let palabrasArray = [];
 let currentWordIndex = 0;
 
-
-
-  
 const palabras = {
     A: [
     { palabra: "Amor", definicion: "Sentimiento profundo de afecto y conexión emocional hacia otra persona." },
@@ -158,7 +155,6 @@ const palabras = {
         { palabra: "Voyerismo", definicion: "Comportamiento sexual caracterizado por la excitación al observar a otras personas mientras se desvisten, están desnudas sin consentimiento." }
     ]
 };
-
 
 const categorias = [
     { nombre: '¿Qué es?', imagen: 'quees.png' },

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía - ESI</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        #categoria-info { display: flex !important; }
+        #menu { display: flex !important; }
+        
+        #pantallainfografia {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            padding: 20px !important;
+            width: 100% !important;
+            padding-bottom: 100px !important;
+        }
+        #pantallainfografia h2 { 
+            color: #a267f5; 
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        #grid-container {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
+            gap: 15px !important;
+            width: 90% !important;
+            max-width: 800px !important;
+            margin: 20px auto !important;
+        }
+        .grid-item {
+            position: relative !important;
+            cursor: pointer !important;
+            overflow: hidden !important;
+            border-radius: 5px !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        }
+        #grid-container img {
+            width: 100% !important;
+            height: 120px !important;
+            object-fit: cover !important;
+            display: block !important;
+            transition: transform 0.3s !important;
+        }
+        .grid-item:hover img {
+            transform: scale(1.1) !important;
+        }
+        #pagination-controls {
+            display: flex !important;
+            gap: 10px !important;
+            margin: 20px !important;
+            justify-content: center !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+        }
+        #pagination-controls button {
+            padding: 10px 20px !important;
+            background: #a267f5 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+        }
+        #pagination-controls button:disabled {
+            background: #ccc !important;
+            cursor: not-allowed !important;
+        }
+        #pagination-controls span {
+            color: #a267f5 !important;
+            font-weight: bold !important;
+        }
+
+        /* MODAL */
+        #modal {
+            display: none !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0,0,0,0.9) !important;
+            justify-content: center !important;
+            align-items: center !important;
+            z-index: 2000 !important;
+        }
+        #modal img {
+            max-width: 90% !important;
+            max-height: 90% !important;
+            border-radius: 5px !important;
+        }
+        #close-modal {
+            position: absolute !important;
+            top: 20px !important;
+            right: 40px !important;
+            font-size: 40px !important;
+            color: white !important;
+            cursor: pointer !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- BARRA DE INFORMACIÓN -->
+    <div id="categoria-info">
+        <img id="categoria-imagen" src="logocresi.png" alt="Logo">
+        <h2 id="categoria-nombre">📊 Infografía</h2>
+        <div id="contador">
+            <img src="corazon2.svg" alt="corazon" class="icocontador">
+            <div id="vidas">3</div>
+        </div>
+        <div id="contador">
+            <img src="icodiamante.svg" alt="diamante" class="icocontador">
+            <div id="correctas">0</div>
+        </div>
+    </div>
+
+    <!-- INFOGRAFÍA -->
+    <div id="pantallainfografia">
+        <h2>Galería de Infografías</h2>
+        <div id="grid-container"></div>
+        <div id="pagination-controls"></div>
+    </div>
+
+    <!-- MODAL IMAGEN -->
+    <div id="modal">
+        <span id="close-modal">&times;</span>
+        <img id="modal-image" src="" alt="Imagen">
+    </div>
+
+    <!-- MENÚ FLOTANTE -->
+    <div id="menu">
+        <div class="floating-button" id="playButton2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M7 4v16l13 -8z" />
+            </svg>
+        </div>
+        <div id="volado">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#a267f5ff" fill-opacity="1" d="M0,160L48,133.3C96,107,192,53,288,64C384,75,480,149,576,197.3C672,245,768,267,864,272C960,277,1056,267,1152,250.7C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="menu-button" id="home-icon"><img src="home.svg" alt="home"></div>
+        <div class="menu-button" id="search-icon"><img src="buscar.svg" alt="buscar"></div>
+        <div class="menu-button" id="contact-icon"><img src="correo.svg" alt="correo"></div>
+        <div class="menu-button" id="corazon-icon"><img src="corazon.svg" alt="amor"></div>
+        <div class="menu-button" id="infografia-icon"><img src="infografia.svg" alt="infografia"></div>
+        <div class="menu-button" id="trivia-icon"><img src="jugartrivia.svg" alt="trivia"></div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="shared-config.js"></script>
+    <script>
+        const photosPerPage = 9;
+        let currentPageInfo = 0;
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeInfografia);
+        } else {
+            initializeInfografia();
+        }
+
+        function initializeInfografia() {
+            updateCounters();
+            setupEventListeners();
+            renderGrid();
+            renderPaginationControlsInfo();
+        }
+
+        function setupEventListeners() {
+            document.getElementById('home-icon').addEventListener('click', goHome);
+            document.getElementById('search-icon').addEventListener('click', () => navigateTo('buscador.html'));
+            document.getElementById('contact-icon').addEventListener('click', () => navigateTo('contacto.html'));
+            document.getElementById('corazon-icon').addEventListener('click', () => navigateTo('amor.html'));
+            document.getElementById('trivia-icon').addEventListener('click', () => navigateTo('trivia.html'));
+
+            document.getElementById('close-modal').addEventListener('click', closeModal);
+            document.getElementById('modal').addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+
+            document.getElementById('grid-container').addEventListener('click', function(e) {
+                if (e.target.tagName === 'IMG') showModal(e.target.src);
+            });
+        }
+
+        function updateCounters() {
+            document.getElementById('vidas').textContent = vidas;
+            document.getElementById('correctas').textContent = correctas;
+        }
+
+        function renderGrid() {
+            const gridContainer = document.getElementById('grid-container');
+            gridContainer.innerHTML = '';
+            const start = currentPageInfo * photosPerPage;
+            const end = start + photosPerPage;
+            const paginatedPhotos = photos.slice(start, end);
+
+            if (paginatedPhotos.length === 0) {
+                gridContainer.innerHTML = '<p>No hay imágenes disponibles</p>';
+                return;
+            }
+
+            paginatedPhotos.forEach(photo => {
+                const gridItem = document.createElement('div');
+                gridItem.className = 'grid-item';
+                gridItem.innerHTML = `<img src="${photo.url}" alt="${photo.description}" loading="lazy">`;
+                gridContainer.appendChild(gridItem);
+            });
+        }
+
+        function renderPaginationControlsInfo() {
+            const paginationControls = document.getElementById('pagination-controls');
+            paginationControls.innerHTML = '';
+            const totalPages = Math.ceil(photos.length / photosPerPage);
+
+            const prevButton = document.createElement('button');
+            prevButton.textContent = '← Anterior';
+            prevButton.disabled = currentPageInfo === 0;
+            prevButton.onclick = function() {
+                if (currentPageInfo > 0) {
+                    currentPageInfo--;
+                    renderGrid();
+                    renderPaginationControlsInfo();
+                }
+            };
+            paginationControls.appendChild(prevButton);
+
+            const pageInfo = document.createElement('span');
+            pageInfo.textContent = `Página ${currentPageInfo + 1} de ${totalPages}`;
+            pageInfo.style.margin = '0 20px';
+            paginationControls.appendChild(pageInfo);
+
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Siguiente →';
+            nextButton.disabled = currentPageInfo === totalPages - 1;
+            nextButton.onclick = function() {
+                if (currentPageInfo < totalPages - 1) {
+                    currentPageInfo++;
+                    renderGrid();
+                    renderPaginationControlsInfo();
+                }
+            };
+            paginationControls.appendChild(nextButton);
+        }
+
+        function showModal(imageUrl) {
+            document.getElementById('modal-image').src = imageUrl;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function navigateTo(page) {
+            saveGameData();
+            window.location.href = page;
+        }
+
+        function goHome() {
+            saveGameData();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

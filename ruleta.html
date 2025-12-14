@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruleta - ESI</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        #categoria-info { display: flex !important; }
+        #pantallaruleta { display: flex !important; flex-direction: column !important; }
+        #pregunta-container { display: none !important; }
+        #respuesta-container { display: none !important; }
+        #menu { display: flex !important; }
+        #ruleta {
+            width: 300px !important;
+            height: 300px !important;
+            background-image: url('ruleta.png') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            border-radius: 50% !important;
+            border: 5px solid #ffffff !important;
+            margin: 20px auto !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- BARRA DE INFORMACIÓN -->
+    <div id="categoria-info">
+        <img id="categoria-imagen" src="logocresi.png" alt="Logo">
+        <h2 id="categoria-nombre">Ruleta</h2>
+        <div id="contador">
+            <img src="corazon2.svg" alt="corazon" class="icocontador">
+            <div id="vidas">3</div>
+        </div>
+        <div id="contador">
+            <img src="icodiamante.svg" alt="diamante" class="icocontador">
+            <div id="correctas">0</div>
+        </div>
+    </div>
+
+    <!-- PANTALLA DE RULETA -->
+    <div id="pantallaruleta">
+        <img id="senalar" src="senalar.png" alt="señalador" style="margin-top: 10px; max-width: 100px;">
+        <div id="ruleta"></div>
+        
+        <div id="pregunta-container">
+            <h2 id="pregunta"></h2>
+            <img src="" alt="" id="imagenquees" style="max-width: 200px;">
+            <div id="respuestas"></div>
+        </div>
+        
+        <div id="respuesta-container" style="background: #a267f5ab; padding: 20px; border-radius: 10px; margin: 20px;">
+            <img src="CorrectoNew.png" alt="" id="correctoincorrecto" style="max-width: 100px; opacity: 0;">
+            <p id="preguntaCorrecta"></p>
+            <p id="resCorrecta">Respuesta Correcta</p>
+            <button id="repor1" style="margin: 10px;">Reportar Pregunta</button>
+            <div id="mainfo" style="background: white; padding: 10px; border-radius: 5px; margin: 10px 0;">Más Información</div>
+            <button id="continuar" style="background: #a267f5; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Continuar</button>
+        </div>
+    </div>
+
+    <!-- MENÚ FLOTANTE -->
+    <div id="menu">
+        <div class="floating-button" id="playButton2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M7 4v16l13 -8z" />
+            </svg>
+        </div>
+        <div id="volado">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#a267f5ff" fill-opacity="1" d="M0,160L48,133.3C96,107,192,53,288,64C384,75,480,149,576,197.3C672,245,768,267,864,272C960,277,1056,267,1152,250.7C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="menu-button" id="home-icon"><img src="home.svg" alt="home"></div>
+        <div class="menu-button" id="search-icon"><img src="buscar.svg" alt="buscar"></div>
+        <div class="menu-button" id="contact-icon"><img src="correo.svg" alt="correo"></div>
+        <div class="menu-button" id="corazon-icon"><img src="corazon.svg" alt="amor"></div>
+        <div class="menu-button" id="infografia-icon"><img src="infografia.svg" alt="infografia"></div>
+        <div class="menu-button" id="trivia-icon"><img src="jugartrivia.svg" alt="trivia"></div>
+    </div>
+
+    <!-- ALERTA PERSONALIZADA -->
+    <div id="customAlertVidas" class="alert-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000;">
+        <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; max-width: 400px;">
+            <h2>¡Perdiste todas las vidas!</h2>
+            <p id="alermensajecambiar">¿Querés cambiar 10 puntos por 1 vida nueva?</p>
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                <button id="closeAlertVidasSi" style="background: #a267f5; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Cambiar</button>
+                <button id="closeAlertVidasNo" style="background: #ccc; color: #333; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="shared-config.js"></script>
+    <script src="preguntas.js"></script>
+    <script>
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeRuleta);
+        } else {
+            initializeRuleta();
+        }
+
+        function initializeRuleta() {
+            console.log('Inicializando Ruleta...');
+            updateCounters();
+            spinRuleta();
+            setupEventListeners();
+        }
+
+        function setupEventListeners() {
+            document.getElementById('continuar').addEventListener('click', continuarRuleta);
+            document.getElementById('home-icon').addEventListener('click', goHome);
+            document.getElementById('search-icon').addEventListener('click', () => navigateTo('buscador.html'));
+            document.getElementById('contact-icon').addEventListener('click', () => navigateTo('contacto.html'));
+            document.getElementById('corazon-icon').addEventListener('click', () => navigateTo('amor.html'));
+            document.getElementById('infografia-icon').addEventListener('click', () => navigateTo('infografia.html'));
+            document.getElementById('trivia-icon').addEventListener('click', () => navigateTo('trivia.html'));
+            document.getElementById('repor1').addEventListener('click', reportarPregunta);
+            document.getElementById('closeAlertVidasSi').addEventListener('click', cambiarPuntosVidas);
+            document.getElementById('closeAlertVidasNo').addEventListener('click', cerrarSinVidas);
+        }
+
+        function updateCounters() {
+            document.getElementById('vidas').textContent = vidas;
+            document.getElementById('correctas').textContent = correctas;
+        }
+
+        function spinRuleta() {
+            const ruleta = document.getElementById('ruleta');
+            const categoriaImagen = document.getElementById('categoria-imagen');
+            const categoriaNombre = document.getElementById('categoria-nombre');
+            const numCategorias = categorias.length;
+            const segmentAngle = 360 / numCategorias;
+            const duration = getRandomInt(5000) + 5000;
+            const randomCategoryIndex = getRandomInt(numCategorias);
+            const finalAngle = randomCategoryIndex * segmentAngle + segmentAngle / 2;
+            const totalRotation = 360 * 5 + finalAngle;
+
+            ruleta.style.transition = `transform ${duration / 1000}s ease-out`;
+            ruleta.style.transform = `rotate(${totalRotation}deg)`;
+
+            setTimeout(() => {
+                ruleta.style.transition = 'none';
+                ruleta.style.transform = `rotate(${finalAngle}deg)`;
+                const categoriaSeleccionada = categorias[randomCategoryIndex];
+                categoriaImagen.src = categoriaSeleccionada.imagen;
+                categoriaNombre.textContent = categoriaSeleccionada.nombre;
+                mostrarPregunta(categoriaSeleccionada.nombre);
+            }, duration + 50);
+        }
+
+        function mostrarPregunta(categoria) {
+            const preguntasDisponibles = preguntas.filter(p => p.categoria === categoria);
+            
+            if (preguntasDisponibles.length > 0) {
+                preguntaSeleccionada = preguntasDisponibles[getRandomInt(preguntasDisponibles.length)];
+                document.getElementById('pregunta').textContent = preguntaSeleccionada.pregunta;
+                const respuestasContainer = document.getElementById('respuestas');
+                respuestasContainer.innerHTML = '';
+
+                const respuestas = [
+                    preguntaSeleccionada.respuestacorrecta,
+                    preguntaSeleccionada.respuesta1,
+                    preguntaSeleccionada.respuesta2,
+                    preguntaSeleccionada.respuesta3
+                ];
+                shuffleArray(respuestas);
+
+                respuestas.forEach((respuesta) => {
+                    const boton = document.createElement('button');
+                    boton.className = 'respuesta';
+                    boton.textContent = respuesta;
+                    boton.style.cssText = 'margin: 10px; padding: 15px; width: 90%; cursor: pointer; border: none; border-radius: 5px; font-size: 16px;';
+                    boton.onclick = () => verificarRespuesta(respuesta);
+                    respuestasContainer.appendChild(boton);
+                });
+
+                document.getElementById('pregunta-container').style.display = 'flex';
+            }
+        }
+
+        function verificarRespuesta(respuestaSeleccionada) {
+            const respuestaCorrecta = preguntaSeleccionada.respuestacorrecta;
+            
+            if (respuestaSeleccionada === respuestaCorrecta) {
+                correctas++;
+            } else {
+                vidas--;
+                if (vidas <= 0) {
+                    document.getElementById('customAlertVidas').style.display = 'flex';
+                }
+            }
+
+            document.getElementById('pregunta-container').style.display = 'none';
+            document.getElementById('respuesta-container').style.display = 'flex';
+            document.getElementById('preguntaCorrecta').textContent = preguntaSeleccionada.pregunta;
+            document.getElementById('resCorrecta').textContent = respuestaCorrecta;
+            updateCounters();
+        }
+
+        function continuarRuleta() {
+            document.getElementById('respuesta-container').style.display = 'none';
+            spinRuleta();
+        }
+
+        function reportarPregunta() {
+            saveGameData();
+            window.location.href = 'contacto.html?pregunta=' + encodeURIComponent(preguntaSeleccionada.pregunta);
+        }
+
+        function cambiarPuntosVidas() {
+            vidas = 1;
+            correctas = Math.max(0, correctas - 10);
+            updateCounters();
+            document.getElementById('customAlertVidas').style.display = 'none';
+        }
+
+        function cerrarSinVidas() {
+            goHome();
+        }
+
+        function goHome() {
+            saveGameData();
+            window.location.href = 'index.html';
+        }
+
+        function navigateTo(page) {
+            saveGameData();
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

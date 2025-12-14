@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor sin Violencia - ESI</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        #categoria-info { display: flex !important; }
+        #menu { display: flex !important; }
+        
+        #amorcontainer {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            padding: 20px !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            padding-bottom: 100px !important;
+        }
+        #amorcontainer h2 {
+            color: #a267f5;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .progress-bar {
+            width: 100% !important;
+            height: 20px !important;
+            background: #ddd !important;
+            border-radius: 10px !important;
+            margin: 20px 0 !important;
+            overflow: hidden !important;
+        }
+        #progressBarInner {
+            height: 100% !important;
+            background: #a267f5 !important;
+            transition: width 0.3s !important;
+        }
+        #evaluationForm {
+            width: 100% !important;
+        }
+        .question {
+            display: none !important;
+            margin-bottom: 20px !important;
+            padding: 15px !important;
+            background: #f5f5f5 !important;
+            border-radius: 5px !important;
+            border-left: 4px solid #a267f5 !important;
+        }
+        .question.active {
+            display: block !important;
+        }
+        .question h3 {
+            margin: 0 0 15px 0 !important;
+            color: #333 !important;
+            font-size: 16px !important;
+        }
+        .question button {
+            display: block !important;
+            width: 100% !important;
+            padding: 12px !important;
+            margin: 8px 0 !important;
+            background: white !important;
+            color: #a267f5 !important;
+            border: 2px solid #a267f5 !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+            font-size: 16px !important;
+            transition: all 0.3s !important;
+        }
+        .question button:hover {
+            background: #ede9feff !important;
+        }
+        .question button.selected {
+            background: #a267f5 !important;
+            color: white !important;
+        }
+        #nextButton {
+            padding: 12px 30px !important;
+            background: #a267f5 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+            margin-top: 20px !important;
+            font-size: 16px !important;
+        }
+        #nextButton:hover {
+            background: #8e54d1 !important;
+        }
+        #result {
+            margin-top: 20px !important;
+            padding: 15px !important;
+            background: #ede9feff !important;
+            border-radius: 5px !important;
+            text-align: center !important;
+            display: none !important;
+            color: #333 !important;
+            border-left: 4px solid #a267f5 !important;
+            line-height: 1.6 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- BARRA DE INFORMACIÓN -->
+    <div id="categoria-info">
+        <img id="categoria-imagen" src="logocresi.png" alt="Logo">
+        <h2 id="categoria-nombre">💕 Amor sin Violencia</h2>
+        <div id="contador">
+            <img src="corazon2.svg" alt="corazon" class="icocontador">
+            <div id="vidas">3</div>
+        </div>
+        <div id="contador">
+            <img src="icodiamante.svg" alt="diamante" class="icocontador">
+            <div id="correctas">0</div>
+        </div>
+    </div>
+
+    <!-- AMOR SIN VIOLENCIA -->
+    <div id="amorcontainer">
+        <h2>Evaluación de Relaciones Saludables</h2>
+        <p style="text-align: center; color: #666;">Responde con honestidad estas preguntas sobre tu relación</p>
+        <div class="progress-bar">
+            <div id="progressBarInner"></div>
+        </div>
+        <form id="evaluationForm"></form>
+        <button type="button" id="nextButton">Siguiente</button>
+        <div id="result"></div>
+    </div>
+
+    <!-- MENÚ FLOTANTE -->
+    <div id="menu">
+        <div class="floating-button" id="playButton2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M7 4v16l13 -8z" />
+            </svg>
+        </div>
+        <div id="volado">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#a267f5ff" fill-opacity="1" d="M0,160L48,133.3C96,107,192,53,288,64C384,75,480,149,576,197.3C672,245,768,267,864,272C960,277,1056,267,1152,250.7C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="menu-button" id="home-icon"><img src="home.svg" alt="home"></div>
+        <div class="menu-button" id="search-icon"><img src="buscar.svg" alt="buscar"></div>
+        <div class="menu-button" id="contact-icon"><img src="correo.svg" alt="correo"></div>
+        <div class="menu-button" id="corazon-icon"><img src="corazon.svg" alt="amor"></div>
+        <div class="menu-button" id="infografia-icon"><img src="infografia.svg" alt="infografia"></div>
+        <div class="menu-button" id="trivia-icon"><img src="jugartrivia.svg" alt="trivia"></div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="shared-config.js"></script>
+    <script>
+        let currentQuestionIndexAmorViolencia = 0;
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeAmor);
+        } else {
+            initializeAmor();
+        }
+
+        function initializeAmor() {
+            updateCounters();
+            setupEventListeners();
+            createQuestionElements();
+        }
+
+        function setupEventListeners() {
+            document.getElementById('home-icon').addEventListener('click', goHome);
+            document.getElementById('search-icon').addEventListener('click', () => navigateTo('buscador.html'));
+            document.getElementById('contact-icon').addEventListener('click', () => navigateTo('contacto.html'));
+            document.getElementById('infografia-icon').addEventListener('click', () => navigateTo('infografia.html'));
+            document.getElementById('trivia-icon').addEventListener('click', () => navigateTo('trivia.html'));
+
+            document.getElementById('nextButton').addEventListener('click', nextQuestion);
+        }
+
+        function updateCounters() {
+            document.getElementById('vidas').textContent = vidas;
+            document.getElementById('correctas').textContent = correctas;
+        }
+
+        function createQuestionElements() {
+            const form = document.getElementById('evaluationForm');
+            form.innerHTML = '';
+            questions.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                if (index === 0) questionDiv.classList.add('active');
+
+                const questionTitle = document.createElement('h3');
+                questionTitle.textContent = `${index + 1}. ${question}`;
+                questionDiv.appendChild(questionTitle);
+
+                ['Si', 'A veces', 'Rara vez', 'No'].forEach(option => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.textContent = option;
+                    button.onclick = () => selectOption(button, index);
+                    questionDiv.appendChild(button);
+                });
+
+                form.appendChild(questionDiv);
+            });
+            updateProgressBar();
+        }
+
+        function selectOption(button, index) {
+            const questionDiv = document.querySelectorAll('.question')[index];
+            const buttons = questionDiv.querySelectorAll('button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+        }
+
+        function nextQuestion() {
+            const currentQuestionDiv = document.querySelector('.question.active');
+            if (!currentQuestionDiv) return;
+
+            const selectedButton = currentQuestionDiv.querySelector('button.selected');
+
+            if (!selectedButton) {
+                alert("Por favor, selecciona una opción antes de continuar.");
+                return;
+            }
+
+            if (currentQuestionIndexAmorViolencia < questions.length - 1) {
+                currentQuestionDiv.classList.remove('active');
+                currentQuestionIndexAmorViolencia++;
+                document.querySelectorAll('.question')[currentQuestionIndexAmorViolencia].classList.add('active');
+                updateProgressBar();
+            } else {
+                evaluate();
+                document.getElementById('nextButton').style.display = 'none';
+            }
+        }
+
+        function updateProgressBar() {
+            const progressBarInner = document.getElementById('progressBarInner');
+            const progress = ((currentQuestionIndexAmorViolencia + 1) / questions.length) * 100;
+            progressBarInner.style.width = `${progress}%`;
+        }
+
+        function evaluate() {
+            let score = 0;
+            document.querySelectorAll('.question').forEach((questionDiv) => {
+                const selectedButton = questionDiv.querySelector('button.selected');
+                if (selectedButton) {
+                    const value = selectedButton.textContent;
+                    if (value === 'Si') score += 3;
+                    else if (value === 'A veces') score += 2;
+                    else if (value === 'Rara vez') score += 1;
+                }
+            });
+
+            const resultDiv = document.getElementById('result');
+            let message = '';
+            if (score >= 45) {
+                message = '⚠️ <strong>ADVERTENCIA:</strong> Tu relación presenta muchos signos de violencia. Es muy importante que busques ayuda profesional de inmediato. Contacta con un especialista o línea de atención al abuso.';
+            } else if (score >= 30) {
+                message = '⚠️ <strong>ATENCIÓN:</strong> Tu relación tiene varios signos de violencia. Es recomendable que busques apoyo y orientación de un profesional.';
+            } else if (score >= 15) {
+                message = '⚠️ <strong>OBSERVACIÓN:</strong> Tu relación presenta algunos signos de violencia. Mantente alerta y considera hablar con alguien de confianza o un profesional.';
+            } else {
+                message = '✅ <strong>POSITIVO:</strong> Tu relación parece ser saludable. Mantén una comunicación abierta, respetuosa y honesta con tu pareja.';
+            }
+
+            resultDiv.innerHTML = message;
+            resultDiv.style.display = 'block';
+        }
+
+        function navigateTo(page) {
+            saveGameData();
+            window.location.href = page;
+        }
+
+        function goHome() {
+            saveGameData();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
